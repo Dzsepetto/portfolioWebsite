@@ -1,4 +1,119 @@
-.home{
-    background-color: red;
+.home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  background-image: url("../assets/images/temp_BG.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
+.home-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* ========================= */
+/* LEFT – IMAGE */
+/* ========================= */
+
+.home-image {
+  position: relative;
+}
+
+.home-image img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.home-image::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  border: 2px solid rgba(195, 55, 66, 0.6);
+  z-index: -1;
+}
+
+/* ========================= */
+/* RIGHT – CONTENT */
+/* ========================= */
+
+.home-content h1 {
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: 64px;
+  margin-bottom: 24px;
+  letter-spacing: 0.06em;
+}
+
+/* ========================= */
+/* CARDS */
+/* ========================= */
+
+.home-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.home-card {
+  background: linear-gradient(
+    to bottom,
+    rgba(234, 234, 234, 0.12),
+    rgba(234, 234, 234, 0.05)
+  );
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(234, 234, 234, 0.15);
+  border-radius: 20px;
+  padding: 24px 28px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.home-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.home-card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: #FFFFFF;
+}
+
+.home-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #D0D0D0;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 900px) {
+  .home-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .home-image img {
+    max-width: 100%;
+  }
+
+  .home-content h1 {
+    font-size: 48px;
+  }
+}

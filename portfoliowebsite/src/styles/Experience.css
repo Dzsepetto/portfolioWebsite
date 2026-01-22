@@ -1,0 +1,10 @@
+.experience{
+  height: 100vh;
+  background-color: #EAEAEA;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+}

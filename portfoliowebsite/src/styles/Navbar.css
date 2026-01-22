@@ -1,8 +1,15 @@
-/* BASE */
+/* ========================= */
+/* NAVBAR BASE */
+/* ========================= */
+
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  background: #F6F5F3;
-  border-bottom: 1px solid #D8D8D8;
+  height: 80px;
+  background: transparent;
+  z-index: 100;
 }
 
 .navbar-container {
@@ -11,45 +18,131 @@
   padding: 24px 40px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
-/* LOGO */
-.navbar-logo img {
+/* ========================= */
+/* LEFT – LOGO (10%) */
+/* ========================= */
+
+.navbar-left {
+  width: 10%;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-left img {
   width: 56px;
   height: auto;
 }
 
-/* LINKS (DESKTOP) */
-.navbar-links {
+/* ========================= */
+/* CENTER – LINKS (80%) */
+/* ========================= */
+
+.navbar-center {
+  width: 80%;
   display: flex;
-  gap: 32px;
+  justify-content: center;
+  gap: 40px;
 }
 
-.navbar-links a {
+.navbar-center span,
+.nav-dropdown-trigger {
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: #F6F5F3;
   text-decoration: none;
-  font-size: 14px;
-  color: #2B2B2B;
+  position: relative;
+  cursor: pointer;
+}
+
+
+/* ========================= */
+/* DROPDOWN */
+/* ========================= */
+
+.nav-dropdown {
   position: relative;
 }
 
-/* subtle hover */
-.navbar-links a::after {
+.nav-dropdown::after {
   content: "";
   position: absolute;
+  top: 100%;
   left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background: #C33742;
-  transition: width 0.2s ease;
-}
-
-.navbar-links a:hover::after {
   width: 100%;
+  height: 12px;
+}
+.dropdown-arrow {
+  font-size: 14px;
+  transition: transform 0.2s ease;
 }
 
-/* TOGGLE BUTTON */
+.nav-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+
+  background: linear-gradient(
+    to bottom,
+    rgba(234, 234, 234, 0.85),
+    rgba(234, 234, 234, 0.65)
+  );
+
+  backdrop-filter: blur(10px);
+  border: 1px solid #D8D8D8;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px;
+  min-width: 160px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 300;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-menu a {
+  font-size: 18px;
+  letter-spacing: 0.04em;
+  color: #2B2B2B;
+  text-decoration: none;
+  border-radius: 6px;
+  padding: 4px 2px;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+
+.nav-dropdown-menu a:hover {
+  color: #C33742;
+  background: rgba(195, 55, 66, 0.08);
+}
+
+/* ========================= */
+/* RIGHT – BURGER (10%) */
+/* ========================= */
+
+.navbar-right {
+  width: 10%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .navbar-toggle {
   display: none;
   background: none;
@@ -59,32 +152,60 @@
   color: #2B2B2B;
 }
 
-/* -------------------- */
-/* MOBILE */
-/* -------------------- */
-@media (max-width: 768px) {
-  .navbar-toggle {
-    display: block;
-  }
+/* ========================= */
+/* MOBILE MENU */
+/* ========================= */
 
-  .navbar-links {
-    position: absolute;
-    top: 88px;
-    right: 40px;
-    background: #EAEAEA;
-    flex-direction: column;
-    gap: 16px;
-    padding: 24px;
-    border-radius: 16px;
-    border: 1px solid #D8D8D8;
+.navbar-mobile {
+  position: absolute;
+  top: 88px;
+  right: 24px;
+
+  background: #EAEAEA;
+  border: 1px solid #D8D8D8;
+  border-radius: 16px;
+
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+
+  z-index: 200;
+}
+
+.navbar-mobile.open {
+  display: flex;
+}
+
+.navbar-mobile span,
+.mobile-socials {
+font-family: "Bangers", system-ui, sans-serif; font-size: 24px; letter-spacing: 0.05em; color: #F6F5F3; text-decoration: none; position: relative; cursor: pointer;
+}
+
+.navbar-mobile span:hover,
+.mobile-socials:hover {
+  color: #C33742;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+  .navbar-center {
     display: none;
   }
 
-  .navbar-links.open {
-    display: flex;
+  .navbar-left,
+  .navbar-right {
+    width: auto;
   }
 
-  .navbar-links a {
-    color: #2B2B2B;
+  .navbar-right {
+    margin-left: auto;
+  }
+
+  .navbar-toggle {
+    display: block;
   }
 }
