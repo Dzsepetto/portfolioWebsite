@@ -1,22 +1,23 @@
 import React from "react";
 import "../styles/Projects.css";
+import PortfolioIMG from '../assets/images/project-images/portfolio_temp.jpg'
 
 const projects = [
   {
     title: "Catsy multi platform game",
-    image: "../assets//project-images/portfolio.jpg",
+    image: "../assets/project-images/portfolio.jpg",
     url: "https://example.com",
     color: "#C33742",
   },
   {
     title: "My portfolio (idk if this counts)",
-    image: "/project-images/dashboard.jpg",
+    image: PortfolioIMG,
     url: "https://github.com/GrofDzsepetto/portfolioWebsite",
     color: "#2B2B2B",
   },
   {
     title: "API Backend",
-    image: "/project-images/backend.jpg",
+    image: "../assets/images/project-images/backend.jpg",
     url: "https://example.com",
     color: "#4A90E2",
   },

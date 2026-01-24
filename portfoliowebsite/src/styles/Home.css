@@ -1,9 +1,24 @@
+/* ========================= */
+/* GLOBAL FIX */
+/* ========================= */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+/* ========================= */
+/* HOME SECTION */
+/* ========================= */
+
 .home {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   position: relative;
+
+  padding: 100px 0;
 
   background-image: url("../assets/images/temp_BG.png");
   background-size: cover;
@@ -11,14 +26,21 @@
   background-repeat: no-repeat;
 }
 
+
+/* ========================= */
+/* CONTAINER */
+/* ========================= */
+
 .home-container {
   max-width: 1400px;
-  margin: 0 auto;
+  width: 100%;
+  padding: 0 80px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  gap: 48px;
+  align-items: stretch;
 }
+
 
 /* ========================= */
 /* LEFT – IMAGE */
@@ -26,11 +48,16 @@
 
 .home-image {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .home-image img {
   width: 100%;
   max-width: 520px;
+  height: 100%;
+  max-height: 800px;
   border-radius: 24px;
   object-fit: cover;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
@@ -40,24 +67,52 @@
   content: "";
   position: absolute;
   top: 20px;
-  left: 20px;
-  width: 100%;
-  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 520px;
+  height: calc(100% - 40px);
+
   border-radius: 24px;
   border: 2px solid rgba(195, 55, 66, 0.6);
   z-index: -1;
 }
 
+
 /* ========================= */
-/* RIGHT – CONTENT */
+/* RIGHT – CONTENT PANEL */
+/* ========================= */
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  max-height: 800px;
+  background: linear-gradient(
+    to bottom,
+    rgba(43, 43, 43, 0.75),
+    rgba(43, 43, 43, 0.55)
+  );
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(234, 234, 234, 0.15);
+  border-radius: 24px;
+}
+
+
+/* ========================= */
+/* TITLE */
 /* ========================= */
 
 .home-content h1 {
   font-family: "Bangers", system-ui, sans-serif;
+  text-align: center;
   font-size: 64px;
-  margin-bottom: 24px;
+  margin-bottom: 26px;
   letter-spacing: 0.06em;
+  color: #FFFFFF;
 }
+
 
 /* ========================= */
 /* CARDS */
@@ -66,54 +121,99 @@
 .home-cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 20px;
 }
 
 .home-card {
+  width: 100%;
   background: linear-gradient(
     to bottom,
-    rgba(234, 234, 234, 0.12),
-    rgba(234, 234, 234, 0.05)
+    rgba(234, 234, 234, 0.08),
+    rgba(234, 234, 234, 0.04)
   );
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(234, 234, 234, 0.15);
+
+  border: 1px solid rgba(234, 234, 234, 0.12);
   border-radius: 20px;
-  padding: 24px 28px;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  padding: 10px 12px;
+
+  transition: background 0.25s ease;
 }
 
 .home-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(
+    to bottom,
+    rgba(234, 234, 234, 0.2),
+    rgba(234, 234, 234, 0.1)
+  );
 }
 
+
+/* ========================= */
+/* CARD TEXT */
+/* ========================= */
+
 .home-card h3 {
-  font-size: 22px;
-  margin-bottom: 12px;
+  font-family: "Bangers", system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0.04em;
   color: #FFFFFF;
+  transition: color 0.25s ease;
 }
 
 .home-card p {
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
   color: #D0D0D0;
+  transition: color 0.25s ease;
 }
+
+.home-card:hover h3 {
+  color: #C33742;
+}
+
+.home-card:hover p {
+  color: rgba(195, 55, 66, 0.85);
+}
+
 
 /* ========================= */
 /* RESPONSIVE */
 /* ========================= */
 
 @media (max-width: 900px) {
+
+  .home {
+    padding: 60px 0;
+    align-items: center;
+  }
+
   .home-container {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 40px;
+    padding: 0 20px;
   }
 
   .home-image img {
     max-width: 100%;
+    height: auto;
+  }
+
+  .home-image::after {
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .home-content {
+    padding: 24px 20px;
+    max-height: none;
   }
 
   .home-content h1 {
-    font-size: 48px;
+    font-size: 42px;
+  }
+
+  .home-cards {
+    gap: 16px;
   }
 }
