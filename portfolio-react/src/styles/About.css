@@ -13,7 +13,7 @@
 }
 
 /* ===========================
-   HORIZONTAL SCROLLER
+   HORIZONTAL SCROLLER (DESKTOP/TABLET)
 =========================== */
 
 .timeline-scroller {
@@ -34,7 +34,7 @@
 }
 
 /* ===========================
-   TRACK
+   TRACK (DESKTOP)
 =========================== */
 
 .timeline-track {
@@ -51,7 +51,6 @@
   min-height: 60vh;
 }
 
-/* MAIN LINE */
 .timeline-track::before {
   content: "";
   position: absolute;
@@ -68,7 +67,7 @@
 }
 
 /* ===========================
-   CARD
+   CARD (DESKTOP BASE)
 =========================== */
 
 .timeline-card {
@@ -78,15 +77,12 @@
   min-width: 340px;
   max-width: 380px;
 
-  /* FONTOS: ne vágja le a stem-et */
   overflow: visible;
 
-  /* a vizuális "kártya" most a belső wrapperen lesz */
   background: transparent;
   padding: 0;
 }
 
-/* CONTENT – ez a tényleges kártya felület */
 .card-content {
   position: relative;
   z-index: 3;
@@ -97,34 +93,9 @@
   border-radius: 24px;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
 
-  /* ha kell a kerek klippelés a belső tartalomnak (képek stb.) */
   overflow: hidden;
 }
 
-/* fenti kártya: lefelé mutató csücsök */
-.timeline-card.up::before {
-  bottom: -36px;
-}
-
-/* lenti kártya: felfelé mutató csücsök */
-.timeline-card.down::before {
-  top: -36px;
-}
-
-
-/* UP stem: a vonaltól lefelé a kártya aljáig (kicsit túl is) */
-.timeline-card.up::before {
-  top: calc(50% + 6px);
-  bottom: -30px;
-}
-
-/* DOWN stem: a kártya tetejétől a vonalig (kicsit túl is) */
-.timeline-card.down::before {
-  top: -30px;
-  bottom: calc(50% - 6px);
-}
-
-/* LANES – nagyobb távolság a timeline-tól */
 .timeline-card.up {
   transform: translateY(-170px);
 }
@@ -132,8 +103,6 @@
 .timeline-card.down {
   transform: translateY(170px);
 }
-
-
 
 /* ===========================
    TEXT
@@ -200,4 +169,72 @@
 
 .timeline-tag.nowtag {
   color: #2b2b2b;
+}
+
+/* =========================================================
+   MOBILE: VERTICAL TIMELINE (LEFT LINE + STACKED CARDS)
+========================================================= */
+
+@media (max-width: 768px) {
+  .about {
+    overflow: auto;
+  }
+
+  .timeline-scroller {
+    display: block;
+
+    overflow-x: hidden;
+    overflow-y: visible;
+
+    padding: 24px 0;
+  }
+
+  .timeline-track {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    width: 100%;
+    height: auto;
+
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-bottom: 24px;
+
+    gap: 18px;
+
+    background-image: linear-gradient(#eaeaea, #eaeaea);
+    background-repeat: no-repeat;
+    background-size: 6px 100%;
+    background-position: 22px 0;
+  }
+
+  .timeline-track::before {
+    content: none;
+  }
+
+  .timeline-card {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+    padding-left: 34px;
+  }
+
+  .timeline-card.up,
+  .timeline-card.down {
+    transform: none;
+  }
+
+  .card-content {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .timeline-card h2 {
+    font-size: 1.15rem;
+  }
+
+  .timeline-card p {
+    font-size: 0.98rem;
+  }
 }

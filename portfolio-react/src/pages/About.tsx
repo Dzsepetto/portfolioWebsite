@@ -49,7 +49,7 @@ export default function About() {
             <div className="card-content">
               <div className="timeline-meta">
                 <span className="timeline-date">2018 – 2022</span>
-                <span className="timeline-tag edu">Education</span>
+                <span className="timeline-tag edu">{t("about_tag_edu")}</span>
               </div>
               <h2>{t("about_hs_title")}</h2>
               <p>
@@ -62,7 +62,7 @@ export default function About() {
             <div className="card-content">
               <div className="timeline-meta">
                 <span className="timeline-date">2022 –</span>
-                <span className="timeline-tag edu">Education</span>
+                <span className="timeline-tag edu">{t("about_tag_edu")}</span>
               </div>
               <h2>{t("about_uni_title")}</h2>
               <p>
@@ -75,7 +75,7 @@ export default function About() {
             <div className="card-content">
               <div className="timeline-meta">
                 <span className="timeline-date">2023 –</span>
-                <span className="timeline-tag work">Work</span>
+                <span className="timeline-tag work">{t("about_tag_work")}</span>
               </div>
               <h2>{t("about_work_title")}</h2>
               <p>
@@ -88,7 +88,7 @@ export default function About() {
             <div className="card-content">
               <div className="timeline-meta">
                 <span className="timeline-date">2025 – </span>
-                <span className="timeline-tag proj">Projects</span>
+                <span className="timeline-tag proj">{t("about_tag_proj")}</span>
               </div>
               <h2>{t("about_projects_title")}</h2>
               <p>
@@ -101,7 +101,7 @@ export default function About() {
             <div className="card-content">
               <div className="timeline-meta">
                 <span className="timeline-date">Now</span>
-                <span className="timeline-tag nowtag">Current</span>
+                <span className="timeline-tag nowtag">{t("about_tag_now")}</span>
               </div>
               <h2>{t("about_now_title")}</h2>
               <p>

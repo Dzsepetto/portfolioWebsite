@@ -27,7 +27,14 @@ i18n.use(initReactI18next).init({
 
                 about_now_title: "Leveling Up",
                 about_now: "Continuously improving my skills, expanding my portfolio, and preparing for the next step.",
-            
+                
+                about_tag_edu: "Education",
+                about_tag_work: "Work",
+                about_tag_proj: "Projects",
+                about_tag_now: "Current"
+
+
+
             }
         },
         hu:{
@@ -50,6 +57,13 @@ i18n.use(initReactI18next).init({
 
                 about_now_title: "Folyamatos fejlődés",
                 about_now: "Folyamatosan fejlesztem a tudásomat, bővítem a portfóliómat, és készülök a következő lépésre.",
+
+                about_tag_edu: "Képzettség",
+                about_tag_work: "Tapasztalat",
+                about_tag_proj: "Projektek",
+                about_tag_now: "Jelenlegi"
+
+
 
             }
         },

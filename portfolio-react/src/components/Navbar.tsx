@@ -102,24 +102,6 @@ export default function Navbar() {
           <span onClick={() => handleNavigate("/about")}>About</span>
           <span onClick={() => handleNavigate("/projects")}>Projects</span>
           <span onClick={() => handleNavigate("/experience")}>Experience</span>
-
-          <div className="mobile-lang">
-            <button
-              type="button"
-              className={`lang-btn ${current === "hu" ? "active" : ""}`}
-              onClick={() => changeLanguage("hu")}
-            >
-              HU
-            </button>
-            <button
-              type="button"
-              className={`lang-btn ${current === "en" ? "active" : ""}`}
-              onClick={() => changeLanguage("en")}
-            >
-              EN
-            </button>
-          </div>
-
           <button className="mobile-socials" onClick={scrollToFooter}>
             Socials
           </button>
