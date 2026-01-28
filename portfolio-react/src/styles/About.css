@@ -1,0 +1,203 @@
+.about {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+
+  background-image: url("../assets/images/about_bg_temp.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% center;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===========================
+   HORIZONTAL SCROLLER
+=========================== */
+
+.timeline-scroller {
+  flex: 1;
+  width: 100vw;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  display: flex;
+  align-items: center;
+
+  scrollbar-width: none;
+}
+
+.timeline-scroller::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===========================
+   TRACK
+=========================== */
+
+.timeline-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  width: max-content;
+
+  padding-left: 6vw;
+  padding-right: 6vw;
+  gap: 110px;
+
+  min-height: 60vh;
+}
+
+/* MAIN LINE */
+.timeline-track::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  height: 10px;
+  background: #eaeaea;
+
+  z-index: 0;
+}
+
+/* ===========================
+   CARD
+=========================== */
+
+.timeline-card {
+  position: relative;
+  z-index: 2;
+
+  min-width: 340px;
+  max-width: 380px;
+
+  /* FONTOS: ne vágja le a stem-et */
+  overflow: visible;
+
+  /* a vizuális "kártya" most a belső wrapperen lesz */
+  background: transparent;
+  padding: 0;
+}
+
+/* CONTENT – ez a tényleges kártya felület */
+.card-content {
+  position: relative;
+  z-index: 3;
+
+  padding: 28px;
+
+  background: #eaeaea;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+
+  /* ha kell a kerek klippelés a belső tartalomnak (képek stb.) */
+  overflow: hidden;
+}
+
+/* fenti kártya: lefelé mutató csücsök */
+.timeline-card.up::before {
+  bottom: -36px;
+}
+
+/* lenti kártya: felfelé mutató csücsök */
+.timeline-card.down::before {
+  top: -36px;
+}
+
+
+/* UP stem: a vonaltól lefelé a kártya aljáig (kicsit túl is) */
+.timeline-card.up::before {
+  top: calc(50% + 6px);
+  bottom: -30px;
+}
+
+/* DOWN stem: a kártya tetejétől a vonalig (kicsit túl is) */
+.timeline-card.down::before {
+  top: -30px;
+  bottom: calc(50% - 6px);
+}
+
+/* LANES – nagyobb távolság a timeline-tól */
+.timeline-card.up {
+  transform: translateY(-170px);
+}
+
+.timeline-card.down {
+  transform: translateY(170px);
+}
+
+
+
+/* ===========================
+   TEXT
+=========================== */
+
+.timeline-card h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #2b2b2b;
+}
+
+.timeline-card p {
+  margin-top: 14px;
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #5f5f5f;
+}
+
+/* ===========================
+   META
+=========================== */
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.timeline-date {
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #2b2b2b;
+}
+
+.timeline-tag {
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  background: rgba(169, 47, 56, 0.12);
+  border: 1px solid rgba(169, 47, 56, 0.18);
+  color: #7b1f27;
+
+  text-transform: uppercase;
+}
+
+.timeline-tag.edu {
+  color: #7b1f27;
+}
+
+.timeline-tag.work {
+  color: #2b2b2b;
+}
+
+.timeline-tag.proj {
+  color: #135b96;
+}
+
+.timeline-tag.nowtag {
+  color: #2b2b2b;
+}
