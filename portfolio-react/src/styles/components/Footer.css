@@ -23,13 +23,11 @@
 
 .footer-links {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto auto;
+  grid-template-columns: repeat(4, 1fr);
   column-gap: 48px;
   row-gap: 14px;
   text-align: center;
 }
-
 /* ===========================
    HEADERS (FIRST ROW)
 =========================== */
@@ -132,6 +130,45 @@
   padding: 16px;
   font-size: 12px;
   color: #6f6f6f;
+}
+.footer-cv-wrapper {
+  margin-top: 10px;
+}
+
+.footer-cv {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 4px 10px;
+  margin-left: 6px;
+
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+
+  color: #c33742;
+  background: rgba(195, 55, 66, 0.08);
+  border: 1px solid rgba(195, 55, 66, 0.22);
+  border-radius: 14px;
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.footer-cv:hover {
+  background: rgba(195, 55, 66, 0.14);
+  border-color: rgba(195, 55, 66, 0.35);
+  color: #a92d37;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(195, 55, 66, 0.12);
 }
 
 /* ===========================

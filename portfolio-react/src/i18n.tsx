@@ -36,8 +36,10 @@ i18n.use(initReactI18next).init({
                 experience_conti_title: "Continental Hungary Kft. // Aumovio Hungary Kft.",
                 experience_conti: "Main responsibilities: user support, writing automation scripts in PowerShell, developing .NET web applications, creating C# scripts, building APIs, as well as supporting various business-related processes",
 
-
-
+                footer_contact:"Contact Me",
+                footer_languages: "Programming Language", 
+                footer_social:"Socials",
+                footer_cv:"CV"    
             }
         },
         hu:{
@@ -70,12 +72,14 @@ i18n.use(initReactI18next).init({
                 about_tag_proj: "Projektek",
                 about_tag_now: "Jelenlegi",
 
-
                 experience_conti_post: "Local IT gyakornok",
                 experience_conti_title: "Continental Hungary Kft. // Aumovio Hungary Kft.",
                 experience_conti: "Főbb feladatok: felhasználói támogatás, automatizálási szkriptek írása PowerShellben, .NET webalkalmazások fejlesztése, C# szkriptek készítése, API-k létrehozása, valamint különböző üzleti folyamatokhoz kapcsolódó",
 
-
+                footer_contact:"Keress meg",
+                footer_languages:"Programozási Nyelvek",
+                footer_social:"Socials",
+                footer_cv:"Önéletrajz" 
             }
         },
     },
