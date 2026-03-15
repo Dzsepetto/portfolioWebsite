@@ -32,9 +32,10 @@ i18n.use(initReactI18next).init({
                 about_tag_proj: "Projects",
                 about_tag_now: "Current",
 
-                experience_conti_post: "Local IT gyakornok",
+                experience_conti_post: "Local IT Trainee",
                 experience_conti_title: "Continental Hungary Kft. // Aumovio Hungary Kft.",
-                experience_conti: "Főbb feladatok: felhasználói támogatás, automatizálási szkriptek írása PowerShellben, .NET webalkalmazások fejlesztése, C# szkriptek készítése, API-k létrehozása, valamint különböző üzleti folyamatokhoz kapcsolódó",
+                experience_conti: "Main responsibilities: user support, writing automation scripts in PowerShell, developing .NET web applications, creating C# scripts, building APIs, as well as supporting various business-related processes",
+
 
 
             }
@@ -67,8 +68,12 @@ i18n.use(initReactI18next).init({
                 about_tag_edu: "Képzettség",
                 about_tag_work: "Tapasztalat",
                 about_tag_proj: "Projektek",
-                about_tag_now: "Jelenlegi"
+                about_tag_now: "Jelenlegi",
 
+
+                experience_conti_post: "Local IT gyakornok",
+                experience_conti_title: "Continental Hungary Kft. // Aumovio Hungary Kft.",
+                experience_conti: "Főbb feladatok: felhasználói támogatás, automatizálási szkriptek írása PowerShellben, .NET webalkalmazások fejlesztése, C# szkriptek készítése, API-k létrehozása, valamint különböző üzleti folyamatokhoz kapcsolódó",
 
 
             }
