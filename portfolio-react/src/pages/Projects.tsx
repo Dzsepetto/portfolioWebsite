@@ -1,16 +1,17 @@
 import "../styles/Projects.css";
 import PortfolioIMG from '../assets/images/project-images/porfolio.png'
-import CatsyIMG from '../assets/images/project-images/catsy.png'
+//import CatsyIMG from '../assets/images/project-images/catsy.png'
 import OnlineGamesIMG from '../assets/images/project-images/OnlineGames.png'
+import RikikiKingsIMG from '../assets/images/project-images/rikikikings.png'
 import { useState } from "react";
 import "../styles/Projects.css";
 
 const projects = [
   {
-    title: "Catsy",
-    image: CatsyIMG,
-    url: "https://github.com/GrofDzsepetto/Catsy",
-    color: "#C33742",
+    title: "Rikiki Kings",
+    image: RikikiKingsIMG,
+    url: "https://github.com/Dzsepetto/RikikiApp",
+    color: "#2B2B2B",
   },
   {
     title: "My portfolio (idk if this counts)",

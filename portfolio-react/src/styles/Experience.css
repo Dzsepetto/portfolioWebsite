@@ -1,7 +1,11 @@
 .experience {
   min-height: 100vh;
-  background-color: #eaeaea;
-
+  background: linear-gradient(
+  135deg,
+  #3A4F63,
+  #2F6A8C,
+  #0E2A40
+);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +22,7 @@
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 64px;
-  color: #2b2b2b;
+  color: #eaeaea;
 }
 
 .experience-list {

@@ -4,14 +4,20 @@ import { useTransition } from "../context/TransitionContext";
 import "../styles/components/Navbar.css";
 import { socials } from "../config/socials";
 import { useTranslation } from "react-i18next";
+import "../i18n";
 
-type Language = "hu" | "en";
+type Language = "hu" | "en" | "de";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { setIsTransitioning } = useTransition();
   const { i18n } = useTranslation();
+
+  const changeLanguage = (lng: Language) => {
+    i18n.changeLanguage(lng);
+    localStorage.setItem("lang", lng);
+  };
 
   const handleNavigate = (path: string) => {
     setIsTransitioning(true);
@@ -32,17 +38,18 @@ export default function Navbar() {
     setMenuOpen(false);
   };
 
-  const changeLanguage = (lng: Language) => {
-    i18n.changeLanguage(lng);
-    localStorage.setItem("lang", lng);
-  };
-
   useEffect(() => {
     const saved = localStorage.getItem("lang") as Language | null;
     if (saved) i18n.changeLanguage(saved);
   }, [i18n]);
 
-  const current: Language = (i18n.language?.startsWith("hu") ? "hu" : "en") as Language;
+  const lang = i18n.language || "en";
+
+  const current: Language =
+    lang.startsWith("hu") ? "hu" :
+    lang.startsWith("de") ? "de" :
+    lang.startsWith("en") ? "en" :
+    "hu";
 
   return (
     <nav className="navbar">
@@ -65,6 +72,14 @@ export default function Navbar() {
               aria-pressed={current === "en"}
             >
               EN
+            </button>
+            <button
+              type="button"
+              className={`lang-btn ${current === "de" ? "active" : ""}`}
+              onClick={() => changeLanguage("de")}
+              aria-pressed={current === "de"}
+            >
+              DE
             </button>
           </div>
         </div>

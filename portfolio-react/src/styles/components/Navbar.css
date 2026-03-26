@@ -49,6 +49,7 @@
 
 .lang-btn:hover {
   opacity: 1;
+  color:#C33742;
 }
 
 .lang-btn.active {
@@ -80,8 +81,8 @@
   align-items: center;
   justify-content: center;
 
-  height: 40px;            /* 🔥 kulcs */
-  line-height: 1;          /* 🔥 kulcs */
+  height: 40px;         
+  line-height: 1;        
 
   font-family: "Bangers", system-ui, sans-serif;
   font-size: 24px;
@@ -94,10 +95,8 @@
   border: 1px solid rgba(234, 234, 234, 0.25);
   border-radius: 16px;
 
-  padding: 0 12px;         /* csak vízszintes */
+  padding: 0 12px;   
 }
-
-
 
 .navbar-center span:hover, .nav-dropdown-trigger:hover{
   color: #C33742;

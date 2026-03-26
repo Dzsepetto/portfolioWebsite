@@ -1,6 +1,11 @@
 .projects {
   min-height: 100vh;
-  background-color: #eaeaea;
+background: linear-gradient(
+  135deg,
+  #3A4F63,
+  #2F6A8C,
+  #0E2A40
+);
   padding: 120px 40px;
 }
 
@@ -15,6 +20,7 @@
   letter-spacing: 0.08em;
   text-align: center;
   margin-bottom: 80px;
+  color: #eaeaea;
 }
 
 .projects-grid {
@@ -24,12 +30,12 @@
 }
 
 .project-card {
-  border: 2px solid #d8d8d8;
+  border: 5px solid #eaeaea;
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
   color: inherit;
-  background: #fff;
+  background: #eaeaea;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   display: flex;
