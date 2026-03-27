@@ -1,11 +1,19 @@
 .experience {
   min-height: 100vh;
+/*
   background: linear-gradient(
   135deg,
   #3A4F63,
   #2F6A8C,
   #0E2A40
 );
+*/
+
+  background-image: url("../assets/images/temp_BG.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% center;
+
   display: flex;
   align-items: center;
   justify-content: center;

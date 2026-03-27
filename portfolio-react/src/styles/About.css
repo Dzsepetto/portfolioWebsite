@@ -2,17 +2,18 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  /*
   background: linear-gradient(
     135deg,
     #3A4F63,
     #2F6A8C,
     #0E2A40
   );
- /*  background-image: url("../assets/images/about_bg_temp.jpg");
+*/
+  background-image: url("../assets/images/temp_BG.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0% center;
-*/
 
   display: flex;
   flex-direction: column;

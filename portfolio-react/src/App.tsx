@@ -10,17 +10,8 @@ import About from "./pages/About";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
 
-import "./i18n";
-import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
-
 function AppContent() {
-  const { i18n } = useTranslation();
   const location = useLocation();
-
-  useEffect(() => {
-    i18n.changeLanguage(navigator.language);
-  }, [i18n]);
 
   const isAboutPage = location.pathname === "/about";
 

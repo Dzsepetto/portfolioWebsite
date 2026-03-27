@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTransition } from "../context/TransitionContext";
 import "../styles/components/Navbar.css";
 import { socials } from "../config/socials";
 import { useTranslation } from "react-i18next";
-import "../i18n";
 
 type Language = "hu" | "en" | "de";
 
@@ -15,8 +14,9 @@ export default function Navbar() {
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng: Language) => {
-    i18n.changeLanguage(lng);
+
     localStorage.setItem("lang", lng);
+    i18n.changeLanguage(lng);
   };
 
   const handleNavigate = (path: string) => {
@@ -37,11 +37,6 @@ export default function Navbar() {
     footer?.scrollIntoView({ behavior: "smooth" });
     setMenuOpen(false);
   };
-
-  useEffect(() => {
-    const saved = localStorage.getItem("lang") as Language | null;
-    if (saved) i18n.changeLanguage(saved);
-  }, [i18n]);
 
   const lang = i18n.language || "en";
 
