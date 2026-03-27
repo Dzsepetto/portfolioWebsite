@@ -120,6 +120,23 @@
   margin: 0;
   color: #6f6f6f;
   line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.exp-description span {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.exp-description span:first-child {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.exp-description span:hover {
+  color: #000;
+  transition: color 0.2s ease;
 }
 
 /* ===========================

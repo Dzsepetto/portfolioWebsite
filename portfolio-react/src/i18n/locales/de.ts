@@ -28,9 +28,12 @@ translation: {
     about_tag_proj: "Projekte",
     about_tag_now: "Aktuell",
 
-    experience_conti_post: "Local IT Praktikant",
+    experience_conti_post: "IT Praktikant",
     experience_conti_title: "Continental Hungary Kft. // Aumovio Hungary Kft.",
-    experience_conti: "Hauptaufgaben: Benutzerunterstützung, Schreiben von Automatisierungsskripten in PowerShell, Entwicklung von .NET-Webanwendungen, Erstellung von C#-Skripten, Entwicklung von APIs sowie Unterstützung verschiedener geschäftlicher Prozesse.",
+    experience_conti: "Hauptaufgaben: Anwenderunterstützung, Erstellung von Automatisierungsskripten in PowerShell, Entwicklung von .NET-Webanwendungen, Erstellung von C#-Skripten sowie Entwicklung von APIs. User Support (Helpdesk / IT-Administrationsaufgaben):",
+    experience_conti_1: "Bereitstellung von ticketbasiertem Anwendersupport sowie Durchführung täglicher IT-Helpdesk-Aufgaben. Bearbeitung von Support-Tickets, Analyse und Behebung von Problemen (sowohl softwareseitig als auch auf grundlegender Infrastrukturebene), Verwaltung von Benutzerberechtigungen sowie allgemeine IT-Administrationsaufgaben. Kommunikation mit Anwendern und Bereitstellung schneller und effizienter Lösungen.",
+    experience_conti_2: "PowerShell-Automatisierung und Scripting: Entwicklung von Automatisierungslösungen auf Basis von PowerShell zur Effizienzsteigerung täglicher IT-Prozesse. Dazu gehören die Automatisierung von Softwareinstallationen und -deinstallationen, System- und Prozessüberwachung sowie die Ablösung wiederkehrender Aufgaben durch Skripte. Ziel ist es, manuelle Arbeit zu reduzieren, Prozesse zu beschleunigen und Fehler zu minimieren.",
+    experience_conti_3: ".NET-Entwicklung (interne Systeme und APIs): Entwicklung eines eigenen, mehrschichtigen internen Administrationssystems für das lokale IT-Team. Als alleiniger Entwickler bin ich verantwortlich für eine .NET-basierte Weboberfläche, Backend-APIs sowie die Integration von Skripten. Ziel ist es, verschiedene IT-Aufgaben zu automatisieren, zu standardisieren und über eine zentrale Oberfläche verwaltbar zu machen, um Effizienz und Transparenz zu erhöhen.",
 
     footer_contact: "Kontakt",
     footer_languages: "Programmiersprachen",

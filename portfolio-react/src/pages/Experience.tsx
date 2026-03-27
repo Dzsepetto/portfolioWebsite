@@ -27,7 +27,10 @@ export default function Experience() {
 
             <div className="exp-panel">
               <p className="exp-description">
-                {t("experience_conti")}
+                <span>{t("experience_conti")}</span>
+                <span>{t("experience_conti_1")}</span>
+                <span>{t("experience_conti_2")}</span>
+                <span>{t("experience_conti_3")}</span>
               </p>
             </div>
           </details>
