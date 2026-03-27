@@ -23,6 +23,8 @@ translation: {
     about_now_title: "Kontinuierliche Weiterentwicklung",
     about_now: "Ich entwickle mein Wissen kontinuierlich weiter, erweitere mein Portfolio und bereite mich auf den nächsten Schritt vor.",
 
+    about_move_car_hint: "Bewege das Auto mit den Pfeiltasten oder dem Mausrad",
+
     about_tag_edu: "Ausbildung",
     about_tag_work: "Erfahrung",
     about_tag_proj: "Projekte",

@@ -84,10 +84,19 @@
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translate3d(0, -50%, 0);
-  font-size: 1.8rem;
-  line-height: 1;
-  will-change: transform;
+  transform: translate3d(0, -50%, 0) scaleX(1);
+  transform-origin: center center;
+  z-index: 5;
+  pointer-events: none;
+  transition: filter 0.2s ease;
+}
+
+.car-image {
+  display: block;
+  width: 90px;
+  height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 /* ===========================
@@ -195,6 +204,42 @@
   color: #2b2b2b;
 }
 
+.instruction-container {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+}
+
+.instruction-container p {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;         
+  line-height: 1;        
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  color: #2B2B2B;
+  cursor: pointer;
+
+  background: rgba(234, 234, 234, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(234, 234, 234, 0.25);
+  border-radius: 16px;
+
+  padding: 0 12px;   
+}
+
 /* =========================================================
    MOBILE: VERTICAL TIMELINE (LEFT LINE + STACKED CARDS)
 ========================================================= */
@@ -266,5 +311,9 @@
 
   .timeline-card p {
     font-size: 0.98rem;
+  }
+
+  .instruction-container{
+    visibility: hidden;
   }
 }

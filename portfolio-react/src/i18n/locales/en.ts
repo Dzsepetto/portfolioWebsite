@@ -18,6 +18,9 @@ const en = {
         about_projects: "Building games, tools, and full-stack apps with a focus on performance, clean UI, and maintainable architecture.",
         about_now_title: "Leveling Up",
         about_now: "Continuously improving my skills, expanding my portfolio, and preparing for the next step.",
+        
+        about_move_car_hint: "Move the car with the arrow keys or the mouse wheel",
+        
         about_tag_edu: "Education",
         about_tag_work: "Work",
         about_tag_proj: "Projects",

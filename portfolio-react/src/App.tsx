@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { TransitionProvider } from "./context/TransitionContext";
 
 import Navbar from "./components/Navbar";
@@ -14,29 +14,38 @@ import "./i18n";
 import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 
-
-function App() {
-
-  const{i18n} = useTranslation();
+function AppContent() {
+  const { i18n } = useTranslation();
+  const location = useLocation();
 
   useEffect(() => {
     i18n.changeLanguage(navigator.language);
-  }, [])
+  }, [i18n]);
 
+  const isAboutPage = location.pathname === "/about";
+
+  return (
+    <>
+      <PageTransitionOverlay />
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/experience" element={<Experience />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+
+      {!isAboutPage && <Footer />}
+    </>
+  );
+}
+
+function App() {
   return (
     <TransitionProvider>
       <Router>
-        <PageTransitionOverlay />
-
-        <Navbar />
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/projects" element={<Projects />} />
-        </Routes>
-        <Footer />
+        <AppContent />
       </Router>
     </TransitionProvider>
   );

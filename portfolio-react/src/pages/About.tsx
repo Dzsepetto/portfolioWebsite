@@ -3,6 +3,7 @@ import "../styles/About.css";
 
 import "../i18n";
 import { useTranslation } from "react-i18next";
+import carImg from "../assets/images/car.png";
 
 export default function About() {
   const { t } = useTranslation();
@@ -19,10 +20,11 @@ export default function About() {
     const track = trackRef.current;
     const scroller = scrollerRef.current;
     const about = aboutRef.current;
+
+    if (!scroller || !about || !track || !car) return;
+
     const originalOverflow = document.body.style.overflowY;
     const isMobile = window.innerWidth <= 768;
-
-    if (!scroller || !about || !track) return;
 
     if (!isMobile) {
       document.body.style.overflowY = "hidden";
@@ -30,25 +32,37 @@ export default function About() {
 
     let targetScroll = scroller.scrollLeft;
     let currentScroll = scroller.scrollLeft;
+    let previousScroll = scroller.scrollLeft;
+    let currentDirection = 1; // 1 = jobbra, -1 = balra
     let rafId = 0;
 
     const clamp = (value: number, min: number, max: number) =>
       Math.min(Math.max(value, min), max);
 
-    const getMaxScroll = () => scroller.scrollWidth - scroller.clientWidth;
+    const getMaxScroll = () =>
+      scroller.scrollWidth - scroller.clientWidth;
 
     const updateVisuals = (scrollLeft: number) => {
       const maxScroll = getMaxScroll();
       const scrollProgress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
 
+      // háttér mozgás
       about.style.backgroundPositionX = `${scrollProgress * 100}%`;
 
-      if (car) {
-        const carWidth = 40;
-        const roadWidth = Math.max(track.scrollWidth - carWidth, 0);
-        const x = scrollProgress * roadWidth;
-        car.style.transform = `translate3d(${x}px, -50%, 0)`;
-      }
+      // autó pozíció
+      const carWidth = 90;
+      const roadWidth = Math.max(track.scrollWidth - carWidth, 0);
+      const x = scrollProgress * roadWidth;
+
+      // irány számítás
+      const delta = scrollLeft - previousScroll;
+
+      if (delta > 0.3) currentDirection = 1;
+      if (delta < -0.3) currentDirection = -1;
+
+      car.style.transform = `translate3d(${x}px, -50%, 0) scaleX(${currentDirection})`;
+
+      previousScroll = scrollLeft;
     };
 
     const animate = () => {
@@ -117,6 +131,7 @@ export default function About() {
       }
     };
 
+    // init
     updateVisuals(currentScroll);
     rafId = requestAnimationFrame(animate);
 
@@ -141,7 +156,7 @@ export default function About() {
         <div className="timeline-track" ref={trackRef}>
           <div className="timeline-road">
             <div className="timeline-car" ref={carRef}>
-              🚗
+              <img src={carImg} alt="Car" className="car-image" />
             </div>
           </div>
 
@@ -200,6 +215,10 @@ export default function About() {
             </div>
           </article>
         </div>
+      </div>
+
+      <div className="instruction-container">
+        <p>{t("about_move_car_hint")}</p>
       </div>
     </section>
   );

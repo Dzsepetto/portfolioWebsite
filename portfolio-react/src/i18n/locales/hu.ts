@@ -23,10 +23,14 @@ translation:{
     about_now_title: "Folyamatos fejlődés",
     about_now: "Folyamatosan fejlesztem a tudásomat, bővítem a portfóliómat, és készülök a következő lépésre.",
 
+    about_move_car_hint: "Mozgasd az autót a nyilakkal vagy görgess az egérrel",
+
     about_tag_edu: "Képzettség",
     about_tag_work: "Tapasztalat",
     about_tag_proj: "Projektek",
     about_tag_now: "Jelenlegi",
+
+
 
     experience_conti_post: "IT gyakornok",
     experience_conti_title: "Continental Hungary Kft. // Aumovio Hungary Kft.",
