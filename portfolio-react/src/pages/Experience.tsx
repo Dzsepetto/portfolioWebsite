@@ -9,14 +9,14 @@ export default function Experience() {
   return (
     <section className="experience">
       <div className="experience-container">
-        <h1>Experience</h1>
+        <h1>{t("experience.title")}</h1>
 
         <div className="experience-list">
           <details className="exp-item" open>
             <summary className="exp-row">
               <div className="exp-left">
-                <div className="exp-role">{t("experience_conti_post")}</div>
-                <div className="exp-company">{t("experience_conti_title")}</div>
+                <div className="exp-role">{t("experience.conti.post")}</div>
+                <div className="exp-company">{t("experience.conti.title")}</div>
               </div>
 
               <div className="exp-right">
@@ -27,10 +27,10 @@ export default function Experience() {
 
             <div className="exp-panel">
               <p className="exp-description">
-                <span>{t("experience_conti")}</span>
-                <span>{t("experience_conti_1")}</span>
-                <span>{t("experience_conti_2")}</span>
-                <span>{t("experience_conti_3")}</span>
+                <span>{t("experience.conti.description")}</span>
+                <span>{t("experience.conti.part1")}</span>
+                <span>{t("experience.conti.part2")}</span>
+                <span>{t("experience.conti.part3")}</span>
               </p>
             </div>
           </details>

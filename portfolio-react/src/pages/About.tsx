@@ -164,10 +164,10 @@ export default function About() {
             <div className="card-content">
               <div className="timeline-meta">
                 <span className="timeline-date">2018 – 2022</span>
-                <span className="timeline-tag edu">{t("about_tag_edu")}</span>
+                <span className="timeline-tag edu">{t("about.tag.edu")}</span>
               </div>
-              <h2>{t("about_hs_title")}</h2>
-              <p>{t("about_hs")}</p>
+              <h2>{t("about.hs_title")}</h2>
+              <p>{t("about.hs")}</p>
             </div>
           </article>
 
@@ -175,10 +175,10 @@ export default function About() {
             <div className="card-content">
               <div className="timeline-meta">
                 <span className="timeline-date">2022 –</span>
-                <span className="timeline-tag edu">{t("about_tag_edu")}</span>
+                <span className="timeline-tag edu">{t("about.tag.edu")}</span>
               </div>
-              <h2>{t("about_uni_title")}</h2>
-              <p>{t("about_uni")}</p>
+              <h2>{t("about.uni_title")}</h2>
+              <p>{t("about.uni")}</p>
             </div>
           </article>
 
@@ -186,10 +186,10 @@ export default function About() {
             <div className="card-content">
               <div className="timeline-meta">
                 <span className="timeline-date">2023 –</span>
-                <span className="timeline-tag work">{t("about_tag_work")}</span>
+                <span className="timeline-tag work">{t("about.tag.work")}</span>
               </div>
-              <h2>{t("about_work_title")}</h2>
-              <p>{t("about_work")}</p>
+              <h2>{t("about.work_title")}</h2>
+              <p>{t("about.work")}</p>
             </div>
           </article>
 
@@ -197,10 +197,10 @@ export default function About() {
             <div className="card-content">
               <div className="timeline-meta">
                 <span className="timeline-date">2025 –</span>
-                <span className="timeline-tag proj">{t("about_tag_proj")}</span>
+                <span className="timeline-tag proj">{t("about.tag.proj")}</span>
               </div>
-              <h2>{t("about_projects_title")}</h2>
-              <p>{t("about_projects")}</p>
+              <h2>{t("about.projects_title")}</h2>
+              <p>{t("about.projects")}</p>
             </div>
           </article>
 
@@ -208,17 +208,17 @@ export default function About() {
             <div className="card-content">
               <div className="timeline-meta">
                 <span className="timeline-date">Now</span>
-                <span className="timeline-tag nowtag">{t("about_tag_now")}</span>
+                <span className="timeline-tag nowtag">{t("about.tag.now")}</span>
               </div>
-              <h2>{t("about_now_title")}</h2>
-              <p>{t("about_now")}</p>
+              <h2>{t("about.now_title")}</h2>
+              <p>{t("about.now")}</p>
             </div>
           </article>
         </div>
       </div>
 
       <div className="instruction-container">
-        <p>{t("about_move_car_hint")}</p>
+        <p>{t("about.move_car_hint")}</p>
       </div>
     </section>
   );

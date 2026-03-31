@@ -40,23 +40,23 @@ export default function Home() {
               />
             </div>
 
-            <h1>{t("home_title")}</h1>
+            <h1>{t("home.title")}</h1>
           </div>
 
           <div className="home-cards">
             <div className="home-card">
-              <h3>{t("home_experience_title")}</h3>
-              <p>{t("home_experience")}</p>
+              <h3>{t("home.experience_title")}</h3>
+              <p>{t("home.experience")}</p>
             </div>
 
             <div className="home-card">
-              <h3>{t("home_aimaster_title")}</h3>
-              <p>{t("home_aimaster")}</p>
+              <h3>{t("home.aimaster_title")}</h3>
+              <p>{t("home.aimaster")}</p>
             </div>
 
             <div className="home-card">
-              <h3>{t("home_degree_title")}</h3>
-              <p>{t("home_degree")}</p>
+              <h3>{t("home.degree_title")}</h3>
+              <p>{t("home.degree")}</p>
             </div>
           </div>
         </div>
