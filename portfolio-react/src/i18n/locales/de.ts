@@ -3,7 +3,7 @@ const de = {
     home: {
       title: "Benedek Pintér",
       experience:
-        "Ich habe als IT-Praktikant bei Continental Automotive / Aumovio gearbeitet, wo ich praktische Erfahrungen in mehreren Bereichen gesammelt, zahlreiche Systemfehler identifiziert und aktiv an der Lösung realer technischer Probleme mitgewirkt habe.",
+        "Ich habe als IT-Trainee bei Continental Automotive / Aumovio gearbeitet, wo ich praktische Erfahrungen in mehreren Bereichen gesammelt, zahlreiche Systemfehler identifiziert und aktiv an der Lösung realer technischer Probleme mitgewirkt habe.",
       experience_title: "Erfahrung",
       aimaster_title: "AI-Meister?",
       aimaster:
@@ -22,7 +22,7 @@ const de = {
       uni:
         "Derzeit studiere ich Wirtschaftsinformatik mit Fokus auf Softwareentwicklung, Datenbanken und die Umsetzung realer Projekte.",
 
-      work_title: "IT-Praktikant – Continental Automotive / Aumovio",
+      work_title: "IT-Trainee – Continental Automotive / Aumovio",
       work:
         "Praktische Erfahrungen in verschiedenen Bereichen, Erkennung von Systemfehlern und Mitwirkung bei der Lösung realer technischer Probleme.",
 
@@ -47,7 +47,7 @@ const de = {
     experience: {
       title: "Erfahrung",
       conti: {
-        post: "IT-Praktikant",
+        post: "IT-Trainee",
         title: "Continental Hungary Kft. // Aumovio Hungary Kft.",
         description:
           "Hauptaufgaben: Anwenderunterstützung, Erstellung von Automatisierungsskripten in PowerShell, Entwicklung von .NET-Webanwendungen, Erstellung von C#-Skripten sowie Entwicklung von APIs. User Support (Helpdesk / IT-Administrationsaufgaben):",

@@ -10,7 +10,7 @@ const hu = {
         "A ChatGPT az első számú barátom! A barátságunk erejével elképesztő tempóban tudunk fejlődni és alkotni.",
       degree_title: "Végzettség",
       degree:
-        "Jelenleg gazdaságinformatikus alapképzést végzek, és terveim szerint számítástechnika mesterszakon folytatom tanulmányaimat, hogy még mélyebben elmélyítsem programozási ismereteimet.",
+        "Jelenleg gazdaságinformatikus alapképzést végzek, és terveim szerint programtervező informatikus mesterszakon folytatom tanulmányaimat, hogy még mélyebben elmélyítsem programozási ismereteimet.",
     },
 
     about: {
@@ -66,7 +66,7 @@ const hu = {
     footer: {
       contact: "Keress meg",
       languages: "Programozási Nyelvek",
-      social: "Socials",
+      social: "Közösségi Oldalak",
       cv: "Önéletrajz",
     },
 
