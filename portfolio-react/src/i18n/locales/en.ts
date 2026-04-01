@@ -75,15 +75,15 @@ const en = {
       back: "Back",
       rikiki: {
         title: "Rikiki Kings",
-        description: "English description for the Rikiki Kings project goes here.",
+        description: "Rikiki Kings is a mobile score-tracking application built for the popular Rikiki card game using .NET MAUI. The app is designed to make scorekeeping simple and efficient while also providing long-term player statistics. A key feature is its use of a local SQLite database, allowing full offline functionality. After logging in, users can sync their data with a cloud database, making games and statistics accessible across multiple devices. Players can also be added locally as 'guest' users and later linked to real registered profiles, ensuring that previous results and statistics are seamlessly transferred and visible to them as well.",
       },
       portfolio: {
         title: "Portfolio",
-        description: "English description for the portfolio website goes here.",
+        description: "This is a modern, responsive portfolio website designed to showcase my projects, skills, and professional experience. Its goal is to present my work in a clear and visually appealing way, whether it’s web development, design, or other creative projects. The site is easy to navigate, fast, and optimized for a seamless experience across all devices.",
       },
       quiz: {
         title: "Quiz Website",
-        description: "English description for the quiz website goes here.",
+        description: "This is an interactive quiz website that offers fun and knowledge-based challenges across various topics. It is designed to provide an engaging and user-friendly experience, suitable for both casual and competitive play. Logged-in users can appear on a leaderboard, allowing them to compare their performance with others. The long-term goal of the project is to introduce a real-time multiplayer experience where multiple users can participate in the same quiz simultaneously, similar to Kahoot.",
       },
     },
   },

@@ -75,16 +75,16 @@ const hu = {
       back: "Vissza",
       rikiki: {
         title: "Rikiki Kings",
-        description: "Ide jön a Rikiki Kings projekt magyar leírása.",
+        description: "A Rikiki Kings egy mobilos pontszámító alkalmazás, amely a népszerű Rikiki kártyajátékhoz készült .NET MAUI technológiával. Az app célja, hogy egyszerűen és gyorsan kezelje a játékok pontozását, miközben hosszabb távon statisztikákat is biztosít a játékosok számára. Különlegessége, hogy lokális SQLite adatbázist használ, így internetkapcsolat nélkül is teljes értékűen működik. Bejelentkezés után lehetőség van az adatok felhővel való szinkronizálására, így a játékok és statisztikák több eszközön is elérhetők. A felhasználók vendégként ('guest') is hozzáadhatnak játékosokat, akiket később összepárosíthatnak valódi, regisztrált profilokkal, így a korábbi eredmények és statisztikák automatikusan megjelennek náluk is.",
       },
       portfolio: {
         title: "Portfólió",
-        description: "Ide jön a portfólió weboldal magyar leírása.",
+        description: "Ez egy modern, reszponzív portfólió weboldal, amely bemutatja a projektjeimet, készségeimet és szakmai tapasztalataimat. A célja, hogy átlátható és vizuálisan is vonzó módon prezentálja a munkáimat, legyen szó webfejlesztésről, dizájnról vagy egyéb kreatív projektekről. Az oldal könnyen navigálható, gyors és minden eszközön jól használható.",
       },
-      quiz: {
-        title: "Kvíz Weboldal",
-        description: "Ide jön a kvíz weboldal magyar leírása.",
-      },
+    quiz: {
+      title: "Kvíz Weboldal",
+      description: "Ez egy interaktív kvíz weboldal, amely különböző témákban kínál játékos és tudásalapú kihívásokat a felhasználóknak. Az oldal célja, hogy szórakoztató és könnyen használható formában tegye elérhetővé a kvízeket, akár egyéni játékra is. Bejelentkezés után a játékosok felkerülhetnek a leaderboardra, így az eredményeik összehasonlíthatók mások teljesítményével is. A projekt hosszabb távú célja egy olyan valós idejű többjátékos élmény kialakítása, ahol egyszerre többen is részt vehetnek ugyanabban a kvízben, hasonlóan a Kahoot működéséhez.",
+    },
     },
   },
 };

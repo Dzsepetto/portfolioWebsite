@@ -75,15 +75,15 @@ const de = {
       back: "Zurück",
       rikiki: {
         title: "Rikiki Kings",
-        description: "Hier kommt die deutsche Beschreibung des Rikiki Kings Projekts.",
+        description: "Rikiki Kings ist eine mobile Punkteverwaltungs-App für das beliebte Rikiki-Kartenspiel, entwickelt mit .NET MAUI. Die Anwendung ermöglicht eine einfache und schnelle Punkteverfolgung und bietet gleichzeitig langfristige Statistiken für die Spieler. Eine besondere Eigenschaft ist die Nutzung einer lokalen SQLite-Datenbank, wodurch die App auch offline vollständig funktionsfähig ist. Nach dem Login können die Daten mit einer Cloud-Datenbank synchronisiert werden, sodass Spiele und Statistiken auf mehreren Geräten verfügbar sind. Spieler können zunächst als 'Guest' hinzugefügt und später mit echten registrierten Profilen verknüpft werden, wodurch frühere Ergebnisse und Statistiken automatisch übernommen werden.",
       },
       portfolio: {
         title: "Portfolio",
-        description: "Hier kommt die deutsche Beschreibung der Portfolio-Webseite.",
+        description: "Das ist eine moderne, responsive Portfolio-Webseite, die meine Projekte, Fähigkeiten und beruflichen Erfahrungen präsentiert. Ziel ist es, meine Arbeiten übersichtlich und visuell ansprechend darzustellen, egal ob im Bereich Webentwicklung, Design oder anderer kreativer Projekte. Die Seite ist benutzerfreundlich, schnell und für alle Geräte optimiert.",
       },
       quiz: {
         title: "Quiz-Webseite",
-        description: "Hier kommt die deutsche Beschreibung der Quiz-Webseite.",
+        description: "Das ist eine interaktive Quiz-Webseite, die unterhaltsame und wissensbasierte Herausforderungen zu verschiedenen Themen bietet. Sie wurde entwickelt, um eine benutzerfreundliche und spannende Spielerfahrung zu ermöglichen, sowohl für Einzelspieler als auch im Wettbewerb mit anderen. Nach dem Login können Nutzer in einem Leaderboard erscheinen und ihre Ergebnisse vergleichen. Langfristig soll eine Echtzeit-Multiplayer-Funktion integriert werden, bei der mehrere Nutzer gleichzeitig an einem Quiz teilnehmen können – ähnlich wie bei Kahoot.",
       },
     },
   },
