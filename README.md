@@ -20,5 +20,4 @@ This is my **first time working with React**.
 - Create a modern, minimal, pale design
 - Ensure full responsiveness across devices
 - Use clear component separation
-- Develop a `.NET` backend using **C# APIs**
 - Keep the project easy to extend and maintain in the future
