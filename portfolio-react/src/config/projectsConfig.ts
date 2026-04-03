@@ -1,6 +1,7 @@
 import PortfolioIMG from "../assets/images/project-images/porfolio.png";
 import OnlineGamesIMG from "../assets/images/project-images/OnlineGames.png";
 import RikikiKingsIMG from "../assets/images/project-images/rikikikings.png";
+import ZORKAIMG from "../assets/images/project-images/Zorka.png"
 
 export const projects = [
   {
@@ -24,5 +25,12 @@ export const projects = [
     url2: "https://www.dzsepetto.hu/",
     color: "#2B2B2B",
     descriptionKey: "projects.quiz.description",
+  },
+    {
+    titleKey: "projects.zorka.title",
+    image: ZORKAIMG,
+    url2: "https://zokrakreativ.onrender.com/",
+    color: "#2B2B2B",
+    descriptionKey: "projects.zorka.description",
   },
 ];

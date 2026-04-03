@@ -30,9 +30,14 @@ export default function Projects() {
               <p>{t(project.descriptionKey)}</p>
 
               <div className="project-details-buttons">
+                
+                {project.url && (
                 <a href={project.url} target="_blank" rel="noreferrer">
                   GitHub
                 </a>
+                )}
+                
+
 
                 {project.url2 && (
                   <a href={project.url2} target="_blank" rel="noreferrer">

@@ -85,6 +85,9 @@ const en = {
         title: "Quiz Website",
         description: "This is an interactive quiz website that offers fun and knowledge-based challenges across various topics. It is designed to provide an engaging and user-friendly experience, suitable for both casual and competitive play. Logged-in users can appear on a leaderboard, allowing them to compare their performance with others. The long-term goal of the project is to introduce a real-time multiplayer experience where multiple users can participate in the same quiz simultaneously, similar to Kahoot.",
       },
+      zorka: {
+      title: "Zorka Webshop",
+      description: "A Flask-based webshop application developed collaboratively with a friend. It includes a REST API, dynamic product rendering, filtering and sorting features, and a responsive user interface. The project focuses on clean architecture and maintainable code. GitHub: <link>"    },
     },
   },
 };

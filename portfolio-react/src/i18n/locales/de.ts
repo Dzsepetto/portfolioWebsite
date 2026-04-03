@@ -85,6 +85,9 @@ const de = {
         title: "Quiz-Webseite",
         description: "Das ist eine interaktive Quiz-Webseite, die unterhaltsame und wissensbasierte Herausforderungen zu verschiedenen Themen bietet. Sie wurde entwickelt, um eine benutzerfreundliche und spannende Spielerfahrung zu ermöglichen, sowohl für Einzelspieler als auch im Wettbewerb mit anderen. Nach dem Login können Nutzer in einem Leaderboard erscheinen und ihre Ergebnisse vergleichen. Langfristig soll eine Echtzeit-Multiplayer-Funktion integriert werden, bei der mehrere Nutzer gleichzeitig an einem Quiz teilnehmen können – ähnlich wie bei Kahoot.",
       },
+      zorka: {
+      title: "Zorka Webshop",
+      description: "Eine Flask-basierte Webshop-Anwendung, die gemeinsam mit einem Freund entwickelt wurde. Sie umfasst eine REST-API, dynamische Produktdarstellung, Filter- und Sortierfunktionen sowie eine responsive Benutzeroberfläche. Der Fokus lag auf einer sauberen Architektur und gut wartbarem Code. GitHub: <link>"    },
     },
   },
 };

@@ -85,6 +85,10 @@ const hu = {
       title: "Kvíz Weboldal",
       description: "Ez egy interaktív kvíz weboldal, amely különböző témákban kínál játékos és tudásalapú kihívásokat a felhasználóknak. Az oldal célja, hogy szórakoztató és könnyen használható formában tegye elérhetővé a kvízeket, akár egyéni játékra is. Bejelentkezés után a játékosok felkerülhetnek a leaderboardra, így az eredményeik összehasonlíthatók mások teljesítményével is. A projekt hosszabb távú célja egy olyan valós idejű többjátékos élmény kialakítása, ahol egyszerre többen is részt vehetnek ugyanabban a kvízben, hasonlóan a Kahoot működéséhez.",
     },
+    zorka: {
+      title: "Zorka Webshop",
+      description: "Egy Flask alapú webshop alkalmazás, amelyet egy barátommal közösen fejlesztettünk. Tartalmaz REST API-t, dinamikus termékmegjelenítést, szűrési és rendezési funkciókat, valamint reszponzív felhasználói felületet. A projekt során a tiszta architektúrára és a jól karbantartható kódra helyeztük a hangsúlyt."
+    },
     },
   },
 };
