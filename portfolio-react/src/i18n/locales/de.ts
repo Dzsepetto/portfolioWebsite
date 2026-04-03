@@ -87,7 +87,7 @@ const de = {
       },
       zorka: {
       title: "Zorka Webshop",
-      description: "Eine Flask-basierte Webshop-Anwendung, die gemeinsam mit einem Freund entwickelt wurde. Sie umfasst eine REST-API, dynamische Produktdarstellung, Filter- und Sortierfunktionen sowie eine responsive Benutzeroberfläche. Der Fokus lag auf einer sauberen Architektur und gut wartbarem Code. GitHub: <link>"    },
+      description: "Eine Flask-basierte Webshop-Anwendung, die gemeinsam mit einem Freund entwickelt wurde. Sie umfasst eine REST-API, dynamische Produktdarstellung, Filter- und Sortierfunktionen sowie eine responsive Benutzeroberfläche. Der Fokus lag auf einer sauberen Architektur und gut wartbarem Code."},
     },
   },
 };

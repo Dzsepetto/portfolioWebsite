@@ -87,7 +87,7 @@ const en = {
       },
       zorka: {
       title: "Zorka Webshop",
-      description: "A Flask-based webshop application developed collaboratively with a friend. It includes a REST API, dynamic product rendering, filtering and sorting features, and a responsive user interface. The project focuses on clean architecture and maintainable code. GitHub: <link>"    },
+      description: "A Flask-based webshop application developed collaboratively with a friend. It includes a REST API, dynamic product rendering, filtering and sorting features, and a responsive user interface. The project focuses on clean architecture and maintainable code."},
     },
   },
 };
