@@ -5,12 +5,12 @@ const en = {
       experience:
         "IT Trainee at Continental Automotive / Aumovio, where I gained hands-on experience across multiple fields, identified numerous system issues, and actively participated in solving real-world technical problems.",
       experience_title: "Experience",
-      aimaster_title: "AI Master?",
+      aimaster_title: "AI Workflow",
       aimaster:
-        "ChatGPT is my #1 friend! With the power of our friendship we can develop at a high speed",
+        "I use AI tools to speed up development, explore solutions, and improve my workflow.",
       degree_title: "Degree",
       degree:
-        "I am currently completing my BSc in Business Informatics and plan to pursue a Master’s degree in Computer Science too deepen my understanding in programming.",
+        "I am currently completing my BSc in Business Informatics and plan to pursue a Master’s degree in Computer Science to deepen my understanding of programming.",
     },
 
     about: {
@@ -48,7 +48,7 @@ const en = {
       title: "Experience",
       conti: {
         post: "IT Trainee",
-        title: "Continental Hungary Kft. // Aumovio Hungary Kft.",
+        title: "Continental Hungary Kft. / Aumovio Hungary Kft.",
         description:
           "Main responsibilities: user support, writing automation scripts in PowerShell, developing .NET web applications, creating C# scripts, and building APIs. User Support (Helpdesk / IT administration tasks):",
 

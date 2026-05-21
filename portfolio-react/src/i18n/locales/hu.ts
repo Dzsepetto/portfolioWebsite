@@ -5,12 +5,11 @@ const hu = {
       experience:
         "IT gyakornokként dolgoztam a Continental Automotive / Aumovio cégnél, ahol több területen is gyakorlati tapasztalatot szereztem, számos rendszerhibát azonosítottam, és aktívan részt vettem valós technikai problémák megoldásában.",
       experience_title: "Tapasztalat",
-      aimaster_title: "AI Mester?",
-      aimaster:
-        "A ChatGPT az első számú barátom! A barátságunk erejével elképesztő tempóban tudunk fejlődni és alkotni.",
+      aimaster_title: "AI munkafolyamat",
+      aimaster: "AI eszközöket használok a fejlesztés felgyorsítására, új megoldások felfedezésére és a munkafolyamataim hatékonyabbá tételére.",
       degree_title: "Végzettség",
       degree:
-        "Jelenleg gazdaságinformatikus alapképzést végzek, és terveim szerint programtervező informatikus mesterszakon folytatom tanulmányaimat, hogy még mélyebben elmélyítsem programozási ismereteimet.",
+        "Jelenleg gazdaságinformatikus alapképzést végzek, és terveim szerint programtervező informatikus mesterszakon folytatom tanulmányaimat, hogy tovább mélyítsem programozási ismereteimet.",
     },
 
     about: {
@@ -48,12 +47,12 @@ const hu = {
         title:"Tapasztalat",
       conti: {
         post: "IT gyakornok",
-        title: "Continental Hungary Kft. // Aumovio Hungary Kft.",
+        title: "Continental Hungary Kft. / Aumovio Hungary Kft.",
         description:
           "Főbb feladatok: felhasználói támogatás, automatizálási szkriptek írása PowerShellben, .NET webalkalmazások fejlesztése, C# szkriptek készítése, API-k létrehozása. User Support (Helpdesk / IT admin feladatok):",
 
         part1:
-          "nTicket alapú felhasználói támogatás nyújtása, napi szintű IT helpdesk feladatok ellátása. Hibajegyek kezelése, problémák diagnosztizálása és megoldása (szoftveres és alap infrastruktúra szinten), felhasználói jogosultságok kezelése, valamint általános IT adminisztrációs tevékenységek végzése. Kapcsolattartás a felhasználókkal és gyors, hatékony megoldások biztosítása.",
+          "Ticket alapú felhasználói támogatás nyújtása, napi szintű IT helpdesk feladatok ellátása. Hibajegyek kezelése, problémák diagnosztizálása és megoldása (szoftveres és alap infrastruktúra szinten), felhasználói jogosultságok kezelése, valamint általános IT adminisztrációs tevékenységek végzése. Kapcsolattartás a felhasználókkal és gyors, hatékony megoldások biztosítása.",
 
         part2:
           "PowerShell automatizáció és scripting: PowerShell alapú automatizációs megoldások fejlesztése a mindennapi IT folyamatok hatékonyabbá tételére. Ide tartozik szoftverek telepítésének és eltávolításának automatizálása, rendszer- és folyamatmonitorozás, valamint ismétlődő feladatok kiváltása scriptelt megoldásokkal. Cél a manuális munka csökkentése, a folyamatok gyorsítása és a hibalehetőségek minimalizálása.",

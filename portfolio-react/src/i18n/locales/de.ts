@@ -5,10 +5,8 @@ const de = {
       experience:
         "Ich habe als IT-Trainee bei Continental Automotive / Aumovio gearbeitet, wo ich praktische Erfahrungen in mehreren Bereichen gesammelt, zahlreiche Systemfehler identifiziert und aktiv an der Lösung realer technischer Probleme mitgewirkt habe.",
       experience_title: "Erfahrung",
-      aimaster_title: "AI-Meister?",
-      aimaster:
-        "ChatGPT ist mein bester Freund! Mit der Kraft unserer Freundschaft können wir uns in unglaublichem Tempo weiterentwickeln und erschaffen.",
-      degree_title: "Ausbildung",
+      aimaster_title: "AI Workflow",
+      aimaster:"Ich nutze KI-Tools, um die Entwicklung zu beschleunigen, neue Lösungen zu entdecken und meine Arbeitsabläufe effizienter zu gestalten.",      degree_title: "Ausbildung",
       degree:
         "Derzeit studiere ich Wirtschaftsinformatik im Bachelor und plane, mein Studium im Master in Informatik fortzusetzen, um meine Programmierkenntnisse weiter zu vertiefen.",
     },
@@ -48,7 +46,7 @@ const de = {
       title: "Erfahrung",
       conti: {
         post: "IT-Trainee",
-        title: "Continental Hungary Kft. // Aumovio Hungary Kft.",
+        title: "Continental Hungary Kft. / Aumovio Hungary Kft.",
         description:
           "Hauptaufgaben: Anwenderunterstützung, Erstellung von Automatisierungsskripten in PowerShell, Entwicklung von .NET-Webanwendungen, Erstellung von C#-Skripten sowie Entwicklung von APIs. User Support (Helpdesk / IT-Administrationsaufgaben):",
 
