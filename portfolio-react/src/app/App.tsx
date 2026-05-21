@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { TransitionProvider } from "./context/TransitionContext";
+import { TransitionProvider } from "./providers/TransitionProvider";
 
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import PageTransitionOverlay from "./components/PageTransitionOverlay";
+import Navbar from "../components/layout/Navbar/Navbar";
+import Footer from "../components/layout/Footer/Footer";
+import PageTransitionOverlay from "../components/transitions/PageTransitionOverlay/PageTransitionOverlay";
 
-import Home from "./pages/Home";
-import About from "./pages/About";
-import Experience from "./pages/Experience";
-import Projects from "./pages/Projects";
+import Home from "../features/home/Home";
+import About from "../features/about/About";
+import Experience from "../features/experience/Experience";
+import Projects from "../features/projects/Projects";
 
 function AppContent() {
   const location = useLocation();

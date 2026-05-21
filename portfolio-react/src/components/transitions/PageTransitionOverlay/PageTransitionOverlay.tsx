@@ -1,8 +1,8 @@
-import { useTransition } from "../context/TransitionContext";
-import "../styles/components/PageTransition.css";
+import { usePageTransition } from "../../../app/providers/TransitionProvider";
+import "./PageTransition.css";
 
 function PageTransitionOverlay() {
-  const { isTransitioning } = useTransition();
+  const { isTransitioning } = usePageTransition();
 
   return (
     <div className={`transition ${isTransitioning ? "active" : ""}`}>

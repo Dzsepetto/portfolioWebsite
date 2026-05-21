@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
-import "../styles/About.css";
+import "./About.css";
 
-import "../i18n";
+import "../../i18n";
 import { useTranslation } from "react-i18next";
-import carImg from "../assets/images/car.png";
+import carImg from "../../assets/images/car.png";
 
 export default function About() {
   const { t } = useTranslation();

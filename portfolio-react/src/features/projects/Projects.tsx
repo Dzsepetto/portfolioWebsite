@@ -1,7 +1,7 @@
-import "../styles/Projects.css";
+import "./Projects.css";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { projects } from "../config/projectsConfig";
+import { projects } from "./projects.data";
 
 export default function Projects() {
   const { t } = useTranslation();
@@ -36,8 +36,6 @@ export default function Projects() {
                   GitHub
                 </a>
                 )}
-                
-
 
                 {project.url2 && (
                   <a href={project.url2} target="_blank" rel="noreferrer">

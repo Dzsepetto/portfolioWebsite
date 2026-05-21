@@ -1,7 +1,7 @@
-import PortfolioIMG from "../assets/images/project-images/porfolio.png";
-import OnlineGamesIMG from "../assets/images/project-images/OnlineGames.png";
-import RikikiKingsIMG from "../assets/images/project-images/rikikikings.png";
-import ZORKAIMG from "../assets/images/project-images/Zorka.png"
+import PortfolioIMG from "../../assets/images/project-images/porfolio.png";
+import OnlineGamesIMG from "../../assets/images/project-images/OnlineGames.png";
+import RikikiKingsIMG from "../../assets/images/project-images/rikikikings.png";
+import ZORKAIMG from "../../assets/images/project-images/Zorka.png"
 
 export const projects = [
   {

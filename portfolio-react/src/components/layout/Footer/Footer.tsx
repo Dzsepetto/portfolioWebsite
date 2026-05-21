@@ -1,5 +1,5 @@
-import "../styles/components/Footer.css";
-import { socials } from "../config/socials";
+import "./Footer.css";
+import { socials } from "../../../lib/socials";
 import { useTranslation } from "react-i18next";
 
 type Language = "hu" | "en" | "de";

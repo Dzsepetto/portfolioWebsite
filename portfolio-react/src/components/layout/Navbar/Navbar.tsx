@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useTransition } from "../context/TransitionContext";
-import "../styles/components/Navbar.css";
-import { socials } from "../config/socials";
+import { usePageTransition } from "../../../app/providers/TransitionProvider";
+
+import "./Navbar.css";
+import { socials } from "../../../lib/socials";
 import { useTranslation } from "react-i18next";
 
 type Language = "hu" | "en" | "de";
@@ -10,7 +11,7 @@ type Language = "hu" | "en" | "de";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const { setIsTransitioning } = useTransition();
+  const { setIsTransitioning } = usePageTransition();
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng: Language) => {

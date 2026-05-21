@@ -1,7 +1,7 @@
-import "../styles/Home.css";
-import ProfileImage from "../assets/images/main.jpg";
+import "./Home.css";
+import ProfileImage from "../../assets/images/main.jpg";
 
-import "../i18n";
+import "../../i18n";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
 

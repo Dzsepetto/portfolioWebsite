@@ -19,10 +19,14 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
   );
 }
 
-export function useTransition() {
+export function usePageTransition() {
   const ctx = useContext(TransitionContext);
+
   if (!ctx) {
-    throw new Error("useTransition must be used within TransitionProvider");
+    throw new Error(
+      "usePageTransition must be used within TransitionProvider"
+    );
   }
+
   return ctx;
 }
