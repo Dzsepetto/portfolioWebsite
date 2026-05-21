@@ -1,23 +1,36 @@
 # Portfolio Website
-[Portfolio](https://www.pinterbenedek.hu)
 
-Portfolio website for myself, the creator.  
-A modern, responsive portfolio website built with React, focusing on clean design, maintainable code, and scalable architecture.
+[Live Website](https://www.pinterbenedek.hu)
 
----
+A responsive multilingual portfolio website built with React, TypeScript and Vite.
 
-## Introduction
+The goal of this project is to create a clean personal portfolio while also focusing on frontend architecture, reusable components, animated page transitions and maintainable project structure.
 
-This project is a personal portfolio website designed to present my projects, experience, and social presence in a clean and minimal way.
+## Tech Stack
 
-The main goal of this project is to **test and showcase my frontend development skills**.  
-This is my **first time working with React**.
+<img align="right" src="./images/readme.jpg" alt="Portfolio preview" width="260" />
 
----
+This project uses a modern React-based frontend stack:
 
-## Project Goals
+- **React** – component-based UI development
+- **TypeScript** – type safety and better maintainability
+- **Vite** – fast development server and production build
+- **React Router** – client-side routing between pages
+- **i18next / react-i18next** – multilingual support
+- **CSS3** – custom styling, responsive layout and animations
+- **Context API** – shared transition state management
+- **ESLint** – code quality and consistency
 
-- Create a modern, minimal, pale design
-- Ensure full responsiveness across devices
-- Use clear component separation
-- Keep the project easy to extend and maintain in the future
+<br clear="right" />
+
+## Project Structure
+
+```txt
+src/
+├── app/          # Application entry point and global providers
+├── assets/       # Fonts, images and SVG assets
+├── components/   # Shared layout, UI and transition components
+├── features/     # Page-level feature modules
+├── i18n/         # Translation setup and locale files
+├── lib/          # Shared configuration and reusable data
+└── styles/       # Global styles and font definitions
