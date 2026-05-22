@@ -86,6 +86,7 @@ export default function Navbar() {
           <span onClick={() => handleNavigate("/about")}>About</span>
           <span onClick={() => handleNavigate("/projects")}>Projects</span>
           <span onClick={() => handleNavigate("/experience")}>Experience</span>
+          <span onClick={() => handleNavigate("/lounge")}>Lounge</span>
 
           <div className="nav-dropdown">
             <span className="nav-dropdown-trigger">Socials</span>
