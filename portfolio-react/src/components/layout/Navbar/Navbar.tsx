@@ -83,10 +83,11 @@ export default function Navbar() {
         {/* CENTER: nav */}
         <div className="navbar-center">
           <span onClick={() => handleNavigate("/")}>Home</span>
+          <span onClick={() => handleNavigate("/lounge")}>Lounge</span>
           <span onClick={() => handleNavigate("/about")}>About</span>
           <span onClick={() => handleNavigate("/projects")}>Projects</span>
           <span onClick={() => handleNavigate("/experience")}>Experience</span>
-          <span onClick={() => handleNavigate("/lounge")}>Lounge</span>
+
 
           <div className="nav-dropdown">
             <span className="nav-dropdown-trigger">Socials</span>

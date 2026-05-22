@@ -14,8 +14,8 @@ function Player() {
     jump: false,
   });
 
-  // ✅ KEYBOARD INPUT + SCROLL FIX
   useEffect(() => {
+
     const down = (e: KeyboardEvent) => {
       if (e.code === "Space") e.preventDefault(); // ✅ NE scrollozzon!
 
@@ -49,21 +49,17 @@ function Player() {
     };
   }, []);
 
-  // 🔥 GLTF
   const { scene, animations } = useGLTF("/models/character.glb");
 
-  // 🔥 animok
   const { actions } = useAnimations(animations, group);
   const currentAction = useRef<any>(null);
 
-  // physics
   const velocity = useRef(new Vector3());
   const isOnGround = useRef(true);
 
   const speed = 0.05;
   const gravity = -0.01;
 
-  // ✅ induló anim
   useEffect(() => {
     if (!actions) return;
 
@@ -71,11 +67,19 @@ function Player() {
     idle?.reset().fadeIn(0.2).play();
     currentAction.current = idle;
   }, [actions]);
+  
+  function normalizeAngle(angle: number) {
+    return Math.atan2(Math.sin(angle), Math.cos(angle));
+  }
+
+  function lerpAngle(current: number, target: number, t: number) {
+    const diff = normalizeAngle(target - current);
+    return current + diff * t;
+  }
 
   useFrame(({ camera }) => {
     if (!group.current) return;
 
-    // 🎮 camera movement
     const forward = new Vector3();
     camera.getWorldDirection(forward);
     forward.y = 0;
@@ -99,11 +103,14 @@ function Player() {
       group.current.position.add(direction.clone().multiplyScalar(speed));
 
       const targetAngle = Math.atan2(direction.x, direction.z);
-      group.current.rotation.y +=
-        (targetAngle - group.current.rotation.y) * 0.15;
+
+      group.current.rotation.y = lerpAngle(
+        group.current.rotation.y,
+        targetAngle,
+        0.15
+      );
     }
 
-    // 🦘 jump
     if (keys.jump && isOnGround.current) {
       velocity.current.y = 0.2;
       isOnGround.current = false;
@@ -118,7 +125,6 @@ function Player() {
       isOnGround.current = true;
     }
 
-    // 🎬 anim
     let nextAction;
 
     if (!isOnGround.current) {
@@ -133,7 +139,6 @@ function Player() {
       currentAction.current = nextAction;
     }
 
-    // 🎥 camera
     const playerPos = group.current.position;
 
     const targetPos = new Vector3(

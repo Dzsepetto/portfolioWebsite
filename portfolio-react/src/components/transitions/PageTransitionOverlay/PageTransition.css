@@ -21,7 +21,7 @@ html, body{
   height: 100%;
   transform: scaleX(0);
   transform-origin: center;
-  background-image: url("../../assets/images/svg/Shoji.svg");
+  background-image: url("../../../assets/images/svg/Shoji.svg");
   background-repeat: no-repeat;
   background-size:cover;
   background-position: center center;

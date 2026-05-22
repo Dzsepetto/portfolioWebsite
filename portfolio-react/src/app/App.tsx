@@ -9,7 +9,8 @@ import Home from "../features/home/Home";
 import About from "../features/about/About";
 import Experience from "../features/experience/Experience";
 import Projects from "../features/projects/Projects";
-import Lounge from "../features/projects/Lounge/Lounge";
+import Lounge3D from "../features/lounge/Lounge3D";
+
 function AppContent() {
   const location = useLocation();
 
@@ -25,7 +26,7 @@ function AppContent() {
         <Route path="/about" element={<About />} />
         <Route path="/experience" element={<Experience />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/lounge" element = {<Lounge />} />
+       <Route path="/lounge" element={<Lounge3D />} />
       </Routes>
 
       {!isAboutPage && <Footer />}
