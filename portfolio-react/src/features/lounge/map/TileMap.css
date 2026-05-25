@@ -1,0 +1,61 @@
+.interact-hint {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-family: sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.project-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.project-modal {
+  position: relative;
+  background: white;
+  color: #111;
+  padding: 32px;
+  border-radius: 18px;
+  min-width: 360px;
+  max-width: 560px;
+  font-family: sans-serif;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.project-modal h2 {
+  margin: 0 0 12px;
+  font-size: 28px;
+}
+
+.project-modal p {
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.project-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  border: none;
+  background: transparent;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.project-modal-button {
+  border: none;
+  background: #111;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
