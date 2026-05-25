@@ -2,6 +2,8 @@
 
 [Live Website](https://www.pinterbenedek.hu)
 
+[Roadmap](./ROADMAP.md)
+
 A responsive multilingual portfolio website built with React, TypeScript and Vite.
 
 The goal of this project is to create a clean personal portfolio while also focusing on frontend architecture, reusable components, animated page transitions and maintainable project structure.
