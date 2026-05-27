@@ -13,6 +13,7 @@ const hu = {
     },
 
     about: {
+      title: "Rólam",
       hs_title: "Középiskola",
       hs:
         "Német kéttannyelvű gimnáziumban végeztem, ahol erős német és angol nyelvtudásra tettem szert.",

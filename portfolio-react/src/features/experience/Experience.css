@@ -142,11 +142,6 @@
   margin-bottom: 12px;
 }
 
-.exp-description span:hover {
-  color: #000;
-  transition: color 0.2s ease;
-}
-
 /* ===========================
    HOVER / FOCUS
 =========================== */
@@ -159,7 +154,21 @@ background-color: #eaeaea;
   outline: 3px solid rgba(169, 47, 56, 0.25);
   outline-offset: -3px;
 }
+.experience-container--compact {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
 
+.experience-container--compact .experience-list {
+  max-height: 52vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.experience-container--compact .exp-item {
+  background: #ffff;
+}
 /* ===========================
    RESPONSIVE
 =========================== */

@@ -3,15 +3,17 @@ import { useFrame } from "@react-three/fiber";
 import { useGLTF, Html } from "@react-three/drei";
 import { RigidBody, CuboidCollider } from "@react-three/rapier";
 import { Vector3 } from "three";
-import "./TileMap.css"
+
+import type { PortfolioSectionId } from "../../../lib/portfolioContent";
+
+import "./TileMap.css";
 
 const TILE_MODEL = "/models/floor/floor-wood.glb";
 
 type InteractBoxData = {
   position: [number, number, number];
   label: string;
-  title: string;
-  description: string;
+  sectionId: PortfolioSectionId;
 };
 
 function Tile({ position }: { position: [number, number, number] }) {
@@ -55,15 +57,34 @@ function InteractBox({
   );
 }
 
+const interactBoxes: InteractBoxData[] = [
+  {
+    position: [4, 0.75, 4],
+    label: "about",
+    sectionId: "about",
+  },
+  {
+    position: [-4, 0.75, 4],
+    label: "experience",
+    sectionId: "experience",
+  },
+  {
+    position: [4, 0.75, -4],
+    label: "projects",
+    sectionId: "projects",
+  },
+];
+
 export default function TileMap({
   playerPositionRef,
-  setMovementDisabled,
+  openSection,
+  isPanelOpen
 }: {
   playerPositionRef: React.MutableRefObject<Vector3>;
-  setMovementDisabled?: React.Dispatch<React.SetStateAction<boolean>>;
+  openSection: (sectionId: PortfolioSectionId) => void;
+  isPanelOpen: boolean;
 }) {
   const [nearBox, setNearBox] = useState<string | null>(null);
-  const [activeModal, setActiveModal] = useState<InteractBoxData | null>(null);
 
   const tileSize = 1.5;
   const mapSize = 12;
@@ -76,46 +97,11 @@ export default function TileMap({
     }
   }
 
-  const interactBoxes: InteractBoxData[] = [
-    {
-      position: [4, 0.75, 4],
-      label: "box-1",
-      title: "Project 1",
-      description: "Ide jön az első projekt leírása.",
-    },
-    {
-      position: [-4, 0.75, 4],
-      label: "box-2",
-      title: "Project 2",
-      description: "Ide jön a második projekt leírása.",
-    },
-    {
-      position: [4, 0.75, -4],
-      label: "box-3",
-      title: "Project 3",
-      description: "Ide jön a harmadik projekt leírása.",
-    },
-    {
-      position: [-4, 0.75, -4],
-      label: "box-4",
-      title: "Project 4",
-      description: "Ide jön a negyedik projekt leírása.",
-    },
-  ];
-
-  const openModal = (box: InteractBoxData) => {
-    setActiveModal(box);
-    setMovementDisabled?.(true);
-  };
-
-  const closeModal = () => {
-    setActiveModal(null);
-    setMovementDisabled?.(false);
-  };
-
   useFrame(() => {
-    if (activeModal) return;
-
+    if(isPanelOpen){
+      setNearBox(null);
+      return;
+    }
     let closestBox: string | null = null;
 
     for (const box of interactBoxes) {
@@ -133,20 +119,16 @@ export default function TileMap({
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.code === "Escape" && activeModal) {
-        closeModal();
-        return;
-      }
-
+      if (isPanelOpen) return;
       if (e.code !== "KeyE") return;
       if (!nearBox) return;
-      if (activeModal) return;
+
 
       const selectedBox = interactBoxes.find((box) => box.label === nearBox);
 
       if (!selectedBox) return;
 
-      openModal(selectedBox);
+      openSection(selectedBox.sectionId);
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -154,7 +136,7 @@ export default function TileMap({
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [nearBox, activeModal]);
+  }, [nearBox, openSection, isPanelOpen]);
 
   return (
     <>
@@ -172,25 +154,6 @@ export default function TileMap({
           isNear={nearBox === box.label}
         />
       ))}
-
-      {activeModal && (
-        <Html fullscreen>
-          <div className="project-modal-backdrop">
-            <div className="project-modal">
-              <button className="project-modal-close" onClick={closeModal}>
-                ×
-              </button>
-
-              <h2>{activeModal.title}</h2>
-              <p>{activeModal.description}</p>
-
-              <button className="project-modal-button" onClick={closeModal}>
-                Bezárás
-              </button>
-            </div>
-          </div>
-        </Html>
-      )}
     </>
   );
 }

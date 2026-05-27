@@ -14,6 +14,7 @@ const en = {
     },
 
     about: {
+      title: "About Me",
       hs_title: "High School",
       hs:
         "Graduated from a German bilingual high school, where I developed strong German and English skills.",

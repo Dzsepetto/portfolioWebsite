@@ -12,6 +12,7 @@ const de = {
     },
 
     about: {
+      title: "Über mich",
       hs_title: "Gymnasium",
       hs:
         "Ich habe ein deutsch-ungarisches zweisprachiges Gymnasium abgeschlossen, wo ich starke Deutsch- und Englischkenntnisse erworben habe.",
