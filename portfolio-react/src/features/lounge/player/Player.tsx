@@ -29,10 +29,17 @@ function Player({
   const isOnGround = useRef(true);
   const jumpRequested = useRef(false);
 
-  const baseSpeed = 3.2;
-  const boostSpeed = 5.2;
-  const jumpForce = 5;
+  // --- GÖRDESZKA PARAMÉTEREK ---
+  const acceleration = 18;       
+  const maxSpeed = 8.5;          
+  const maxBoostSpeed = 13.5;    
+  const decceleration = 1.2;     
+  const jumpForce = 7.5;         
   const jumpLockTimer = useRef(0);
+
+  // --- KANYARODÁSI PARAMÉTEREK ---
+  const maxSteeringSpeed = 4.0;  // Alap kanyarodási sebesség álló helyzetben / lassú tempónál
+  const minSteeringSpeed = 1.4;  // Minimális kanyarodási sebesség top speeden (száguldáskor)
 
   const boostTimer = useRef(0);
   const nextBoostTime = useRef(1.5 + Math.random() * 3);
@@ -42,6 +49,8 @@ function Player({
 
   const smoothPlayerPos = useRef(new Vector3());
   const smoothCameraPos = useRef(new Vector3());
+
+  const boardAngle = useRef(0);
 
   useEffect(() => {
     if (!movementDisabled) return;
@@ -111,15 +120,6 @@ function Player({
     currentAction.current = idle;
   }, [actions]);
 
-  function normalizeAngle(angle: number) {
-    return Math.atan2(Math.sin(angle), Math.cos(angle));
-  }
-
-  function lerpAngle(current: number, target: number, t: number) {
-    const diff = normalizeAngle(target - current);
-    return current + diff * t;
-  }
-
   function changeAction(nextAction: any, fade = 0.25, reset = true) {
     if (!nextAction || currentAction.current === nextAction) return;
 
@@ -136,33 +136,49 @@ function Player({
   useFrame(({ camera }, delta) => {
     if (!group.current || !rigidBody.current) return;
 
-    if (movementDisabled) {
-      rigidBody.current.setLinvel({ x: 0, y: 0, z: 0 }, true);
+    const currentVelocity = rigidBody.current.linvel();
+    const currentSpeedXZ = Math.sqrt(currentVelocity.x ** 2 + currentVelocity.z ** 2);
 
+    if (movementDisabled) {
+      rigidBody.current.setLinvel({ x: 0, y: currentVelocity.y, z: 0 }, true);
       const idle = actions?.Skate_Idle || actions?.Idle;
       changeAction(idle, 0.2, true);
-
       return;
     }
 
-    const forward = new Vector3();
-    camera.getWorldDirection(forward);
-    forward.y = 0;
-    forward.normalize();
+    // --- SEBESSÉG-ALAPÚ KANYARODÁS LOGIKA ---
+    const currentSpeedLimit = isBoosting.current ? maxBoostSpeed : maxSpeed;
+    
+    // Kiszámolunk egy 0 és 1 közötti értéket (0 = áll, 1 = végsebességgel száguld)
+    const speedFactor = Math.min(currentSpeedXZ / currentSpeedLimit, 1);
 
-    const right = new Vector3();
-    right.crossVectors(forward, new Vector3(0, 1, 0)).normalize();
+    // Lerp-eljük (lineárisan interpoláljuk) a kanyarodás sebességét a sebesség függvényében.
+    // Ha gyorsan mész, a minSteeringSpeed felé közelít, ha lassítasz, visszakapod a maxSteeringSpeed-et.
+    const dynamicSteeringSpeed = maxSteeringSpeed - (maxSteeringSpeed - minSteeringSpeed) * speedFactor;
+
+    // A/D kanyarodás az aktuálisan kiszámolt dinamikus sebességgel
+    if (keys.left) boardAngle.current += dynamicSteeringSpeed * delta;
+    if (keys.right) boardAngle.current -= dynamicSteeringSpeed * delta;
+
+    // Forgatás érvényesítése a modellen
+    group.current.rotation.y = boardAngle.current;
+
+    // Lokális irány kiszámítása
+    const boardForward = new Vector3(
+      Math.sin(boardAngle.current),
+      0,
+      Math.cos(boardAngle.current)
+    ).normalize();
 
     const direction = new Vector3();
 
-    if (keys.forward) direction.add(forward);
-    if (keys.backward) direction.sub(forward);
-    if (keys.left) direction.sub(right);
-    if (keys.right) direction.add(right);
+    if (keys.forward) direction.add(boardForward);
+    if (keys.backward) direction.sub(boardForward);
 
-    const moving = direction.lengthSq() > 0.0001;
+    const moving = keys.forward || keys.backward;
     const justStartedMoving = moving && !wasMoving.current;
 
+    // --- BOOST LOGIKA ---
     if (justStartedMoving && isOnGround.current) {
       isBoosting.current = true;
       boostDuration.current = 1.3;
@@ -188,82 +204,77 @@ function Player({
       if (boostDuration.current <= 0) isBoosting.current = false;
     }
 
-    const currentVelocity = rigidBody.current.linvel();
-
-    let moveX = 0;
-    let moveZ = 0;
-
+    // --- SEBESSÉG SZÁMÍTÁSA ---
     if (moving) {
       direction.normalize();
 
-      const currentSpeed = isBoosting.current ? boostSpeed : baseSpeed;
+      let targetX = currentVelocity.x + direction.x * acceleration * delta;
+      let targetZ = currentVelocity.z + direction.z * acceleration * delta;
 
-      moveX = direction.x * currentSpeed;
-      moveZ = direction.z * currentSpeed;
+      const newSpeedXZ = Math.sqrt(targetX ** 2 + targetZ ** 2);
+      if (newSpeedXZ > currentSpeedLimit) {
+        targetX = (targetX / newSpeedXZ) * currentSpeedLimit;
+        targetZ = (targetZ / newSpeedXZ) * currentSpeedLimit;
+      }
 
-      const targetAngle = Math.atan2(direction.x, direction.z);
+      rigidBody.current.setLinvel({ x: targetX, y: currentVelocity.y, z: targetZ }, true);
+    } else {
+      // --- GURULÁS ---
+      let slowX = currentVelocity.x * (1 - decceleration * delta);
+      let slowZ = currentVelocity.z * (1 - decceleration * delta);
 
-      group.current.rotation.y = lerpAngle(
-        group.current.rotation.y,
-        targetAngle,
-        0.15
-      );
+      if (Math.abs(slowX) < 0.08) slowX = 0;
+      if (Math.abs(slowZ) < 0.08) slowZ = 0;
+
+      rigidBody.current.setLinvel({ x: slowX, y: currentVelocity.y, z: slowZ }, true);
     }
 
+    // --- LENDÜLETMEGTARTÓ UGRÁS ---
     if (jumpRequested.current && isOnGround.current) {
       rigidBody.current.setLinvel(
         {
-          x: moveX,
-          y: jumpForce,
-          z: moveZ,
+          x: currentVelocity.x, 
+          y: jumpForce,         
+          z: currentVelocity.z, 
         },
         true
       );
 
       jumpRequested.current = false;
       isOnGround.current = false;
-      jumpLockTimer.current = 0.3;
+      jumpLockTimer.current = 0.2;
 
       isBoosting.current = false;
       boostDuration.current = 0;
 
       changeAction(actions?.Skate_Jump, 0.1, true);
-    } else {
-      rigidBody.current.setLinvel(
-        {
-          x: moveX,
-          y: currentVelocity.y,
-          z: moveZ,
-        },
-        true
-      );
     }
 
     const position = rigidBody.current.translation();
     playerPositionRef.current.set(position.x, position.y, position.z);
 
+    // --- RÁMPAKOMPATIBILIS TALAJ-ELLENŐRZÉS ---
     if (jumpLockTimer.current > 0) {
       jumpLockTimer.current -= delta;
     } else {
-      const groundedHeight = 1.15;
-      const verticalThreshold = 0.3;
-
-      isOnGround.current =
-        position.y <= groundedHeight &&
-        Math.abs(currentVelocity.y) < verticalThreshold;
+      const verticalVelocityThreshold = 4.0;
+      
+      isOnGround.current = 
+        currentVelocity.y > -verticalVelocityThreshold && 
+        currentVelocity.y <= 0.15;
     }
 
+    // --- ANIMÁCIÓK ---
     if (isOnGround.current) {
       let nextAction;
 
       if (moving && isBoosting.current) {
         nextAction = actions?.Skate_Boost || actions?.skate_boost;
-
         if (nextAction) {
           nextAction.timeScale = 0.7;
         }
       } else {
-        nextAction = moving
+        nextAction = currentSpeedXZ > 0.5
           ? actions?.Skate || actions?.Skate_Boost
           : actions?.Skate_Idle || actions?.Idle;
       }
@@ -273,8 +284,8 @@ function Player({
 
     wasMoving.current = moving;
 
+    // --- KAMERAKÖVETÉS ---
     const playerPos = new Vector3(position.x, position.y, position.z);
-
     smoothPlayerPos.current.lerp(playerPos, 1 - Math.exp(-12 * delta));
 
     const targetPos = new Vector3(
@@ -293,14 +304,14 @@ function Player({
     <RigidBody
       ref={rigidBody}
       type="dynamic"
-      position={[0, 1, 0]}
+      position={[0, 2, 0]}
       enabledRotations={[false, false, false]}
       colliders={false}
       canSleep={false}
-      linearDamping={4}
+      linearDamping={0.4}
       angularDamping={4}
     >
-      <CapsuleCollider args={[0.7, 0.45]} position={[0, 0.8, 0]} />
+      <CapsuleCollider args={[0.5, 0.45]} position={[0, 0.8, 0]} />
 
       <group ref={group} scale={1}>
         <primitive object={scene} />

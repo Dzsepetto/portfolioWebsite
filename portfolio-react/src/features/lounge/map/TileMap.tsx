@@ -9,6 +9,7 @@ import type { PortfolioSectionId } from "../../../lib/portfolioContent";
 import "./TileMap.css";
 
 const TILE_MODEL = "/models/floor/floor-wood.glb";
+const OBSTACLE_MODEL = "/models/floor/obstacle-box.glb";
 
 type InteractBoxData = {
   position: [number, number, number];
@@ -16,11 +17,24 @@ type InteractBoxData = {
   sectionId: PortfolioSectionId;
 };
 
+// Sima padló elem
 function Tile({ position }: { position: [number, number, number] }) {
   const { scene } = useGLTF(TILE_MODEL);
   const clonedScene = useMemo(() => scene.clone(true), [scene]);
 
-  return <primitive object={clonedScene} position={position} scale={3} />;
+  return <primitive object={clonedScene} position={position} scale={1.5} />;
+}
+
+
+function ObstacleTile({ position }: { position: [number, number, number] }) {
+  const { scene } = useGLTF(OBSTACLE_MODEL);
+  const clonedScene = useMemo(() => scene.clone(true), [scene]);
+
+  return (
+    <RigidBody type="fixed" position={position} colliders="trimesh">
+      <primitive object={clonedScene} position={[0, 0, 0]} scale={1.5} />
+    </RigidBody>
+  );
 }
 
 function FloorCollider() {
@@ -78,7 +92,7 @@ const interactBoxes: InteractBoxData[] = [
 export default function TileMap({
   playerPositionRef,
   openSection,
-  isPanelOpen
+  isPanelOpen,
 }: {
   playerPositionRef: React.MutableRefObject<Vector3>;
   openSection: (sectionId: PortfolioSectionId) => void;
@@ -89,16 +103,25 @@ export default function TileMap({
   const tileSize = 1.5;
   const mapSize = 12;
 
-  const tiles: [number, number, number][] = [];
+  // Külön választjuk a sima padlókat és az akadály padlókat
+  const normalTiles: [number, number, number][] = [];
+  const obstacleTiles: [number, number, number][] = [];
 
   for (let x = -mapSize; x <= mapSize; x++) {
     for (let z = -mapSize; z <= mapSize; z++) {
-      tiles.push([x * tileSize, 0, z * tileSize]);
+      const pos: [number, number, number] = [x * tileSize, 0, z * tileSize];
+      
+      // HA EZ A KÖZÉPSŐ TILE (x === 0 és z === 0)
+      if (x === 0 && z === 0) {
+        obstacleTiles.push(pos);
+      } else {
+        normalTiles.push(pos);
+      }
     }
   }
 
   useFrame(() => {
-    if(isPanelOpen){
+    if (isPanelOpen) {
       setNearBox(null);
       return;
     }
@@ -123,7 +146,6 @@ export default function TileMap({
       if (e.code !== "KeyE") return;
       if (!nearBox) return;
 
-
       const selectedBox = interactBoxes.find((box) => box.label === nearBox);
 
       if (!selectedBox) return;
@@ -142,8 +164,14 @@ export default function TileMap({
     <>
       <FloorCollider />
 
-      {tiles.map((position, index) => (
-        <Tile key={index} position={position} />
+      {/* Sima padló elemek renderelése */}
+      {normalTiles.map((position, index) => (
+        <Tile key={`tile-${index}`} position={position} />
+      ))}
+
+      {/* --- AZ AKADÁLY DOBOZ GENERÁLÁSA A KIJELÖLT HELYRE --- */}
+      {obstacleTiles.map((position, index) => (
+        <ObstacleTile key={`obstacle-tile-${index}`} position={position} />
       ))}
 
       {interactBoxes.map((box) => (
@@ -159,3 +187,4 @@ export default function TileMap({
 }
 
 useGLTF.preload(TILE_MODEL);
+useGLTF.preload(OBSTACLE_MODEL);
