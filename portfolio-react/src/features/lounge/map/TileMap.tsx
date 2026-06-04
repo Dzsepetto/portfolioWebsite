@@ -9,6 +9,7 @@ import type { PortfolioSectionId } from "../../../lib/portfolioContent";
 import "./TileMap.css";
 
 const TILE_MODEL = "/models/floor/floor-wood.glb";
+const RAMP_MODEL = "/models/basic_ramp.glb";
 
 type InteractBoxData = {
   position: [number, number, number];
@@ -27,6 +28,21 @@ function FloorCollider() {
   return (
     <RigidBody type="fixed" position={[0, -0.05, 0]} colliders={false}>
       <CuboidCollider args={[20, 0.05, 20]} />
+    </RigidBody>
+  );
+}
+function Ramp({ position }: { position: [number, number, number] }) {
+  const { scene } = useGLTF(RAMP_MODEL);
+  const clonedScene = useMemo(() => scene.clone(true), [scene]);
+
+  return (
+    <RigidBody
+      type="fixed"
+      position={position}
+      colliders="trimesh"
+      scale={1.5}
+    >
+      <primitive object={clonedScene} />
     </RigidBody>
   );
 }
@@ -145,7 +161,7 @@ export default function TileMap({
       {tiles.map((position, index) => (
         <Tile key={index} position={position} />
       ))}
-
+      <Ramp position={[8, 0, 4]} />
       {interactBoxes.map((box) => (
         <InteractBox
           key={box.label}
@@ -159,3 +175,4 @@ export default function TileMap({
 }
 
 useGLTF.preload(TILE_MODEL);
+useGLTF.preload(RAMP_MODEL);

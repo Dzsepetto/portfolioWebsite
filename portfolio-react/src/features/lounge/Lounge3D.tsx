@@ -28,7 +28,7 @@ function Scene() {
   return (
     <>
       <Canvas camera={{ position: [10, 12, 10], fov: 65 }}>
-        <Physics>
+        <Physics debug>
           <ambientLight intensity={1.5} />
           <directionalLight position={[5, 10, 5]} intensity={2} />
 
