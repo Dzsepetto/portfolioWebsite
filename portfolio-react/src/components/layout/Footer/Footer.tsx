@@ -37,18 +37,6 @@ function Footer() {
             </span>
           </div>
 
-          {/* LANGUAGES */}
-          <div className="footer-column">
-            <h4>{t("footer.languages")}</h4>
-
-            <ul className="footer-skills">
-              <li>C#</li>
-              <li>.NET</li>
-              <li>Python</li>
-              <li>PowerShell</li>
-            </ul>
-          </div>
-
           {/* SOCIAL */}
           <div className="footer-column">
             <h4>{t("footer.social")}</h4>

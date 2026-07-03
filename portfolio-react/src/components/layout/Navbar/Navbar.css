@@ -248,6 +248,9 @@ font-family: "Bangers", system-ui, sans-serif; font-size: 24px; letter-spacing: 
   .navbar-center {
     display: none;
   }
+  .navbar-container{
+    padding: 10px 14px;
+  }
 
   .navbar-right {
     width: auto;
