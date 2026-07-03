@@ -21,7 +21,7 @@ const hu = {
       uni:
         "Jelenleg gazdaságinformatikát tanulok, a szoftverfejlesztésre, adatbázisokra és valós projektek megvalósítására fókuszálva.",
 
-      work_title: "IT gyakornok – Continental Automotive / Aumovio",
+      work_title: "IT gyakornok – Continental Automotive",
       work:
         "Gyakorlati tapasztalat szerzése több területen, rendszerhibák felismerése és valós technikai problémák megoldásában való részvétel.",
 

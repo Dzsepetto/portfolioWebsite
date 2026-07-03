@@ -20,7 +20,7 @@ const de = {
       uni:
         "Derzeit studiere ich Wirtschaftsinformatik mit Fokus auf Softwareentwicklung, Datenbanken und die Umsetzung realer Projekte.",
 
-      work_title: "IT-Trainee – Continental Automotive / Aumovio",
+      work_title: "IT-Trainee – Continental Automotive",
       work:
         "Praktische Erfahrungen in verschiedenen Bereichen, Erkennung von Systemfehlern und Mitwirkung bei der Lösung realer technischer Probleme.",
 

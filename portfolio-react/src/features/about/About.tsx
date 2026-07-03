@@ -174,7 +174,7 @@ export default function About() {
           <article className="timeline-card down">
             <div className="card-content">
               <div className="timeline-meta">
-                <span className="timeline-date">2022 –</span>
+                <span className="timeline-date">2022 – 2026</span>
                 <span className="timeline-tag edu">{t("about.tag.edu")}</span>
               </div>
               <h2>{t("about.uni_title")}</h2>
@@ -185,7 +185,7 @@ export default function About() {
           <article className="timeline-card up">
             <div className="card-content">
               <div className="timeline-meta">
-                <span className="timeline-date">2023 –</span>
+                <span className="timeline-date">2023 – 2026</span>
                 <span className="timeline-tag work">{t("about.tag.work")}</span>
               </div>
               <h2>{t("about.work_title")}</h2>

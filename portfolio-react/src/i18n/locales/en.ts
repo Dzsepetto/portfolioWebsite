@@ -48,7 +48,7 @@ const en = {
       title: "Experience",
       conti: {
         post: "IT Trainee",
-        title: "Continental Hungary Kft. / Aumovio Hungary Kft.",
+        title: "Continental Hungary Kft.",
         description:
           "Main responsibilities: user support, writing automation scripts in PowerShell, developing .NET web applications, creating C# scripts, and building APIs. User Support (Helpdesk / IT administration tasks):",
 
