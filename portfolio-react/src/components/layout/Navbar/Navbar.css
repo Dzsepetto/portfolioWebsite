@@ -19,13 +19,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 24px;
 }
 
-
-.navbar-left {
+.navbar-left,
+.navbar-right {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
+
+/* ========================= */
+/* LANGUAGE SWITCH */
+/* ========================= */
 
 .lang-switch {
   display: inline-flex;
@@ -49,7 +55,7 @@
 
 .lang-btn:hover {
   opacity: 1;
-  color:#C33742;
+  color: #C33742;
 }
 
 .lang-btn.active {
@@ -57,23 +63,18 @@
   opacity: 1;
 }
 
-.mobile-lang {
-  display: flex;
-  gap: 10px;
-  margin: 12px 0;
-}
-
 /* ========================= */
-/* CENTER – LINKS (80%) */
+/* CENTER LINKS */
 /* ========================= */
 
 .navbar-center {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  align-items: center;
+  gap: clamp(10px, 2vw, 30px);
   flex: 1;
+  min-width: 0;
 }
-
 
 .navbar-center span,
 .nav-dropdown-trigger {
@@ -81,11 +82,11 @@
   align-items: center;
   justify-content: center;
 
-  height: 40px;         
-  line-height: 1;        
+  height: 40px;
+  line-height: 1;
 
   font-family: "Bangers", system-ui, sans-serif;
-  font-size: 24px;
+  font-size: clamp(17px, 2vw, 24px);
   letter-spacing: 0.05em;
   color: #2B2B2B;
   cursor: pointer;
@@ -95,13 +96,14 @@
   border: 1px solid rgba(234, 234, 234, 0.25);
   border-radius: 16px;
 
-  padding: 0 12px;   
+  padding: 0 clamp(8px, 1vw, 12px);
+  white-space: nowrap;
 }
 
-.navbar-center span:hover, .nav-dropdown-trigger:hover{
+.navbar-center span:hover,
+.nav-dropdown-trigger:hover {
   color: #C33742;
 }
-
 
 /* ========================= */
 /* DROPDOWN */
@@ -109,6 +111,9 @@
 
 .nav-dropdown {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .nav-dropdown::after {
@@ -119,6 +124,7 @@
   width: 100%;
   height: 12px;
 }
+
 .dropdown-arrow {
   font-size: 14px;
   transition: transform 0.2s ease;
@@ -178,30 +184,26 @@
 }
 
 /* ========================= */
-/* RIGHT – BURGER (10%) */
+/* BURGER */
 /* ========================= */
-
-.navbar-right {
-  display: flex;
-  justify-content: flex-end;
-}
-
 
 .navbar-toggle {
   display: none;
-  background: none;
   border: none;
   font-size: 28px;
   cursor: pointer;
   color: #2B2B2B;
+
   background: rgba(234, 234, 234, 0.3);
   backdrop-filter: blur(10px);
-
   border: 1px solid rgba(234, 234, 234, 0.25);
   border-radius: 16px;
 
+  width: 46px;
+  height: 46px;
 }
-.navbar-toggle:active{
+
+.navbar-toggle:active {
   color: #C33742;
 }
 
@@ -211,8 +213,8 @@
 
 .navbar-mobile {
   position: absolute;
-  top: 88px;
-  right: 24px;
+  top: 72px;
+  right: 16px;
 
   background: #EAEAEA;
   border: 1px solid #D8D8D8;
@@ -223,6 +225,7 @@
   gap: 16px;
   padding: 24px;
 
+  min-width: 210px;
   z-index: 200;
 }
 
@@ -232,7 +235,17 @@
 
 .navbar-mobile span,
 .mobile-socials {
-font-family: "Bangers", system-ui, sans-serif; font-size: 24px; letter-spacing: 0.05em; color: #2B2B2B; text-decoration: none; position: relative; cursor: pointer;
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: 24px;
+  letter-spacing: 0.05em;
+  color: #2B2B2B;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  text-align: left;
 }
 
 .navbar-mobile span:hover,
@@ -241,26 +254,114 @@ font-family: "Bangers", system-ui, sans-serif; font-size: 24px; letter-spacing: 
 }
 
 /* ========================= */
-/* RESPONSIVE */
+/* TABLET / SMALL LAPTOP */
 /* ========================= */
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+  .navbar-container {
+    padding: 22px 28px;
+    gap: 16px;
+  }
+
+  .navbar-center {
+    gap: 12px;
+  }
+
+  .navbar-center span,
+  .nav-dropdown-trigger {
+    font-size: 19px;
+    padding: 0 9px;
+  }
+
+  .lang-btn {
+    padding: 7px 8px;
+    font-size: 13px;
+  }
+}
+
+/* ========================= */
+/* TABLET PORTRAIT */
+/* ========================= */
+
+@media (max-width: 900px) {
   .navbar-center {
     display: none;
   }
-  .navbar-container{
-    padding: 10px 14px;
+
+  .navbar-container {
+    padding: 16px 22px;
   }
 
-  .navbar-right {
-    width: auto;
+  .navbar-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .navbar-right {
     margin-left: auto;
   }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 600px) {
+  .navbar {
+    height: 70px;
+  }
+
+  .navbar-container {
+    padding: 10px 14px;
+  }
+
+  .lang-switch {
+    gap: 4px;
+    padding: 5px;
+  }
+
+  .lang-btn {
+    padding: 7px 8px;
+    font-size: 12px;
+  }
 
   .navbar-toggle {
-    display: block;
+    width: 42px;
+    height: 42px;
+    font-size: 25px;
+  }
+
+  .navbar-mobile {
+    top: 64px;
+    right: 14px;
+    left: 14px;
+    width: auto;
+    padding: 22px;
+  }
+}
+
+/* ========================= */
+/* VERY SMALL MOBILE */
+/* ========================= */
+
+@media (max-width: 360px) {
+  .navbar-container {
+    padding: 10px;
+  }
+
+  .lang-btn {
+    padding: 6px 7px;
+    font-size: 11px;
+  }
+
+  .navbar-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .navbar-mobile span,
+  .mobile-socials {
+    font-size: 22px;
   }
 }
