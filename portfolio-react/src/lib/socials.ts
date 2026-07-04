@@ -1,6 +1,6 @@
-import GitHubIcon from "../assets/images/svg/githubIcon.svg";
-import LinkedInIcon from "../assets/images/svg/linkedinIcon.svg";
-import FacebookIcon from "../assets/images/svg/facebookIcon.svg";
+import GitHubIcon from "../assets/images/svg/githubIcon.svg?react";
+import LinkedInIcon from "../assets/images/svg/linkedinIcon.svg?react";
+import FacebookIcon from "../assets/images/svg/facebookIcon.svg?react";
 
 export const socials = [
   {

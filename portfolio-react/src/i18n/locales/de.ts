@@ -65,7 +65,10 @@ const de = {
       contact: "Kontakt",
       languages: "Programmiersprachen",
       social: "Soziale Netzwerke",
-      cv: "Lebenslauf",
+      cv: {
+        title: "Lebenslauf", 
+        desc: "Lebenslauf ansehen"
+      }
     },
 
     projects: {

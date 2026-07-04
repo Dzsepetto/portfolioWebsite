@@ -42,23 +42,27 @@ function Footer() {
             <h4>{t("footer.social")}</h4>
 
             <div className="footer-social">
-              {socials.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={item.name}
-                >
-                  <img src={item.icon} alt={item.name} />
-                </a>
-              ))}
+              {socials.map((item) => {
+                  const Icon = item.icon;
+
+                  return (
+                    <a
+                      key={item.name}
+                      href={item.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={item.name}
+                    >
+                      <Icon className="social-icon" />
+                    </a>
+                  );
+                })}
             </div>
           </div>
 
           {/* CV */}
           <div className="footer-column">
-            <h4>{t("footer.cv")}</h4>
+            <h4>{t("footer.cv.title")}</h4>
 
             <div className="footer-cv-wrapper">
               <a
@@ -67,7 +71,7 @@ function Footer() {
                 rel="noreferrer"
                 className="footer-cv"
               >
-                {t("footer.cv")}
+                {t("footer.cv.desc")}
               </a>
             </div>
           </div>

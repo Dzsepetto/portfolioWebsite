@@ -66,7 +66,10 @@ const hu = {
       contact: "Keress meg",
       languages: "Programozási Nyelvek",
       social: "Közösségi Oldalak",
-      cv: "Önéletrajz",
+      cv: {
+        title: "Önéletrajz", 
+        desc: "Önéletrajz megjelenítése"
+      }
     },
 
     projects: {

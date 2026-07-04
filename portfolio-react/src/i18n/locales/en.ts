@@ -67,7 +67,10 @@ const en = {
       contact: "Contact Me",
       languages: "Programming Languages",
       social: "Socials",
-      cv: "CV",
+      cv: {
+        title: "CV", 
+        desc: "Show CV"
+      }
     },
 
     projects: {
