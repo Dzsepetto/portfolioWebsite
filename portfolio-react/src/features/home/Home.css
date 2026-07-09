@@ -17,11 +17,6 @@
   justify-content: center;
   position: relative;
   padding: 100px 0;
-
-  background-image: url("../../assets/images/temp_BG.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 /* ========================= */
@@ -168,14 +163,6 @@
   transition: background 0.25s ease;
 }
 
-.home-card:hover {
-  background: linear-gradient(
-    to bottom,
-    rgba(234, 234, 234, 0.2),
-    rgba(234, 234, 234, 0.1)
-  );
-}
-
 /* ========================= */
 /* CARD TEXT */
 /* ========================= */
@@ -193,17 +180,9 @@
 .home-card p {
   font-size: 16px;
   line-height: 1.7;
-  color: #d0d0d0;
+  color: #eaeaea;
   transition: color 0.25s ease;
   margin: 0;
-}
-
-.home-card:hover h3 {
-  color: #c33742;
-}
-
-.home-card:hover p {
-  color: #eaeaea;
 }
 
 /* ========================= */

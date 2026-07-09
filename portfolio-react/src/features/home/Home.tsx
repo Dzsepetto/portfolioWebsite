@@ -1,5 +1,6 @@
 import "./Home.css";
-import ProfileImage from "../../assets/images/main.jpg";
+import ProfileImage from "../../assets/images/main.webp";
+import ProfileAvatar from "../../assets/images/main-320.webp";
 
 import "../../i18n";
 import { useTranslation } from "react-i18next";
@@ -32,12 +33,17 @@ export default function Home() {
             <div className="avatar-wrapper">
               {!avatarLoaded && <div className="skeleton skeleton-avatar" />}
 
-              <img
-                className={`home-avatar ${avatarLoaded ? "loaded" : ""}`}
-                src={ProfileImage}
-                alt="Profile"
-                onLoad={() => setAvatarLoaded(true)}
-              />
+                  <img
+                    className={`home-avatar ${avatarLoaded ? "loaded" : ""}`}
+                    src={ProfileAvatar}
+                    alt="Profile"
+                    width={66}
+                    height={99}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    onLoad={() => setAvatarLoaded(true)}
+                  />
             </div>
 
             <h1>{t("home.title")}</h1>

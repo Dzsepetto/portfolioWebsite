@@ -11,7 +11,7 @@ type Language = "hu" | "en" | "de";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const { setIsTransitioning } = usePageTransition();
+  const { startTransition } = usePageTransition();
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng: Language) => {
@@ -20,18 +20,13 @@ export default function Navbar() {
     i18n.changeLanguage(lng);
   };
 
+
   const handleNavigate = (path: string) => {
-    setIsTransitioning(true);
-
-    setTimeout(() => {
-      navigate(path);
-    }, 500);
-
-    setTimeout(() => {
-      setIsTransitioning(false);
-      setMenuOpen(false);
-    }, 1100);
-  };
+  startTransition(() => {
+    navigate(path);
+    setMenuOpen(false);
+  });
+};
 
   const scrollToFooter = () => {
     const footer = document.getElementById("footer");

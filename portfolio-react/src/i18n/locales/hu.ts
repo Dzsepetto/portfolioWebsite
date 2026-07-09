@@ -8,9 +8,8 @@ const hu = {
       aimaster_title: "AI munkafolyamat",
       aimaster: "AI eszközöket használok a fejlesztés felgyorsítására, új megoldások felfedezésére és a munkafolyamataim hatékonyabbá tételére.",
       degree_title: "Végzettség",
-      degree:
-        "Jelenleg gazdaságinformatikus alapképzést végzek, és terveim szerint programtervező informatikus mesterszakon folytatom tanulmányaimat, hogy tovább mélyítsem programozási ismereteimet.",
-    },
+degree:
+  "Gazdaságinformatikus alapképzésen (BSc) szereztem diplomát, amely során erős alapokat szereztem a szoftverfejlesztés, az adatbázisok, a rendszerelemzés és az üzleti informatika területén."    },
 
     about: {
       hs_title: "Középiskola",
@@ -19,8 +18,7 @@ const hu = {
 
       uni_title: "BSc – Gazdaságinformatika",
       uni:
-        "Jelenleg gazdaságinformatikát tanulok, a szoftverfejlesztésre, adatbázisokra és valós projektek megvalósítására fókuszálva.",
-
+        "Gazdaságinformatikus BSc diplomámat sikeresen megszereztem, amely során gyakorlati tapasztalatot szereztem modern webalkalmazások fejlesztésében, adatbázis-kezelésben és különböző szoftverfejlesztési projektek megvalósításában.",
       work_title: "IT gyakornok – Continental Automotive",
       work:
         "Gyakorlati tapasztalat szerzése több területen, rendszerhibák felismerése és valós technikai problémák megoldásában való részvétel.",
@@ -90,6 +88,10 @@ const hu = {
     zorka: {
       title: "Zorka Webshop",
       description: "Egy Flask alapú webshop alkalmazás, amelyet egy barátommal közösen fejlesztettünk. Tartalmaz REST API-t, dinamikus termékmegjelenítést, szűrési és rendezési funkciókat, valamint reszponzív felhasználói felületet. A projekt során a tiszta architektúrára és a jól karbantartható kódra helyeztük a hangsúlyt."
+    },
+    nas: {
+      title: "Nas Monitoring",
+      description: "Pi NAS Monitoring egy saját fejlesztésű webes monitoring rendszer Raspberry Pi alapú NAS szerverekhez. A projekt célja, hogy egy modern, reszponzív felületen jelenítse meg a háttértárak állapotát, tárhelyhasználatát, rendszerinformációkat és a Hard Disk Sentinel által szolgáltatott adatokat. A backend ASP.NET Core Web API-ra, a frontend Reactre épül, a biztonságos távoli elérést pedig egy privát Tailscale hálózat biztosítja. A projekt jelenleg is aktív fejlesztés alatt áll, a cél egy könnyen telepíthető és bővíthető NAS monitoring megoldás létrehozása."
     },
     },
   },

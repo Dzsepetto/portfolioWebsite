@@ -12,5 +12,4 @@ function PageTransitionOverlay() {
   );
 }
 
-
 export default PageTransitionOverlay;

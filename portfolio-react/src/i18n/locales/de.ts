@@ -8,8 +8,8 @@ const de = {
       aimaster_title: "AI Workflow",
       aimaster:"Ich nutze KI-Tools, um die Entwicklung zu beschleunigen, neue Lösungen zu entdecken und meine Arbeitsabläufe effizienter zu gestalten.",      degree_title: "Ausbildung",
       degree:
-        "Derzeit studiere ich Wirtschaftsinformatik im Bachelor und plane, mein Studium im Master in Informatik fortzusetzen, um meine Programmierkenntnisse weiter zu vertiefen.",
-    },
+        "Ich habe einen Bachelorabschluss (B.Sc.) in Wirtschaftsinformatik erworben und dabei fundierte Kenntnisse in den Bereichen Softwareentwicklung, Datenbanken, Systemanalyse und Wirtschaftsinformatik aufgebaut."
+      },
 
     about: {
       hs_title: "Gymnasium",
@@ -18,8 +18,7 @@ const de = {
 
       uni_title: "BSc – Wirtschaftsinformatik",
       uni:
-        "Derzeit studiere ich Wirtschaftsinformatik mit Fokus auf Softwareentwicklung, Datenbanken und die Umsetzung realer Projekte.",
-
+        "Ich habe mein Bachelorstudium der Wirtschaftsinformatik erfolgreich abgeschlossen und dabei praktische Erfahrungen in der Entwicklung moderner Webanwendungen, im Datenbankmanagement sowie in der Umsetzung verschiedener Softwareprojekte gesammelt.",
       work_title: "IT-Trainee – Continental Automotive",
       work:
         "Praktische Erfahrungen in verschiedenen Bereichen, Erkennung von Systemfehlern und Mitwirkung bei der Lösung realer technischer Probleme.",
@@ -89,6 +88,10 @@ const de = {
       zorka: {
       title: "Zorka Webshop",
       description: "Eine Flask-basierte Webshop-Anwendung, die gemeinsam mit einem Freund entwickelt wurde. Sie umfasst eine REST-API, dynamische Produktdarstellung, Filter- und Sortierfunktionen sowie eine responsive Benutzeroberfläche. Der Fokus lag auf einer sauberen Architektur und gut wartbarem Code."},
+    },
+    nas: {
+      title: "NAS-Überwachung",
+      description: "Pi NAS Monitoring ist ein selbst entwickeltes webbasiertes Überwachungssystem für Raspberry Pi-basierte NAS-Server. Ziel des Projekts ist es, den Zustand der Speicherlaufwerke, die Speichernutzung, Systeminformationen sowie die von Hard Disk Sentinel bereitgestellten Gesundheitsdaten über eine moderne und responsive Benutzeroberfläche darzustellen. Das Backend basiert auf ASP.NET Core Web API, während das Frontend mit React entwickelt wurde. Der sichere Fernzugriff erfolgt über ein privates Tailscale-Netzwerk. Das Projekt befindet sich derzeit in aktiver Entwicklung und verfolgt das Ziel, eine leichtgewichtige, einfach bereitzustellende und erweiterbare NAS-Monitoring-Lösung zu schaffen."
     },
   },
 };

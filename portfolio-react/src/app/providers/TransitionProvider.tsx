@@ -1,8 +1,14 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
 
 type TransitionContextType = {
   isTransitioning: boolean;
-  setIsTransitioning: (value: boolean) => void;
+  startTransition: (callback: () => void) => void;
 };
 
 const TransitionContext = createContext<TransitionContextType | undefined>(
@@ -12,8 +18,37 @@ const TransitionContext = createContext<TransitionContextType | undefined>(
 export function TransitionProvider({ children }: { children: ReactNode }) {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
+  const lastTransition = useRef(0);
+
+  const startTransition = (callback: () => void) => {
+    const now = Date.now();
+
+    // 5 mp-en belül nincs animáció
+    if (now - lastTransition.current < 3000) {
+      callback();
+      return;
+    }
+
+    lastTransition.current = now;
+
+    setIsTransitioning(true);
+
+    setTimeout(() => {
+      callback();
+    }, 500);
+
+    setTimeout(() => {
+      setIsTransitioning(false);
+    }, 1100);
+  };
+
   return (
-    <TransitionContext.Provider value={{ isTransitioning, setIsTransitioning }}>
+    <TransitionContext.Provider
+      value={{
+        isTransitioning,
+        startTransition,
+      }}
+    >
       {children}
     </TransitionContext.Provider>
   );

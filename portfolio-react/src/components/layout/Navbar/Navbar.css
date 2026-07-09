@@ -61,6 +61,7 @@
 .lang-btn.active {
   background: rgba(255, 255, 255, 0.18);
   opacity: 1;
+  color: #C33742;
 }
 
 /* ========================= */
@@ -91,9 +92,9 @@
   color: #2B2B2B;
   cursor: pointer;
 
-  background: rgba(234, 234, 234, 0.3);
+  background: rgba(234, 234, 234, 0.45);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(234, 234, 234, 0.25);
+  border: 1px solid rgba(234, 234, 234, 0.5);
   border-radius: 16px;
 
   padding: 0 clamp(8px, 1vw, 12px);
@@ -102,6 +103,9 @@
 
 .navbar-center span:hover,
 .nav-dropdown-trigger:hover {
+  color: #C33742;
+}
+.navbar-center span.active {
   color: #C33742;
 }
 
@@ -245,7 +249,7 @@
   background: none;
   border: none;
   padding: 0;
-  text-align: left;
+  text-align: center;
 }
 
 .navbar-mobile span:hover,

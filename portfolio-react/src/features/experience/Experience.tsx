@@ -19,7 +19,7 @@ export default function Experience() {
               </div>
 
               <div className="exp-right">
-                <span className="exp-period">2023 –</span>
+                <span className="exp-period">2023 – 2026</span>
                 <span className="exp-chevron" aria-hidden="true">▾</span>
               </div>
             </summary>

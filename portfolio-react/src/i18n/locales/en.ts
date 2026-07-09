@@ -10,8 +10,8 @@ const en = {
         "I use AI tools to speed up development, explore solutions, and improve my workflow.",
       degree_title: "Degree",
       degree:
-        "I am currently completing my BSc in Business Informatics and plan to pursue a Master’s degree in Computer Science to deepen my understanding of programming.",
-    },
+        "I hold a Bachelor's degree (BSc) in Business Informatics, where I gained a solid foundation in software development, databases, systems analysis, and business information systems."
+},
 
     about: {
       hs_title: "High School",
@@ -19,9 +19,8 @@ const en = {
         "Graduated from a German bilingual high school, where I developed strong German and English skills.",
 
       uni_title: "BSc – Business Informatics",
-      uni:
-        "Currently studying Business Informatics, focusing on software development, databases, and building real-world projects.",
-
+uni:
+  "I successfully completed my Bachelor's degree in Business Informatics, gaining practical experience in modern web application development, database management, and the implementation of various software development projects.",
       work_title: "IT Trainee – Continental Automotive / Aumovio",
       work:
         "Hands-on experience across multiple fields, identifying system issues and contributing to real technical problem-solving.",
@@ -91,6 +90,10 @@ const en = {
       zorka: {
       title: "Zorka Webshop",
       description: "A Flask-based webshop application developed collaboratively with a friend. It includes a REST API, dynamic product rendering, filtering and sorting features, and a responsive user interface. The project focuses on clean architecture and maintainable code."},
+    },
+    nas: {
+      title: "NAS Monitoring",
+      description: "Pi NAS Monitoring is a self-developed web-based monitoring system for Raspberry Pi powered NAS servers. The project aims to provide a modern, responsive interface for monitoring storage devices, disk usage, system information, and Hard Disk Sentinel health data. The backend is built with ASP.NET Core Web API, while the frontend is developed using React. Secure remote access is provided through a private Tailscale network. The project is actively under development, with the goal of creating a lightweight, easy-to-deploy, and extensible NAS monitoring solution."
     },
   },
 };

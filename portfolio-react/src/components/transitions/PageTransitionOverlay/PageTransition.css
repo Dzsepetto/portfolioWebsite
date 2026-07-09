@@ -1,9 +1,5 @@
-html, body{
-  padding: 0;
-  margin: 0;
-}
-
-html, body{
+html,
+body {
   padding: 0;
   margin: 0;
 }
@@ -20,10 +16,9 @@ html, body{
   width: 50%;
   height: 100%;
   transform: scaleX(0);
-  transform-origin: center;
-  background-image: url("../../assets/images/svg/Shoji.svg");
+  background-image: url("../../../assets/images/svg/Shoji.svg");
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background-position: center center;
 }
 
@@ -35,12 +30,12 @@ html, body{
   transform-origin: right;
 }
 
-.transition.active .left {
+.transition.active .panel.left {
   animation: closeLeft 0.6s ease forwards,
              openLeft 0.6s ease 0.7s forwards;
 }
 
-.transition.active .right {
+.transition.active .panel.right {
   animation: closeRight 0.6s ease forwards,
              openRight 0.6s ease 0.7s forwards;
 }
@@ -63,4 +58,55 @@ html, body{
 @keyframes openRight {
   from { transform: scaleX(1); }
   to { transform: scaleX(0); }
+}
+
+/* MOBILE: fentről-lentről záródik */
+@media (max-width: 900px) {
+  .transition {
+    flex-direction: column;
+  }
+
+  .panel {
+    width: 100%;
+    height: 50%;
+    transform: scaleY(0);
+  }
+
+  .panel.left {
+    transform-origin: top;
+  }
+
+  .panel.right {
+    transform-origin: bottom;
+  }
+
+  .transition.active .panel.left {
+    animation: closeTop 0.6s ease forwards,
+               openTop 0.6s ease 0.7s forwards;
+  }
+
+  .transition.active .panel.right {
+    animation: closeBottom 0.6s ease forwards,
+               openBottom 0.6s ease 0.7s forwards;
+  }
+
+  @keyframes closeTop {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+
+  @keyframes closeBottom {
+    from { transform: scaleY(0); }
+    to { transform: scaleY(1); }
+  }
+
+  @keyframes openTop {
+    from { transform: scaleY(1); }
+    to { transform: scaleY(0); }
+  }
+
+  @keyframes openBottom {
+    from { transform: scaleY(1); }
+    to { transform: scaleY(0); }
+  }
 }

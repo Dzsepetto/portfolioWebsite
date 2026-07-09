@@ -8,10 +8,6 @@
     #0E2A40
   );
   */
-  background-image: url("../../assets/images/temp_BG.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 0% center;
   padding: 120px 40px;
 }
 
@@ -226,10 +222,11 @@
     margin-bottom: 50px;
   }
 
-  .projects-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+ .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
+
 
   .project-footer {
     font-size: 18px;

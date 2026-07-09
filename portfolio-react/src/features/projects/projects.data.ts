@@ -1,7 +1,8 @@
-import PortfolioIMG from "../../assets/images/project-images/porfolio.png";
-import OnlineGamesIMG from "../../assets/images/project-images/OnlineGames.png";
-import RikikiKingsIMG from "../../assets/images/project-images/rikikikings.png";
-import ZORKAIMG from "../../assets/images/project-images/Zorka.png"
+import PortfolioIMG from "../../assets/images/project-images/porfolio.webp";
+import OnlineGamesIMG from "../../assets/images/project-images/OnlineGames.webp";
+import RikikiKingsIMG from "../../assets/images/project-images/rikikikings.webp";
+//import ZORKAIMG from "../../assets/images/project-images/Zorka.webp"
+import DASHBOARDIMG from "../../assets/images/project-images/nas-monitoring.webp"
 
 export const projects = [
   {
@@ -26,11 +27,11 @@ export const projects = [
     color: "#2B2B2B",
     descriptionKey: "projects.quiz.description",
   },
-    {
-    titleKey: "projects.zorka.title",
-    image: ZORKAIMG,
-    url2: "https://zokrakreativ.onrender.com/",
+  {
+    titleKey: "projects.nas.title",
+    image: DASHBOARDIMG,
+    url: "https://github.com/Dzsepetto/pi-nas-monitoring",
     color: "#2B2B2B",
-    descriptionKey: "projects.zorka.description",
+    descriptionKey: "projects.nas.description",
   },
 ];

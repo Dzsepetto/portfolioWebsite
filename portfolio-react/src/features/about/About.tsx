@@ -3,7 +3,7 @@ import "./About.css";
 
 import "../../i18n";
 import { useTranslation } from "react-i18next";
-import carImg from "../../assets/images/car.png";
+import carImg from "../../assets/images/car.webp";
 
 export default function About() {
   const { t } = useTranslation();

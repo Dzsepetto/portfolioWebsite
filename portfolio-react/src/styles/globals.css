@@ -32,3 +32,13 @@ a {
 button {
   font-family: inherit;
 }
+
+.app-shell {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("../assets/images/temp_BG.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+}
