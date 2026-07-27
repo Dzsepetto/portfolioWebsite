@@ -5,6 +5,8 @@ import { TransitionProvider } from "./providers/TransitionProvider";
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
 import PageTransitionOverlay from "../components/transitions/PageTransitionOverlay/PageTransitionOverlay";
+import ParallaxJourney from "../components/parallax/parallax/ParallaxJourney";
+
 
 const Home = lazy(() => import("../features/home/Home"));
 const About = lazy(() => import("../features/about/About"));
@@ -38,7 +40,7 @@ function App() {
   return (
     <TransitionProvider>
       <Router>
-        <AppContent />
+        <ParallaxJourney />
       </Router>
     </TransitionProvider>
   );

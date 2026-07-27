@@ -6,22 +6,18 @@ import "./Navbar.css";
 import { socials } from "../../../lib/socials";
 import { useTranslation } from "react-i18next";
 
-type Language = "hu" | "en" | "de";
-
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const { startTransition } = usePageTransition();
   const { i18n } = useTranslation();
 
-  const changeLanguage = (lng: Language) => {
-
+  const changeLanguage = (lng) => {
     localStorage.setItem("lang", lng);
     i18n.changeLanguage(lng);
   };
 
-
-  const handleNavigate = (path: string) => {
+  const handleNavigate = (path) => {
   startTransition(() => {
     navigate(path);
     setMenuOpen(false);
@@ -36,7 +32,7 @@ export default function Navbar() {
 
   const lang = i18n.language || "en";
 
-  const current: Language =
+  const Language =
     lang.startsWith("hu") ? "hu" :
     lang.startsWith("de") ? "de" :
     lang.startsWith("en") ? "en" :

@@ -1,0 +1,231 @@
+/* ======================================================
+   HERO SECTION
+   ====================================================== */
+
+.hero-section {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #e99b73;
+  pointer-events: auto;
+  will-change: opacity;
+}
+
+.hero-section__scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ======================================================
+   HERO LAYERS
+   ====================================================== */
+
+.hero-section__layer {
+  position: absolute;
+  inset: -3%;
+  display: block;
+  width: 106%;
+  height: 106%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  user-select: none;
+  backface-visibility: hidden;
+  transform-origin: center center;
+}
+
+/*
+  Rétegsorrend hátulról előre:
+
+  1. sky
+  2. background
+  3. tree
+  4. house
+  5. bush
+  6. path
+  7. rock
+*/
+
+.hero-section__layer--sky {
+  z-index: 1;
+}
+
+.hero-section__layer--background {
+  z-index: 2;
+}
+
+.hero-section__layer--tree {
+  z-index: 3;
+  will-change: transform;
+}
+
+.hero-section__layer--house {
+  z-index: 4;
+  will-change: transform;
+}
+
+.hero-section__layer--bush-right {
+  z-index: 5;
+  will-change: transform;
+}
+
+.hero-section__layer--path {
+  z-index: 6;
+  will-change: transform;
+}
+
+.hero-section__layer--rock-left {
+  z-index: 7;
+  will-change: transform;
+}
+
+/* ======================================================
+   HERO CONTENT POSITIONER
+   ====================================================== */
+
+/*
+  Ez az elem csak a tartalom középre igazítását végzi.
+  A Motion animáció nem ezen az elemen fut.
+*/
+
+.hero-section__content-positioner {
+  position: absolute;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  width: min(90%, 900px);
+  transform: translate(-50%, -50%);
+}
+
+/* ======================================================
+   HERO CONTENT
+   ====================================================== */
+
+.hero-section__content {
+  position: relative;
+  width: 100%;
+  padding: 24px;
+  color: #24180f;
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+.hero-section__content::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -30px -70px;
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 239, 213, 0.72) 0%,
+    rgba(255, 239, 213, 0.28) 46%,
+    rgba(255, 239, 213, 0) 76%
+  );
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+/* ======================================================
+   HERO TEXT
+   ====================================================== */
+
+.hero-section__eyebrow {
+  margin: 0 0 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.hero-section__content h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: 0.06em;
+  color: #24180f;
+  text-transform: uppercase;
+}
+
+.hero-section__content > p:not(.hero-section__eyebrow) {
+  margin: 24px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+}
+
+/* ======================================================
+   HERO BUTTON
+   ====================================================== */
+
+.hero-section__content button {
+  border: 1px solid rgba(71, 28, 19, 0.45);
+  border-radius: 2px;
+  padding: 14px 26px;
+  background: rgba(122, 32, 24, 0.92);
+  color: #fff8ec;
+  font-family: inherit;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.hero-section__content button:hover {
+  transform: translateY(-2px);
+  background: rgba(147, 42, 31, 0.98);
+}
+
+.hero-section__content button:focus-visible {
+  outline: 2px solid #fff8ec;
+  outline-offset: 4px;
+}
+
+/* ======================================================
+   MOBILE
+   ====================================================== */
+
+@media (max-width: 700px) {
+  .hero-section__layer {
+    inset: -6%;
+    width: 112%;
+    height: 112%;
+  }
+
+  .hero-section__content-positioner {
+    top: 48%;
+    width: 94%;
+  }
+
+  .hero-section__content {
+    padding: 16px;
+  }
+
+  .hero-section__content::before {
+    inset: -20px;
+  }
+
+  .hero-section__content h1 {
+    font-size: clamp(2.5rem, 13vw, 4.5rem);
+  }
+}
+
+/* ======================================================
+   REDUCED MOTION
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section,
+  .hero-section__layer,
+  .hero-section__content {
+    will-change: auto;
+  }
+}

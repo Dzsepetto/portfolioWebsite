@@ -2,14 +2,12 @@ import "./Footer.css";
 import { socials } from "../../../lib/socials";
 import { useTranslation } from "react-i18next";
 
-type Language = "hu" | "en" | "de";
-
 function Footer() {
   const { t, i18n } = useTranslation();
 
   const lang = i18n.language?.toLowerCase() || "hu";
 
-  const current: Language = lang.startsWith("hu")
+  const Language = lang.startsWith("hu")
     ? "hu"
     : lang.startsWith("de")
     ? "de"

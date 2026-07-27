@@ -1,0 +1,184 @@
+/* ======================================================
+   INN SECTION
+   ====================================================== */
+
+.inn-section {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+}
+
+.inn-section__scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  will-change: opacity, transform;
+}
+
+/* ======================================================
+   INN LAYERS
+   ====================================================== */
+
+.inn-section__layer {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  user-select: none;
+  backface-visibility: hidden;
+  transform-origin: center center;
+}
+
+.inn-section__layer--background {
+  z-index: 1;
+}
+
+.inn-section__layer--middle {
+  z-index: 2;
+  will-change: transform;
+}
+
+.inn-section__layer--front {
+  z-index: 3;
+  will-change: transform;
+}
+
+/* ======================================================
+   DARK OVERLAY
+   ====================================================== */
+
+.inn-section__scene::after {
+  content: "";
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(12, 15, 11, 0.08) 0%,
+    rgba(12, 15, 11, 0.02) 42%,
+    rgba(12, 15, 11, 0.42) 100%
+  );
+  pointer-events: none;
+}
+
+/* ======================================================
+   CONTENT POSITIONER
+   ====================================================== */
+
+.inn-section__content-positioner {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  width: min(90%, 850px);
+  transform: translate(-50%, -50%);
+}
+
+/* ======================================================
+   CONTENT
+   ====================================================== */
+
+.inn-section__content {
+  position: relative;
+  width: 100%;
+  padding: 24px;
+  color: #fff8ec;
+  text-align: center;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.8);
+  will-change: transform, opacity;
+}
+
+.inn-section__content::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -35px -80px;
+  background: radial-gradient(
+    ellipse,
+    rgba(20, 18, 13, 0.62) 0%,
+    rgba(20, 18, 13, 0.28) 48%,
+    rgba(20, 18, 13, 0) 76%
+  );
+  pointer-events: none;
+}
+
+/* ======================================================
+   TEXT
+   ====================================================== */
+
+.inn-section__eyebrow {
+  margin: 0 0 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.inn-section__content h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: 0.06em;
+  color: #fff8ec;
+  text-transform: uppercase;
+}
+
+.inn-section__content > p:not(.inn-section__eyebrow) {
+  margin: 24px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  line-height: 1.6;
+}
+
+/* ======================================================
+   MOBILE
+   ====================================================== */
+
+@media (max-width: 700px) {
+  .inn-section__layer {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .inn-section__content-positioner {
+    width: 94%;
+  }
+
+  .inn-section__content {
+    padding: 16px;
+  }
+
+  .inn-section__content::before {
+    inset: -20px;
+  }
+
+  .inn-section__content h2 {
+    font-size: clamp(2.5rem, 13vw, 4.5rem);
+  }
+}
+
+/* ======================================================
+   REDUCED MOTION
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .inn-section__scene,
+  .inn-section__layer,
+  .inn-section__content {
+    will-change: auto;
+  }
+}

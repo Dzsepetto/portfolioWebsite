@@ -36,13 +36,13 @@ export default function About() {
     let currentDirection = 1; // 1 = jobbra, -1 = balra
     let rafId = 0;
 
-    const clamp = (value: number, min: number, max: number) =>
+    const clamp = (value, min, max) =>
       Math.min(Math.max(value, min), max);
 
     const getMaxScroll = () =>
       scroller.scrollWidth - scroller.clientWidth;
 
-    const updateVisuals = (scrollLeft: number) => {
+    const updateVisuals = (scrollLeft) => {
       const maxScroll = getMaxScroll();
       const scrollProgress = maxScroll > 0 ? scrollLeft / maxScroll : 0;
 
@@ -84,7 +84,7 @@ export default function About() {
       updateVisuals(scroller.scrollLeft);
     };
 
-    const onWheel = (e: WheelEvent) => {
+    const onWheel = (e) => {
       if (window.innerWidth <= 768) return;
 
       e.preventDefault();
@@ -92,8 +92,8 @@ export default function About() {
       targetScroll = clamp(targetScroll, 0, getMaxScroll());
     };
 
-    const onKeyDown = (e: KeyboardEvent) => {
-      const target = e.target as HTMLElement | null;
+    const onKeyDown = (e) => {
+      const target = e.target;
       const tag = target?.tagName;
 
       if (

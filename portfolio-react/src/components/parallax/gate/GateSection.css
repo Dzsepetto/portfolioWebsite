@@ -1,0 +1,171 @@
+/* ======================================================
+   GATE SECTION
+   ====================================================== */
+
+.gate-section {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  pointer-events: none;
+}
+
+.gate-section__scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  isolation: isolate;
+  will-change: opacity, transform;
+}
+
+/* ======================================================
+   GATE LAYERS
+   ====================================================== */
+
+.gate-section__layer {
+  position: absolute;
+  inset: -4%;
+  display: block;
+  width: 108%;
+  height: 108%;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  user-select: none;
+  backface-visibility: hidden;
+}
+
+.gate-section__layer--background {
+  z-index: 1;
+}
+
+.gate-section__layer--gate {
+  z-index: 2;
+  will-change: transform;
+}
+
+/* ======================================================
+   OVERLAY
+   ====================================================== */
+
+.gate-section__scene::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(7, 20, 11, 0.12) 0%,
+    rgba(7, 20, 11, 0.02) 45%,
+    rgba(7, 20, 11, 0.35) 100%
+  );
+  pointer-events: none;
+}
+
+/* ======================================================
+   CONTENT
+   ====================================================== */
+
+.gate-section__content-positioner {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  width: min(90%, 850px);
+  transform: translate(-50%, -50%);
+}
+
+.gate-section__content {
+  position: relative;
+  width: 100%;
+  padding: 24px;
+  color: #fff8ec;
+  text-align: center;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.75);
+  will-change: transform, opacity;
+}
+
+.gate-section__content::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: -35px -80px;
+  background: radial-gradient(
+    ellipse,
+    rgba(8, 22, 13, 0.62) 0%,
+    rgba(8, 22, 13, 0.28) 48%,
+    rgba(8, 22, 13, 0) 76%
+  );
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+.gate-section__eyebrow {
+  margin: 0 0 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+
+.gate-section__content h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 7rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: 0.06em;
+  color: #fff8ec;
+  text-transform: uppercase;
+}
+
+.gate-section__content > p:not(.gate-section__eyebrow) {
+  margin: 24px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  line-height: 1.6;
+}
+
+/* ======================================================
+   MOBILE
+   ====================================================== */
+
+@media (max-width: 700px) {
+  .gate-section__layer {
+    inset: -8%;
+    width: 116%;
+    height: 116%;
+  }
+
+  .gate-section__content-positioner {
+    width: 94%;
+  }
+
+  .gate-section__content {
+    padding: 16px;
+  }
+
+  .gate-section__content::before {
+    inset: -20px;
+  }
+
+  .gate-section__content h2 {
+    font-size: clamp(2.5rem, 13vw, 4.5rem);
+  }
+}
+
+/* ======================================================
+   REDUCED MOTION
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .gate-section__scene,
+  .gate-section__layer,
+  .gate-section__content {
+    will-change: auto;
+  }
+}

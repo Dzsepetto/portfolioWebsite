@@ -1,0 +1,43 @@
+/* ======================================================
+   PARALLAX JOURNEY
+   ====================================================== */
+
+.parallax-journey {
+  position: relative;
+  width: 100%;
+  height: 500vh;
+  overflow: visible;
+}
+
+.parallax-journey__sticky {
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: #173522;
+  isolation: isolate;
+  contain: layout paint;
+}
+
+/* ======================================================
+   MOBILE
+   ====================================================== */
+
+@media (max-width: 700px) {
+  .parallax-journey {
+    height: 430vh;
+  }
+}
+
+/* ======================================================
+   REDUCED MOTION
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .parallax-journey {
+    height: 350vh;
+  }
+}
