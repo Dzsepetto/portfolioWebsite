@@ -1,108 +1,115 @@
-import { motion, useTransform } from "motion/react";
+import {
+  motion,
+  useTransform,
+} from "motion/react";
 
+import GateIntro from "./GateIntro";
 import GateContent from "./GateContent";
-import { gateLayers } from "./gateLayers";
+
+import {
+  gateLayers,
+  gateLayersMobile,
+} from "./gateLayers";
+
+import ParallaxLayer from "../parallax/ParallaxLayer";
+import useSceneProgress from "../parallax/useSceneProgress";
 
 import "./GateSection.css";
 
-export default function GateSection({ progress }) {
-  const sceneOpacity = useTransform(
+export default function GateSection({
+  progress,
+  isMobile,
+}) {
+  const sectionOpacity = useTransform(
     progress,
-    [0.28, 0.42],
-    [0, 1],
+    [0, 0.08, 0.32],
+    [0, 0, 1],
   );
 
-  const sceneY = useTransform(
+  const transitionProgress = useSceneProgress(
     progress,
-    [0.28, 0.58],
-    ["100%", "0%"],
+    0.5,
+    0.9,
   );
 
-  const backgroundY = useTransform(
-    progress,
-    [0.28, 1],
-    [30, -20],
+  const introOpacity = useTransform(
+    transitionProgress,
+    [0, 0.42, 0.72],
+    [1, 1, 0],
   );
 
-  const backgroundScale = useTransform(
-    progress,
-    [0.28, 1],
-    [1.08, 1.14],
+  const introY = useTransform(
+    transitionProgress,
+    [0, 0.42, 0.72],
+    [0, 0, -60],
   );
 
-  const gateY = useTransform(
-    progress,
-    [0.28, 0.7, 1],
-    [100, 0, -30],
-  );
-
-  const gateScale = useTransform(
-    progress,
-    [0.28, 0.7, 1],
-    [0.9, 1, 1.12],
+  const introScale = useTransform(
+    transitionProgress,
+    [0, 0.42, 0.72],
+    [1, 1, 0.97],
   );
 
   const contentOpacity = useTransform(
-    progress,
-    [0.58, 0.7],
+    transitionProgress,
+    [0.55, 0.88],
     [0, 1],
   );
 
-  const contentY = useTransform(
-    progress,
-    [0.58, 0.7],
-    [50, 0],
+  const overlayOpacity = useTransform(
+    transitionProgress,
+    [0, 1],
+    [0.08, 0.3],
   );
 
-  const contentScale = useTransform(
-    progress,
-    [0.58, 0.7],
-    [0.95, 1],
-  );
+  const layers = isMobile
+    ? gateLayersMobile
+    : gateLayers;
 
   return (
-    <section className="gate-section">
+    <motion.section
+      className="gate-section"
+      style={{
+        opacity: sectionOpacity,
+      }}
+    >
+      <div className="gate-section__scene">
+        {layers.map((layer) => (
+          <ParallaxLayer
+            key={layer.id}
+            progress={transitionProgress}
+            src={layer.src}
+            alt=""
+            className={`gate-section__layer ${layer.modifierClass}`}
+            range={layer.range}
+            x={layer.x}
+            y={layer.y}
+            scale={layer.scale}
+            rotate={layer.rotate}
+            opacity={layer.opacity}
+            loading="lazy"
+            fetchPriority="low"
+          />
+        ))}
+      </div>
+
       <motion.div
-        className="gate-section__scene"
+        className="gate-section__overlay"
         style={{
-          opacity: sceneOpacity,
-          y: sceneY,
+          opacity: overlayOpacity,
         }}
-      >
-        <motion.img
-          src={gateLayers.background}
-          alt=""
-          className="
-            gate-section__layer
-            gate-section__layer--background
-          "
-          style={{
-            y: backgroundY,
-            scale: backgroundScale,
-          }}
-          draggable={false}
-        />
+      />
 
-        <motion.img
-          src={gateLayers.gate}
-          alt=""
-          className="
-            gate-section__layer
-            gate-section__layer--gate
-          "
-          style={{
-            y: gateY,
-            scale: gateScale,
-          }}
-          draggable={false}
-        />
+      <GateIntro
+        opacity={introOpacity}
+        y={introY}
+        scale={introScale}
+      />
 
-        <GateContent
-          opacity={contentOpacity}
-          y={contentY}
-          scale={contentScale}
-        />
-      </motion.div>
-    </section>
+      <GateContent
+        opacity={contentOpacity}
+        isMobile={isMobile}
+      />
+    </motion.section>
   );
 }

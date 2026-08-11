@@ -8,7 +8,7 @@ import de from "./locales/de";
 const savedLang = localStorage.getItem("lang") || "hu";
 
 i18n.use(initReactI18next).init({
-  debug: true,
+  debug: false,
   fallbackLng: "en",
   lng: savedLang, 
   supportedLngs: ["en", "hu", "de"], 

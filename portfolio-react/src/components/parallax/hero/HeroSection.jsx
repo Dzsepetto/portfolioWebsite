@@ -1,84 +1,146 @@
-import { motion, useTransform } from "motion/react";
+import {
+  motion,
+  useTransform,
+} from "motion/react";
 
-import HeroContent from "./HeroContent";
-import { heroLayers } from "./heroLayers";
+import HeroIntro from "./HeroIntro";
+import HeroFeature from "./HeroFeature";
+
+import {
+  heroMovingLayers,
+  heroMovingLayersMobile,
+  heroStaticLayers,
+} from "./heroLayers";
+
+import ParallaxLayer from "../parallax/ParallaxLayer";
+import useSceneProgress from "../parallax/useSceneProgress";
 
 import "./HeroSection.css";
 
-function HeroLayer({ layer, progress }) {
-  const y = useTransform(
+export default function HeroSection({
+  progress,
+  gateProgress,
+  isMobile,
+}) {
+  const transitionProgress = useSceneProgress(
     progress,
-    layer.range,
-    layer.y,
+    0,
+    0.65,
   );
 
-  const scale = useTransform(
-    progress,
-    layer.range,
-    layer.scale ?? [1, 1],
+  const introOpacity = useTransform(
+    transitionProgress,
+    [0, 0.45],
+    [1, 0],
   );
 
-  return (
-    <motion.img
-      src={layer.src}
-      alt=""
-      className={`hero-section__layer ${layer.modifierClass}`}
-      style={{
-        y,
-        scale,
-      }}
-      draggable={false}
-    />
-  );
-}
-
-export default function HeroSection({ progress }) {
-  const sectionOpacity = useTransform(
-    progress,
-    [0, 0.38, 0.63],
-    [1, 1, 0],
+  const introY = useTransform(
+    transitionProgress,
+    [0, 0.45],
+    [0, -80],
   );
 
-  const contentOpacity = useTransform(
-    progress,
-    [0, 0.18, 0.38],
-    [1, 1, 0],
-  );
-
-  const contentY = useTransform(
-    progress,
-    [0, 0.4],
-    [0, -100],
-  );
-
-  const contentScale = useTransform(
-    progress,
-    [0, 0.4],
+  const introScale = useTransform(
+    transitionProgress,
+    [0, 0.45],
     [1, 0.94],
   );
 
-  return (
-    <motion.section
-      className="hero-section"
-      style={{
-        opacity: sectionOpacity,
-      }}
-    >
-      <div className="hero-section__scene">
-        {heroLayers.map((layer) => (
-          <HeroLayer
-            key={layer.id}
-            layer={layer}
-            progress={progress}
-          />
-        ))}
+  const featureOpacity = useTransform(
+    transitionProgress,
+    [0.2, 0.65],
+    [0, 1],
+  );
 
-        <HeroContent
-          opacity={contentOpacity}
-          y={contentY}
-          scale={contentScale}
+  const sceneOverlayOpacity = useTransform(
+    transitionProgress,
+    [0, 0.65],
+    [0, 0.24],
+  );
+
+  const transitionOverlayOpacity = useTransform(
+    gateProgress,
+    [0, 0.28],
+    [0, 0.55],
+  );
+
+  const heroScale = useTransform(
+    gateProgress,
+    [0, 0.28],
+    [1, 1.025],
+  );
+
+  const movingLayers = isMobile
+    ? heroMovingLayersMobile
+    : heroMovingLayers;
+
+  return (
+    <section className="hero-section">
+      <motion.div
+        className="hero-section__wrapper"
+        style={{
+          scale: heroScale,
+        }}
+      >
+        <div className="hero-section__scene">
+          {heroStaticLayers.map((layer) => (
+            <img
+              key={layer.id}
+              src={layer.src}
+              alt=""
+              className={`hero-section__layer ${layer.modifierClass}`}
+              draggable={false}
+              loading="eager"
+              fetchPriority={
+                layer.id === "sky"
+                  ? "high"
+                  : "auto"
+              }
+              decoding="async"
+            />
+          ))}
+
+          {movingLayers.map((layer) => (
+            <ParallaxLayer
+              key={layer.id}
+              progress={transitionProgress}
+              src={layer.src}
+              alt=""
+              className={`hero-section__layer ${layer.modifierClass}`}
+              range={layer.range}
+              x={layer.x}
+              y={layer.y}
+              scale={layer.scale}
+              rotate={layer.rotate}
+              opacity={layer.opacity}
+              loading="eager"
+              fetchPriority="auto"
+            />
+          ))}
+        </div>
+
+        <motion.div
+          className="hero-section__overlay"
+          style={{
+            opacity: sceneOverlayOpacity,
+          }}
         />
-      </div>
-    </motion.section>
+
+        <HeroIntro
+          opacity={introOpacity}
+          y={introY}
+          scale={introScale}
+        />
+
+        <HeroFeature opacity={featureOpacity} />
+      </motion.div>
+
+      <motion.div
+        className="hero-section__transition-overlay"
+        style={{
+          opacity: transitionOverlayOpacity,
+        }}
+      />
+    </section>
   );
 }

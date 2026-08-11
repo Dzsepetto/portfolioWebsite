@@ -8,20 +8,25 @@ export default function ParallaxLayer({
   alt = "",
   className = "",
   range = [0, 1],
-  y = [0, 0],
-  x = [0, 0],
-  scale = [1, 1],
-  opacity = [1, 1],
-  rotate = [0, 0],
+  y,
+  x,
+  scale,
+  opacity,
+  rotate,
   draggable = false,
+  loading = "eager",
+  fetchPriority = "auto",
 }) {
+  const createDefaultValues = (value) =>
+    range.map(() => value);
+
   const motionStyle = useParallaxTransform(progress, {
     range,
-    y,
-    x,
-    scale,
-    opacity,
-    rotate,
+    y: y ?? createDefaultValues(0),
+    x: x ?? createDefaultValues(0),
+    scale: scale ?? createDefaultValues(1),
+    opacity: opacity ?? createDefaultValues(1),
+    rotate: rotate ?? createDefaultValues(0),
   });
 
   return (
@@ -31,6 +36,9 @@ export default function ParallaxLayer({
       className={className}
       style={motionStyle}
       draggable={draggable}
+      loading={loading}
+      fetchPriority={fetchPriority}
+      decoding="async"
     />
   );
 }

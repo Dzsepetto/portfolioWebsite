@@ -6,38 +6,57 @@
   position: absolute;
   z-index: 3;
   inset: 0;
+
   width: 100%;
   height: 100%;
+
   overflow: hidden;
-  background: transparent;
+  isolation: isolate;
+
+  background: #1d211d;
   pointer-events: none;
 }
 
+
+/* ======================================================
+   SCENE
+   ====================================================== */
+
+
 .inn-section__scene {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+
   overflow: hidden;
-  isolation: isolate;
-  will-change: opacity, transform;
+
+  pointer-events: none;
 }
 
 /* ======================================================
-   INN LAYERS
+   LAYERS
+   ====================================================== */
+
+/* ======================================================
+   LAYERS
    ====================================================== */
 
 .inn-section__layer {
   position: absolute;
   inset: 0;
+
   display: block;
+
   width: 100%;
   height: 100%;
+
   object-fit: cover;
-  object-position: center center;
+  object-position: center;
+
   pointer-events: none;
   user-select: none;
-  backface-visibility: hidden;
-  transform-origin: center center;
+
+  transform-origin: center;
 }
 
 .inn-section__layer--background {
@@ -46,128 +65,395 @@
 
 .inn-section__layer--middle {
   z-index: 2;
-  will-change: transform;
 }
 
-.inn-section__layer--front {
+.inn-section__layer--left-tree {
   z-index: 3;
-  will-change: transform;
 }
 
+.inn-section__layer--right-tree {
+  z-index: 3;
+}
+
+.inn-section__layer--bridge {
+  z-index: 4;
+}
 /* ======================================================
-   DARK OVERLAY
+   OVERLAY
    ====================================================== */
 
-.inn-section__scene::after {
-  content: "";
+.inn-section__overlay {
   position: absolute;
-  z-index: 4;
+  z-index: 10;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(12, 15, 11, 0.08) 0%,
-    rgba(12, 15, 11, 0.02) 42%,
-    rgba(12, 15, 11, 0.42) 100%
-  );
+
+  background: rgba(12, 15, 11, 0.5);
+
   pointer-events: none;
 }
 
 /* ======================================================
-   CONTENT POSITIONER
+   INTRO
    ====================================================== */
 
-.inn-section__content-positioner {
+.inn-section__intro-positioner {
   position: absolute;
-  z-index: 10;
+  z-index: 20;
+
   top: 50%;
   left: 50%;
-  width: min(90%, 850px);
+
+  width: 90%;
+
   transform: translate(-50%, -50%);
+
+  pointer-events: none;
 }
 
-/* ======================================================
-   CONTENT
-   ====================================================== */
-
-.inn-section__content {
-  position: relative;
+.inn-section__intro {
   width: 100%;
-  padding: 24px;
-  color: #fff8ec;
+
+  color: whitesmoke;
+
   text-align: center;
-  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.8);
+
   will-change: transform, opacity;
 }
 
-.inn-section__content::before {
-  content: "";
+.inn-section__intro h1 {
+  margin: 0;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 400;
+
+  line-height: 0.9;
+  letter-spacing: 0.08em;
+  text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.55),
+      0 6px 18px rgba(0, 0, 0, 0.28);
+
+  text-transform: uppercase;
+}
+
+.inn-section__intro h3 {
+  margin: 12px 0 0;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  font-weight: 400;
+
+  letter-spacing: 0.08em;
+  text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.55),
+      0 6px 18px rgba(0, 0, 0, 0.28);
+
+  text-transform: uppercase;
+}
+
+/* ======================================================
+   FEATURE POSITIONER
+   ====================================================== */
+
+.inn-section__feature-positioner {
   position: absolute;
-  z-index: -1;
-  inset: -35px -80px;
-  background: radial-gradient(
-    ellipse,
-    rgba(20, 18, 13, 0.62) 0%,
-    rgba(20, 18, 13, 0.28) 48%,
-    rgba(20, 18, 13, 0) 76%
-  );
+  z-index: 30;
+
+  top: 50%;
+  left: 50%;
+
+  width: min(92%, 1180px);
+  max-height: calc(100svh - 80px);
+
+  transform: translate(-50%, -50%);
+
   pointer-events: none;
 }
 
 /* ======================================================
-   TEXT
+   FEATURE
    ====================================================== */
 
-.inn-section__eyebrow {
-  margin: 0 0 14px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
+.inn-section__feature {
+  width: 100%;
+  max-height: calc(100svh - 80px);
+
+  padding: 24px;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  color: whitesmoke;
+
+  scrollbar-width: thin;
+  scrollbar-color:
+    rgba(255, 255, 255, 0.45)
+    rgba(255, 255, 255, 0.08);
 }
 
-.inn-section__content h2 {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3rem, 7vw, 7rem);
-  font-weight: 500;
-  line-height: 0.92;
+.inn-section__feature::-webkit-scrollbar {
+  width: 8px;
+}
+
+.inn-section__feature::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+}
+
+.inn-section__feature::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+}
+
+.inn-section__feature > h2 {
+  margin: 0 0 28px;
+
+  color: whitesmoke;
+  text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.55),
+      0 6px 18px rgba(0, 0, 0, 0.28);
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 400;
+
   letter-spacing: 0.06em;
-  color: #fff8ec;
+  line-height: 1;
+
+  text-align: center;
   text-transform: uppercase;
 }
 
-.inn-section__content > p:not(.inn-section__eyebrow) {
-  margin: 24px 0 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1rem, 1.8vw, 1.35rem);
-  line-height: 1.6;
+/* ======================================================
+   PROJECT GRID
+   ====================================================== */
+
+.inn-section__feature .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+
+  width: 100%;
+}
+
+/* ======================================================
+   PROJECT CARD
+   ====================================================== */
+
+.inn-section__feature .project-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 3px solid #eaeaea;
+  border-radius: 14px;
+
+  background: #eaeaea;
+  color: inherit;
+
+  font: inherit;
+  text-align: inherit;
+
+  cursor: pointer;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  pointer-events: auto;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.inn-section__feature .project-card:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+.inn-section__feature .project-card:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+/* ======================================================
+   PROJECT IMAGE
+   ====================================================== */
+
+.inn-section__feature .project-image {
+  position: relative;
+
+  width: 100%;
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  background: #111111;
+}
+
+.inn-section__feature .project-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  transform: scale(1.001);
+
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.inn-section__feature
+  .project-card:hover
+  .project-image
+  img {
+  transform: scale(1.05);
+}
+/* ======================================================
+   PROJECT FOOTER
+   ====================================================== */
+
+.inn-section__feature .project-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 56px;
+  margin-top: auto;
+
+  padding: 12px 14px;
+
+  color: #ffffff;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+
+  text-align: center;
+}
+
+/* ======================================================
+   TABLET
+   ====================================================== */
+
+@media (max-width: 900px) {
+  .inn-section__feature-positioner {
+    width: min(94%, 820px);
+  }
+
+  .inn-section__feature {
+    padding: 20px;
+  }
+
+  .inn-section__feature .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
 }
 
 /* ======================================================
    MOBILE
    ====================================================== */
 
-@media (max-width: 700px) {
-  .inn-section__layer {
+@media (max-width: 600px) {
+ .inn-section__layer {
     inset: 0;
+
     width: 100%;
     height: 100%;
   }
+.inn-section__intro-positioner {
+  top: 28%;
 
-  .inn-section__content-positioner {
-    width: 94%;
+  width: calc(100% - 32px);
+}
+  .inn-section__intro h1 {
+    font-size: clamp(2.75rem, 16vw, 4.5rem);
   }
 
-  .inn-section__content {
-    padding: 16px;
+  .inn-section__intro h3 {
+    font-size: 0.95rem;
   }
 
-  .inn-section__content::before {
-    inset: -20px;
+  .inn-section__feature-positioner {
+    width: calc(100% - 20px);
+    max-height: calc(100svh - 40px);
   }
 
-  .inn-section__content h2 {
-    font-size: clamp(2.5rem, 13vw, 4.5rem);
+  .inn-section__feature {
+    max-height: calc(100svh - 40px);
+
+    padding: 10px;
+  }
+
+  .inn-section__feature > h2 {
+    margin-bottom: 18px;
+
+    font-size: clamp(2rem, 11vw, 3.5rem);
+  }
+
+  .inn-section__feature .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .inn-section__feature .project-card {
+    border-width: 2px;
+    border-radius: 10px;
+  }
+
+  .inn-section__feature .project-footer {
+    min-height: 46px;
+
+    padding: 8px 6px;
+
+    font-size: 14px;
+    letter-spacing: 0.03em;
+  }
+}
+
+/* ======================================================
+   VERY SMALL SCREENS
+   ====================================================== */
+
+@media (max-width: 390px) {
+  .inn-section__feature-positioner {
+    width: calc(100% - 12px);
+  }
+.inn-section__intro-positioner {
+    top: 27%;
+
+    width: calc(100% - 20px);
+  }
+  .inn-section__feature {
+    padding: 6px;
+  }
+
+  .inn-section__feature .projects-grid {
+    gap: 7px;
+  }
+
+  .inn-section__feature .project-footer {
+    min-height: 42px;
+
+    font-size: 12px;
   }
 }
 
@@ -176,9 +462,196 @@
    ====================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .inn-section__scene,
+  .inn-section__intro,
+  .inn-section__feature,
   .inn-section__layer,
-  .inn-section__content {
+  .inn-section__feature .project-card,
+  .inn-section__feature .project-image img,
+  .inn-section__back-button,
+  .inn-section__project-links a {
+    transition: none;
     will-change: auto;
+  }
+
+  .inn-section__feature .project-card:hover,
+  .inn-section__feature
+    .project-card:hover
+    .project-image
+    img,
+  .inn-section__back-button:hover,
+  .inn-section__project-links a:hover {
+    transform: none;
+  }
+}
+
+/* ======================================================
+   PROJECT DETAILS
+   ====================================================== */
+
+.inn-section__project-details {
+  width: 100%;
+}
+
+.inn-section__back-button {
+  margin: 0 0 20px;
+  padding: 10px 16px;
+
+  border: 2px solid #eaeaea;
+  border-radius: 10px;
+
+  background: rgba(45, 45, 45, 0.9);
+  color: whitesmoke;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.inn-section__project-details-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1.1fr);
+  align-items: center;
+  gap: 32px;
+
+  padding: 24px;
+
+  border: 3px solid #eaeaea;
+  border-radius: 20px;
+
+  background: rgba(45, 45, 45, 0.9);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.3);
+}
+
+.inn-section__project-details-image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+
+  overflow: hidden;
+
+  border-radius: 14px;
+  background: #111111;
+}
+.inn-section__project-details-image picture {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+.inn-section__project-details-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.inn-section__project-details-content {
+  min-width: 0;
+
+  color: whitesmoke;
+}
+
+.inn-section__project-details-content h2 {
+  margin: 0 0 20px;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: clamp(2rem, 4vw, 4rem);
+  font-weight: 400;
+
+  letter-spacing: 0.05em;
+}
+
+.inn-section__project-details-content p {
+  margin: 0 0 24px;
+
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.inn-section__project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.inn-section__project-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 18px;
+
+  border: 2px solid #eaeaea;
+  border-radius: 10px;
+
+  background: #2b2b2b;
+  color: whitesmoke;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.inn-section__back-button:hover,
+.inn-section__project-links a:hover {
+  transform: translateY(-2px);
+
+  background: #3a3a3a;
+}
+
+.inn-section__back-button:focus-visible,
+.inn-section__project-links a:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 700px) {
+  .inn-section__project-details-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
+
+    padding: 14px;
+  }
+
+  .inn-section__project-details-content h2 {
+    margin-bottom: 12px;
+
+    font-size: 2rem;
+  }
+
+  .inn-section__project-details-content p {
+    margin-bottom: 18px;
+
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .inn-section__project-links {
+    flex-direction: column;
+  }
+
+  .inn-section__project-links a {
+    width: 100%;
   }
 }

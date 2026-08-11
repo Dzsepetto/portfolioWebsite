@@ -1,62 +1,51 @@
 const de = {
   translation: {
+    navigation: {
+      "openMenu": "Navigationsmenü öffnen",
+      "closeMenu": "Navigationsmenü schließen"
+    },
     home: {
+      intro: {
+        title: "Willkommen",
+        desc: "Scrolle nach unten, um mehr zu entdecken",
+        mobile_hint: "Für das flüssigste Erlebnis auf dem Desktop ansehen.",
+      },
       title: "Benedek Pintér",
-      experience:
-        "Ich habe als IT-Trainee bei Continental Automotive / Aumovio gearbeitet, wo ich praktische Erfahrungen in mehreren Bereichen gesammelt, zahlreiche Systemfehler identifiziert und aktiv an der Lösung realer technischer Probleme mitgewirkt habe.",
+      experience: "3,5 Jahre Berufserfahrung im IT-Bereich mit Schwerpunkt auf .NET-Entwicklung und PowerShell-Skripting, ergänzt durch IT-Support und Systembetrieb. Derzeit arbeite ich als ASP.NET-Entwickler und wirke an der Entwicklung von Enterprise-MES-Anwendungen mit.",
       experience_title: "Erfahrung",
-      aimaster_title: "AI Workflow",
-      aimaster:"Ich nutze KI-Tools, um die Entwicklung zu beschleunigen, neue Lösungen zu entdecken und meine Arbeitsabläufe effizienter zu gestalten.",      degree_title: "Ausbildung",
-      degree:
-        "Ich habe einen Bachelorabschluss (B.Sc.) in Wirtschaftsinformatik erworben und dabei fundierte Kenntnisse in den Bereichen Softwareentwicklung, Datenbanken, Systemanalyse und Wirtschaftsinformatik aufgebaut."
-      },
-
-    about: {
-      hs_title: "Gymnasium",
-      hs:
-        "Ich habe ein deutsch-ungarisches zweisprachiges Gymnasium abgeschlossen, wo ich starke Deutsch- und Englischkenntnisse erworben habe.",
-
-      uni_title: "BSc – Wirtschaftsinformatik",
-      uni:
-        "Ich habe mein Bachelorstudium der Wirtschaftsinformatik erfolgreich abgeschlossen und dabei praktische Erfahrungen in der Entwicklung moderner Webanwendungen, im Datenbankmanagement sowie in der Umsetzung verschiedener Softwareprojekte gesammelt.",
-      work_title: "IT-Trainee – Continental Automotive",
-      work:
-        "Praktische Erfahrungen in verschiedenen Bereichen, Erkennung von Systemfehlern und Mitwirkung bei der Lösung realer technischer Probleme.",
-
-      projects_title: "Eigene Projekte",
-      projects:
-        "Entwicklung von Spielen, Tools und Full-Stack-Anwendungen mit Fokus auf Performance, saubere Benutzeroberflächen und gut wartbare Architekturen.",
-
-      now_title: "Kontinuierliche Weiterentwicklung",
-      now:
-        "Ich entwickle mein Wissen kontinuierlich weiter, erweitere mein Portfolio und bereite mich auf den nächsten Schritt vor.",
-
-      move_car_hint: "Bewege das Auto mit den Pfeiltasten oder dem Mausrad",
-
-      tag: {
-        edu: "Ausbildung",
-        work: "Erfahrung",
-        proj: "Projekte",
-        now: "Aktuell",
-      },
+      devappr_title: "Entwicklungsansatz",
+      devappr: "Ich bin überzeugt, dass Software zuverlässig, wartbar und benutzerorientiert sein sollte. Mein Ziel ist es, sauberen und skalierbaren Code zu schreiben und mich gleichzeitig kontinuierlich in neuen Technologien und modernen Entwicklungsmethoden weiterzuentwickeln.",
+      degree_title: "Ausbildung",
+      degree: "Ich habe einen Bachelorabschluss (B.Sc.) in Wirtschaftsinformatik erworben und dabei fundierte Kenntnisse in den Bereichen Softwareentwicklung, Datenbanken, Systemanalyse und Wirtschaftsinformatik aufgebaut."
     },
 
     experience: {
+      intro: {
+        title: "Meine Erfahrungen",
+        desc: "Scrolle nach unten, um mehr zu erfahren"
+      },
       title: "Erfahrung",
       conti: {
-        post: "IT-Trainee",
+        post: "IT-Praktikant",
         title: "Continental Hungary Kft. / Aumovio Hungary Kft.",
-        description:
-          "Hauptaufgaben: Anwenderunterstützung, Erstellung von Automatisierungsskripten in PowerShell, Entwicklung von .NET-Webanwendungen, Erstellung von C#-Skripten sowie Entwicklung von APIs. User Support (Helpdesk / IT-Administrationsaufgaben):",
-
-        part1:
-          "Bereitstellung von ticketbasiertem Anwendersupport sowie Durchführung täglicher IT-Helpdesk-Aufgaben. Bearbeitung von Support-Tickets, Analyse und Behebung von Problemen (sowohl softwareseitig als auch auf grundlegender Infrastrukturebene), Verwaltung von Benutzerberechtigungen sowie allgemeine IT-Administrationsaufgaben. Kommunikation mit Anwendern und Bereitstellung schneller und effizienter Lösungen.",
-
-        part2:
-          "PowerShell-Automatisierung und Scripting: Entwicklung von Automatisierungslösungen auf Basis von PowerShell zur Effizienzsteigerung täglicher IT-Prozesse. Dazu gehören die Automatisierung von Softwareinstallationen und -deinstallationen, System- und Prozessüberwachung sowie die Ablösung wiederkehrender Aufgaben durch Skripte. Ziel ist es, manuelle Arbeit zu reduzieren, Prozesse zu beschleunigen und Fehler zu minimieren.",
-
-        part3:
-          ".NET-Entwicklung (interne Systeme und APIs): Entwicklung eines eigenen, mehrschichtigen internen Administrationssystems für das lokale IT-Team. Als alleiniger Entwickler bin ich verantwortlich für eine .NET-basierte Weboberfläche, Backend-APIs sowie die Integration von Skripten. Ziel ist es, verschiedene IT-Aufgaben zu automatisieren, zu standardisieren und über eine zentrale Oberfläche verwaltbar zu machen, um Effizienz und Transparenz zu erhöhen.",
+        period: "2023 — 2026",
+        description: "Als IT-Praktikant sammelte ich umfassende praktische Erfahrungen im Bereich Unternehmens-IT sowie in der Softwareentwicklung. Zu meinen Aufgaben gehörten der Anwendersupport, die Entwicklung von Automatisierungslösungen mit PowerShell sowie die Entwicklung interner .NET-Anwendungen und APIs. Im Rahmen verschiedener Projekte arbeitete ich eigenständig an Lösungen zur Automatisierung täglicher IT-Prozesse, zur Steigerung der Effizienz und zur Unterstützung des lokalen IT-Teams.",
+        tasks: {
+          support: "Ticketbasierter Anwendersupport, Fehleranalyse und -behebung, Benutzer- und Berechtigungsverwaltung sowie allgemeine IT-Administration.",
+          automation: "Entwicklung von PowerShell-Automatisierungsskripten für Softwarebereitstellung, Systemüberwachung und die Automatisierung wiederkehrender IT-Aufgaben.",
+          development: "Entwicklung eines mehrschichtigen internen Verwaltungssystems auf Basis von .NET mit Weboberfläche, Backend-APIs und PowerShell-Integration.",
+        },
+      },
+      Neumann: {
+        post: "Full-Stack-Entwickler",
+        title: "Neumann Consulting GmbH",
+        period: "2026 — heute",
+        description: "Als Full-Stack-Entwickler arbeite ich an einem leichtgewichtigen, plattformunabhängigen Manufacturing Execution System (MES), das mit ASP.NET und C# entwickelt wird. Die Anwendung ist für den Betrieb sowohl in lokalen Infrastrukturen als auch in Cloud-Umgebungen ausgelegt und bietet eine moderne, skalierbare Architektur für industrielle Anwendungen.",
+        tasks: {
+          backend: "Entwicklung von ASP.NET-Backend-Diensten und REST-APIs, Implementierung der Geschäftslogik sowie Gestaltung von Datenverarbeitungsprozessen.",
+          architecture: "Implementierung von Authentifizierungs- und Berechtigungssystemen, Entwicklung von Echtzeitkommunikation mit SignalR sowie Umsetzung multithreadfähiger Prozesse für eine hohe Systemleistung.",
+          development: "Planung und Implementierung neuer Funktionen, Datenbankintegration, Performanceoptimierung sowie kontinuierliche Weiterentwicklung und Wartung der Anwendung.",
+        },
       },
     },
 
@@ -65,12 +54,16 @@ const de = {
       languages: "Programmiersprachen",
       social: "Soziale Netzwerke",
       cv: {
-        title: "Lebenslauf", 
+        title: "Lebenslauf",
         desc: "Lebenslauf ansehen"
       }
     },
 
     projects: {
+      intro: {
+        title: "Projekte",
+        desc: "Scrolle nach unten, um mehr zu entdecken"
+      },
       heading: "PROJEKTE",
       back: "Zurück",
       rikiki: {
@@ -86,14 +79,17 @@ const de = {
         description: "Das ist eine interaktive Quiz-Webseite, die unterhaltsame und wissensbasierte Herausforderungen zu verschiedenen Themen bietet. Sie wurde entwickelt, um eine benutzerfreundliche und spannende Spielerfahrung zu ermöglichen, sowohl für Einzelspieler als auch im Wettbewerb mit anderen. Nach dem Login können Nutzer in einem Leaderboard erscheinen und ihre Ergebnisse vergleichen. Langfristig soll eine Echtzeit-Multiplayer-Funktion integriert werden, bei der mehrere Nutzer gleichzeitig an einem Quiz teilnehmen können – ähnlich wie bei Kahoot.",
       },
       zorka: {
-      title: "Zorka Webshop",
-      description: "Eine Flask-basierte Webshop-Anwendung, die gemeinsam mit einem Freund entwickelt wurde. Sie umfasst eine REST-API, dynamische Produktdarstellung, Filter- und Sortierfunktionen sowie eine responsive Benutzeroberfläche. Der Fokus lag auf einer sauberen Architektur und gut wartbarem Code."},
-    },
-    nas: {
-      title: "NAS-Überwachung",
-      description: "Pi NAS Monitoring ist ein selbst entwickeltes webbasiertes Überwachungssystem für Raspberry Pi-basierte NAS-Server. Ziel des Projekts ist es, den Zustand der Speicherlaufwerke, die Speichernutzung, Systeminformationen sowie die von Hard Disk Sentinel bereitgestellten Gesundheitsdaten über eine moderne und responsive Benutzeroberfläche darzustellen. Das Backend basiert auf ASP.NET Core Web API, während das Frontend mit React entwickelt wurde. Der sichere Fernzugriff erfolgt über ein privates Tailscale-Netzwerk. Das Projekt befindet sich derzeit in aktiver Entwicklung und verfolgt das Ziel, eine leichtgewichtige, einfach bereitzustellende und erweiterbare NAS-Monitoring-Lösung zu schaffen."
+        title: "Zorka Webshop",
+        description: "Eine Flask-basierte Webshop-Anwendung, die gemeinsam mit einem Freund entwickelt wurde. Sie umfasst eine REST-API, dynamische Produktdarstellung, Filter- und Sortierfunktionen sowie eine responsive Benutzeroberfläche. Der Fokus lag auf einer sauberen Architektur und gut wartbarem Code."
+      },
+
+      nas: {
+        title: "NAS-Monitoring",
+        description: "Pi NAS Monitoring ist ein selbst entwickeltes webbasiertes Überwachungssystem für Raspberry Pi-basierte NAS-Server. Ziel des Projekts ist es, den Zustand der Speicherlaufwerke, die Speichernutzung, Systeminformationen sowie die von Hard Disk Sentinel bereitgestellten Gesundheitsdaten über eine moderne und responsive Benutzeroberfläche darzustellen. Das Backend basiert auf ASP.NET Core Web API, während das Frontend mit React entwickelt wurde. Der sichere Fernzugriff erfolgt über ein privates Tailscale-Netzwerk. Das Projekt befindet sich derzeit in aktiver Entwicklung und verfolgt das Ziel, eine leichtgewichtige, einfach bereitzustellende und erweiterbare NAS-Monitoring-Lösung zu schaffen."
+      },
     },
   },
 };
 
 export default de;
+

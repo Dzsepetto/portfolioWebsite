@@ -5,21 +5,56 @@
 .parallax-journey {
   position: relative;
   width: 100%;
-  height: 500vh;
+  height: 600vh;
   overflow: visible;
+}
+
+.parallax-scroll-target {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+  scroll-margin-top: 90px;
+}
+
+.parallax-scroll-target--home {
+  top: 0;
+}
+
+.parallax-scroll-target--experience {
+  top: 39%;
+}
+
+.parallax-scroll-target--projects {
+  top: 66%;
 }
 
 .parallax-journey__sticky {
   position: sticky;
   z-index: 1;
   top: 0;
+
   width: 100%;
   height: 100vh;
   height: 100svh;
+
   overflow: hidden;
+
   background: #173522;
+
   isolation: isolate;
   contain: layout paint;
+}
+
+/* ======================================================
+   TABLET
+   ====================================================== */
+
+@media (max-width: 1000px) {
+  .parallax-journey {
+    height: 700vh;
+  }
 }
 
 /* ======================================================
@@ -28,7 +63,7 @@
 
 @media (max-width: 700px) {
   .parallax-journey {
-    height: 430vh;
+    height: 600vh;
   }
 }
 
@@ -38,6 +73,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .parallax-journey {
-    height: 350vh;
+    height: 400vh;
   }
 }

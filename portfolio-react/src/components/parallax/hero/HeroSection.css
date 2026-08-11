@@ -6,51 +6,80 @@
   position: absolute;
   z-index: 1;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #e99b73;
-  pointer-events: auto;
-  will-change: opacity;
-}
 
-.hero-section__scene {
-  position: relative;
   width: 100%;
   height: 100%;
+
   overflow: hidden;
   isolation: isolate;
+
+  background: #e99b73;
+}
+
+.hero-section__wrapper {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  transform-origin: center;
+}
+
+.hero-section__transition-overlay {
+  position: absolute;
+  z-index: 50;
+  inset: 0;
+
+  background: rgba(18, 12, 9, 0.72);
+
+  pointer-events: none;
+}
+
+.hero-section__mobile-hint {
+  display: none;
 }
 
 /* ======================================================
-   HERO LAYERS
+   BACKGROUND SCENE
+   ====================================================== */
+
+.hero-section__scene {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
+
+/* ======================================================
+   LAYERS
    ====================================================== */
 
 .hero-section__layer {
   position: absolute;
   inset: -3%;
+
   display: block;
+
   width: 106%;
   height: 106%;
+
   object-fit: cover;
-  object-position: center center;
+  object-position: center;
+
   pointer-events: none;
   user-select: none;
-  backface-visibility: hidden;
-  transform-origin: center center;
+
+  transform-origin: center;
 }
 
-/*
-  Rétegsorrend hátulról előre:
-
-  1. sky
-  2. background
-  3. tree
-  4. house
-  5. bush
-  6. path
-  7. rock
-*/
+/* ======================================================
+   STATIC LAYERS
+   ====================================================== */
 
 .hero-section__layer--sky {
   z-index: 1;
@@ -59,6 +88,10 @@
 .hero-section__layer--background {
   z-index: 2;
 }
+
+/* ======================================================
+   MOVING LAYERS
+   ====================================================== */
 
 .hero-section__layer--tree {
   z-index: 3;
@@ -86,135 +119,549 @@
 }
 
 /* ======================================================
-   HERO CONTENT POSITIONER
+   OVERLAY
    ====================================================== */
 
-/*
-  Ez az elem csak a tartalom középre igazítását végzi.
-  A Motion animáció nem ezen az elemen fut.
-*/
-
-.hero-section__content-positioner {
+.hero-section__overlay {
   position: absolute;
-  z-index: 20;
-  top: 50%;
-  left: 50%;
-  width: min(90%, 900px);
-  transform: translate(-50%, -50%);
-}
+  z-index: 10;
+  inset: 0;
 
-/* ======================================================
-   HERO CONTENT
-   ====================================================== */
+  background: rgba(24, 15, 10, 0.4);
 
-.hero-section__content {
-  position: relative;
-  width: 100%;
-  padding: 24px;
-  color: #24180f;
-  text-align: center;
-  will-change: transform, opacity;
-}
-
-.hero-section__content::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -30px -70px;
-  background: radial-gradient(
-    ellipse,
-    rgba(255, 239, 213, 0.72) 0%,
-    rgba(255, 239, 213, 0.28) 46%,
-    rgba(255, 239, 213, 0) 76%
-  );
-  filter: blur(12px);
   pointer-events: none;
 }
 
 /* ======================================================
-   HERO TEXT
+   INTRO
    ====================================================== */
 
-.hero-section__eyebrow {
-  margin: 0 0 14px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
+.hero-section__intro-positioner {
+  position: absolute;
+  z-index: 20;
+
+  top: 32%;
+  left: 50%;
+
+  width: 90%;
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
 }
 
-.hero-section__content h1 {
+.hero-section__intro {
+  width: 100%;
+
+  color: #2b2b2b;
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+.hero-section__intro h1 {
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3rem, 7vw, 7rem);
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
   font-weight: 500;
-  line-height: 0.92;
-  letter-spacing: 0.06em;
-  color: #24180f;
+
+
+  line-height: 0.9;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.hero-section__content > p:not(.hero-section__eyebrow) {
-  margin: 24px 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1rem, 1.8vw, 1.35rem);
-}
+.hero-section__intro h3 {
+  margin: 12px 0 0;
 
-/* ======================================================
-   HERO BUTTON
-   ====================================================== */
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 400;
 
-.hero-section__content button {
-  border: 1px solid rgba(71, 28, 19, 0.45);
-  border-radius: 2px;
-  padding: 14px 26px;
-  background: rgba(122, 32, 24, 0.92);
-  color: #fff8ec;
-  font-family: inherit;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
+
   text-transform: uppercase;
-  cursor: pointer;
-  transition:
-    transform 180ms ease,
-    background-color 180ms ease;
-}
-
-.hero-section__content button:hover {
-  transform: translateY(-2px);
-  background: rgba(147, 42, 31, 0.98);
-}
-
-.hero-section__content button:focus-visible {
-  outline: 2px solid #fff8ec;
-  outline-offset: 4px;
 }
 
 /* ======================================================
-   MOBILE
+   FEATURE
    ====================================================== */
 
-@media (max-width: 700px) {
+.hero-section__feature-positioner {
+  position: absolute;
+  z-index: 30;
+
+  top: 50%;
+  left: 50%;
+
+  width: min(90%, 1200px);
+
+  transform: translate(-50%, -50%);
+}
+
+.hero-section__feature {
+  display: grid;
+  grid-template-columns:
+    minmax(300px, 1fr) minmax(320px, 0.9fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 90px);
+
+  width: 100%;
+}
+
+/* ======================================================
+   FEATURE IMAGE
+   ====================================================== */
+
+.hero-section__feature-image-wrapper {
+  width: 100%;
+  max-height: 72vh;
+  aspect-ratio: 4 / 5;
+
+  overflow: hidden;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 24px 55px rgba(20, 10, 6, 0.28),
+    0 8px 20px rgba(20, 10, 6, 0.16);
+}
+
+.hero-section__feature-image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ======================================================
+   FEATURE CONTENT
+   ====================================================== */
+
+.hero-section__feature-content {
+  color: #2b2b2b;
+}
+
+.hero-section__feature-content h2 {
+  margin: 0 0 30px;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: clamp(3rem, 5vw, 5.5rem);
+  font-weight: 400;
+  color: whitesmoke;
+  text-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.55),
+      0 6px 18px rgba(0, 0, 0, 0.28);
+
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+/* ======================================================
+   FEATURE BUBBLES
+   ====================================================== */
+
+.hero-section__feature-bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ======================================================
+   TABLET
+   ====================================================== */
+
+@media (max-width: 950px) {
+  .hero-section__feature-positioner {
+    width: min(92%, 900px);
+  }
+
+  .hero-section__feature {
+    grid-template-columns:
+      minmax(260px, 0.9fr) minmax(300px, 1fr);
+
+    gap: 36px;
+  }
+
+  .hero-section__feature-image-wrapper {
+    max-height: 65vh;
+  }
+}
+
+/* ======================================================
+   PORTRAIT COMPOSITION
+   ====================================================== */
+
+@media (orientation: portrait) {
   .hero-section__layer {
-    inset: -6%;
-    width: 112%;
-    height: 112%;
+    max-width: none;
+
+    pointer-events: none;
+    user-select: none;
+
+    transform-origin: center bottom;
   }
 
-  .hero-section__content-positioner {
-    top: 48%;
-    width: 94%;
+  .hero-section__layer--sky {
+    top: -2%;
+    right: -2%;
+    bottom: -2%;
+    left: -2%;
+
+    width: 104%;
+    height: 104%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transform-origin: center;
   }
 
-  .hero-section__content {
-    padding: 16px;
+  .hero-section__layer--background {
+    top: auto;
+    right: auto;
+    bottom: -4%;
+    left: -42%;
+
+    width: 184%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center bottom;
   }
 
-  .hero-section__content::before {
-    inset: -20px;
+  .hero-section__layer--tree {
+    top: auto;
+    right: auto;
+    bottom: 2%;
+    left: -11%;
+
+    width: 158%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center bottom;
   }
 
-  .hero-section__content h1 {
-    font-size: clamp(2.5rem, 13vw, 4.5rem);
+  .hero-section__layer--rock-left {
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: -11%;
+
+    width: 158%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .hero-section__layer--house {
+    top: auto;
+    right: -24%;
+    bottom: 1%;
+    left: auto;
+
+    width: 164%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .hero-section__layer--bush-right {
+    top: auto;
+    right: -17%;
+    bottom: 4%;
+    left: auto;
+
+    width: 156%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .hero-section__layer--path {
+    top: auto;
+    right: auto;
+    bottom: -2%;
+    left: -42%;
+
+    width: 184%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center bottom;
+  }
+
+  .hero-section__intro-positioner {
+    top: 32%;
+  }
+}
+
+/* ======================================================
+   MEDIUM DESKTOP LANDSCAPE FIX
+   ====================================================== */
+
+/*
+ * Csak 951 px felett fut le.
+ * A 950 px alatti tablet- és mobilnézethez nem nyúl.
+ */
+
+@media (min-width: 951px) and (max-width: 1776px) and (orientation: landscape) {
+  .hero-section {
+    background: #34251f;
+  }
+
+  .hero-section__scene {
+    top: -2%;
+    right: -2%;
+    bottom: -3%;
+    left: -2%;
+
+    width: auto;
+    height: auto;
+  }
+
+  .hero-section__layer {
+    inset: -3%;
+
+    width: 106%;
+    height: 106%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-section__layer--sky,
+  .hero-section__layer--background {
+    inset: -4%;
+
+    width: 108%;
+    height: 108%;
+  }
+}
+
+/* ======================================================
+   MOBILE PORTRAIT
+   ====================================================== */
+
+@media (max-width: 700px) and (orientation: portrait) {
+  .hero-section__intro-positioner {
+    top: 28%;
+
+    width: calc(100% - 32px);
+  }
+
+.hero-section__mobile-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 18px;
+  padding: 9px 14px;
+
+  border: 1px solid rgba(43, 43, 43, 0.12);
+  border-radius: 999px;
+
+  background: rgba(234, 234, 234, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  color: #2b2b2b;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.055em;
+
+  text-align: center;
+
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.28);
+
+  box-shadow:
+    0 4px 14px rgba(43, 43, 43, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+  .hero-section__intro h1 {
+    font-size: clamp(2.75rem, 15vw, 4.5rem);
+  }
+
+  .hero-section__intro h3 {
+    margin-top: 8px;
+
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+
+  .hero-section__feature-positioner {
+    width: calc(100% - 32px);
+    max-height: calc(100svh - 28px);
+  }
+
+  .hero-section__feature {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    max-height: calc(100svh - 32px);
+
+    overflow-y: auto;
+  }
+
+  .hero-section__feature-image-wrapper {
+    flex-shrink: 0;
+
+    width: min(100%, 280px);
+    aspect-ratio: 4 / 3;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+    border-radius: 18px;
+  }
+
+  .hero-section__feature-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 22%;
+  }
+
+  .hero-section__feature-content {
+    width: 100%;
+
+    text-align: center;
+  }
+
+  .hero-section__feature-content h2 {
+    margin-bottom: 16px;
+
+    font-size: clamp(2.4rem, 12vw, 3.8rem);
+  }
+
+  .hero-section__feature-bubbles {
+    gap: 9px;
+  }
+}
+
+/* ======================================================
+   NARROW PORTRAIT PHONES
+   ====================================================== */
+
+@media (max-width: 430px) and (orientation: portrait) {
+  .hero-section__intro-positioner {
+    top: 27%;
+
+    width: calc(100% - 24px);
+  }
+
+  .hero-section__mobile-hint {
+    margin-top: 14px;
+    padding: 7px 10px;
+
+    font-size: 0.66rem;
+  }
+
+  .hero-section__intro h1 {
+    font-size: clamp(2.6rem, 14vw, 3.8rem);
+  }
+
+  .hero-section__intro h3 {
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+  }
+
+  .hero-section__feature-positioner {
+    width: calc(100% - 20px);
+    max-height: calc(100svh - 20px);
+  }
+
+  .hero-section__feature {
+    gap: 26px;
+
+    max-height: calc(100svh - 20px);
+  }
+
+  .hero-section__feature-image-wrapper {
+    width: min(100%, 270px);
+
+    border-radius: 14px;
+  }
+
+  .hero-section__feature-content h2 {
+    margin-bottom: 12px;
+
+    font-size: clamp(2.1rem, 11vw, 3rem);
+  }
+
+  .hero-section__feature-bubbles {
+    gap: 7px;
+  }
+}
+
+/* ======================================================
+   MOBILE LANDSCAPE
+   ====================================================== */
+
+@media (max-height: 700px) and (orientation: landscape) {
+  .hero-section__layer {
+    inset: -3%;
+
+    width: 106%;
+    height: 106%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-section__intro-positioner {
+    top: 52%;
+  }
+
+  .hero-section__intro h1 {
+    font-size: clamp(2.5rem, 9vw, 4.5rem);
+  }
+
+  .hero-section__intro h3 {
+    margin-top: 6px;
+
+    font-size: 0.8rem;
+  }
+
+  .hero-section__feature-positioner {
+    width: min(92%, 1000px);
+  }
+
+  .hero-section__feature {
+    grid-template-columns:
+      minmax(220px, 0.8fr) minmax(300px, 1.2fr);
+
+    gap: 28px;
+  }
+
+  .hero-section__feature-image-wrapper {
+    max-height: 70vh;
+  }
+
+  .hero-section__feature-content h2 {
+    margin-bottom: 14px;
+
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+  }
+
+  .hero-section__feature-bubbles {
+    gap: 8px;
   }
 }
 
@@ -223,9 +670,15 @@
    ====================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-section,
-  .hero-section__layer,
-  .hero-section__content {
+
+  .hero-section__intro,
+  .hero-section__feature,
+  .hero-section__overlay,
+  .hero-section__layer--tree,
+  .hero-section__layer--house,
+  .hero-section__layer--bush-right,
+  .hero-section__layer--path,
+  .hero-section__layer--rock-left {
     will-change: auto;
   }
 }

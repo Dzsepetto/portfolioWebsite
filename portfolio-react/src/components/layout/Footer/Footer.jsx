@@ -3,11 +3,13 @@ import { socials } from "../../../lib/socials";
 import { useTranslation } from "react-i18next";
 
 function Footer() {
-  const { t, i18n } = useTranslation();
+const { t, i18n } = useTranslation();
 
-  const lang = i18n.language?.toLowerCase() || "hu";
+  const lang = i18n.resolvedLanguage?.toLowerCase()
+    || i18n.language?.toLowerCase()
+    || "hu";
 
-  const Language = lang.startsWith("hu")
+  const current = lang.startsWith("hu")
     ? "hu"
     : lang.startsWith("de")
     ? "de"
@@ -30,9 +32,12 @@ function Footer() {
               {t("footer.contact")}
             </h4>
 
-            <span className="footer-contact-email">
-              pinterbence2002@gmail.com
-            </span>
+          <a
+            href="mailto:pinterbence2002@gmail.com"
+            className="footer-contact-email"
+          >
+            pinterbence2002@gmail.com
+          </a>
           </div>
 
           {/* SOCIAL */}

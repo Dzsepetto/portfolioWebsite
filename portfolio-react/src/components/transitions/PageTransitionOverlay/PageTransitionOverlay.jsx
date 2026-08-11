@@ -1,4 +1,4 @@
-import { usePageTransition } from "../../../app/providers/TransitionProvider";
+import usePageTransition  from "../../../app/providers/usePageTransition";
 import "./PageTransition.css";
 
 function PageTransitionOverlay() {

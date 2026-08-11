@@ -6,64 +6,153 @@
   position: absolute;
   z-index: 2;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: transparent;
-  pointer-events: none;
-}
 
-.gate-section__scene {
-  position: relative;
   width: 100%;
   height: 100%;
+
   overflow: hidden;
   isolation: isolate;
-  will-change: opacity, transform;
+
+  background: #202320;
 }
 
 /* ======================================================
-   GATE LAYERS
+   SCENE
    ====================================================== */
+
+.gate-section__scene {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+}
 
 .gate-section__layer {
   position: absolute;
-  inset: -4%;
-  display: block;
-  width: 108%;
-  height: 108%;
-  object-fit: cover;
-  object-position: center center;
+
   pointer-events: none;
   user-select: none;
-  backface-visibility: hidden;
+
+  transform-origin: center;
 }
 
 .gate-section__layer--background {
   z-index: 1;
+
+  inset: -3%;
+
+  width: 106%;
+  height: 106%;
+
+  object-fit: cover;
+  object-position: center;
 }
 
 .gate-section__layer--gate {
   z-index: 2;
-  will-change: transform;
+
+  inset: 0 auto 0 50%;
+
+  width: clamp(1700px, 100vw, 2200px);
+  height: 100%;
+
+  max-width: none;
+
+  object-fit: contain;
+  object-position: center bottom;
+
+  translate: -50% 0;
 }
 
 /* ======================================================
    OVERLAY
    ====================================================== */
 
-.gate-section__scene::after {
-  content: "";
+.gate-section__overlay {
   position: absolute;
-  z-index: 3;
+  z-index: 10;
   inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(7, 20, 11, 0.12) 0%,
-    rgba(7, 20, 11, 0.02) 45%,
-    rgba(7, 20, 11, 0.35) 100%
-  );
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 15, 9, 0.2) 0%,
+      rgba(8, 15, 9, 0.34) 45%,
+      rgba(8, 15, 9, 0.5) 100%
+    );
+
   pointer-events: none;
+}
+
+/* ======================================================
+   INTRO
+   ====================================================== */
+
+.gate-section__intro-positioner {
+  position: absolute;
+  z-index: 20;
+
+  top: 50%;
+  left: 50%;
+
+  width: min(94%, 1200px);
+
+  transform: translate(-50%, -50%);
+
+  pointer-events: none;
+}
+
+.gate-section__intro {
+  width: 100%;
+
+  color: whitesmoke;
+
+  text-align: center;
+
+  will-change: transform, opacity;
+}
+
+.gate-section__intro h1 {
+  margin: 0 auto;
+
+  max-width: 1100px;
+
+  color: whitesmoke;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: clamp(3rem, 7vw, 6.3rem);
+  font-weight: 400;
+
+  line-height: 1;
+  letter-spacing: 0.06em;
+
+  text-align: center;
+  text-transform: uppercase;
+  text-wrap: balance;
+
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+.gate-section__intro h3 {
+  margin: 12px 0 0;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  font-weight: 400;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.28);
 }
 
 /* ======================================================
@@ -72,62 +161,382 @@
 
 .gate-section__content-positioner {
   position: absolute;
-  z-index: 10;
-  top: 50%;
+  z-index: 30;
+
+  top: 51%;
   left: 50%;
-  width: min(90%, 850px);
+
+  width: min(88%, 1220px);
+  max-height: calc(100svh - 100px);
+
   transform: translate(-50%, -50%);
 }
 
 .gate-section__content {
-  position: relative;
   width: 100%;
-  padding: 24px;
-  color: #fff8ec;
-  text-align: center;
-  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.75);
-  will-change: transform, opacity;
+
+  color: whitesmoke;
 }
 
-.gate-section__content::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: -35px -80px;
-  background: radial-gradient(
-    ellipse,
-    rgba(8, 22, 13, 0.62) 0%,
-    rgba(8, 22, 13, 0.28) 48%,
-    rgba(8, 22, 13, 0) 76%
-  );
-  filter: blur(14px);
-  pointer-events: none;
+.gate-section__content::-webkit-scrollbar {
+  width: 6px;
 }
 
-.gate-section__eyebrow {
-  margin: 0 0 14px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
+.gate-section__content::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.gate-section__content h2 {
-  margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3rem, 7vw, 7rem);
-  font-weight: 500;
+.gate-section__content::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.38);
+}
+
+.gate-section__title {
+  margin: 0 0 24px;
+
+  color: whitesmoke;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: clamp(3.4rem, 5vw, 5.8rem);
+  font-weight: 400;
+
   line-height: 0.92;
-  letter-spacing: 0.06em;
-  color: #fff8ec;
+  letter-spacing: 0.04em;
+
+  text-align: center;
+  text-transform: uppercase;
+
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.28);
+}
+
+/* ======================================================
+   EXPERIENCE
+   ====================================================== */
+
+.gate-section__experience-list {
+  display: grid;
+  gap: 14px;
+}
+
+.gate-section__experience {
+  margin: 0;
+}
+
+/* ======================================================
+   EXPERIENCE TOGGLE
+   ====================================================== */
+
+.gate-section__experience-toggle {
+  display: block;
+
+  width: 100%;
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+  color: inherit;
+
+  font: inherit;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.gate-section__experience-toggle:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.85);
+  outline-offset: 4px;
+
+  border-radius: 10px;
+}
+
+/* ======================================================
+   EXPERIENCE HEADER
+   ====================================================== */
+
+.gate-section__experience-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  width: 100%;
+  padding-bottom: 12px;
+}
+
+.gate-section__experience-heading {
+  min-width: 0;
+}
+
+.gate-section__experience-heading
+  .portfolio-card__label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.gate-section__experience-heading
+  .portfolio-card__title {
+  display: block;
+
+  margin: 0;
+}
+
+.gate-section__experience-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  flex-shrink: 0;
+}
+
+.gate-section__experience-meta
+  .portfolio-card__period {
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ======================================================
+   CHEVRON
+   ====================================================== */
+
+.gate-section__experience-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 32px;
+  height: 32px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  color: whitesmoke;
+
+  box-shadow:
+    0 3px 10px
+      rgba(0, 0, 0, 0.18),
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.12);
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.gate-section__experience-chevron svg {
+  width: 18px;
+  height: 18px;
+
+  stroke-width: 2.5;
+}
+
+.gate-section__experience.is-open
+  .gate-section__experience-chevron {
+  transform: rotate(180deg);
+
+  background:
+    rgba(255, 255, 255, 0.2);
+
+  border-color:
+    rgba(255, 255, 255, 0.38);
+}
+
+.gate-section__experience-toggle:hover
+  .gate-section__experience-chevron {
+  background:
+    rgba(255, 255, 255, 0.22);
+
+  border-color:
+    rgba(255, 255, 255, 0.42);
+}
+
+@media (max-width: 700px) {
+  .gate-section__experience-chevron {
+    width: 28px;
+    height: 28px;
+  }
+
+  .gate-section__experience-chevron svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* ======================================================
+   COLLAPSE
+   ====================================================== */
+
+.gate-section__experience-collapse {
+  display: grid;
+
+  grid-template-rows: 0fr;
+
+  opacity: 0;
+
+  transition:
+    grid-template-rows 0.28s ease,
+    opacity 0.2s ease;
+}
+
+.gate-section__experience-collapse-inner {
+  min-height: 0;
+
+  overflow: hidden;
+}
+
+.gate-section__experience.is-open
+  .gate-section__experience-collapse {
+  grid-template-rows: 1fr;
+
+  opacity: 1;
+}
+
+/* ======================================================
+   EXPERIENCE DETAILS
+   ====================================================== */
+
+.gate-section__experience-details {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1.2fr);
+
+  gap: 30px;
+
+  padding-top: 14px;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.12);
+}
+
+.gate-section__experience-details ul {
+  display: grid;
+  gap: 6px;
+
+  margin: 0;
+  padding-left: 20px;
+}
+
+.gate-section__experience-details li {
+  font-size: 0.85rem;
+  line-height: 1.45;
+
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* ======================================================
+   SKILLS
+   ====================================================== */
+
+.gate-section__skills {
+  margin-top: 18px;
+}
+
+.gate-section__skills-title {
+  margin: 0 0 10px;
+
+  color: whitesmoke;
+
+  font-family: "Bangers", system-ui, sans-serif;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 400;
+
+  line-height: 1;
+  letter-spacing: 0.05em;
+
   text-transform: uppercase;
 }
 
-.gate-section__content > p:not(.gate-section__eyebrow) {
-  margin: 24px 0 0;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1rem, 1.8vw, 1.35rem);
-  line-height: 1.6;
+.gate-section__skills-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(7, minmax(80px, 1fr));
+
+  gap: 14px;
+}
+
+.gate-section__skill-icon {
+  width: 30px;
+  height: 30px;
+
+  color: whitesmoke;
+}
+
+/* ======================================================
+   TABLET
+   ====================================================== */
+
+@media (max-width: 1100px) {
+  .gate-section__content-positioner {
+    width: min(92%, 900px);
+  }
+
+  .gate-section__title {
+    margin-bottom: 18px;
+
+    font-size: clamp(3rem, 6vw, 4.6rem);
+  }
+
+  .gate-section__skills-grid {
+    grid-template-columns:
+      repeat(7, minmax(65px, 1fr));
+
+    gap: 9px;
+  }
+}
+
+@media (max-width: 950px) {
+  .gate-section__layer--gate {
+    width: clamp(
+      1350px,
+      175vw,
+      1750px
+    );
+  }
+
+  .gate-section__content-positioner {
+    width: min(92%, 820px);
+  }
+
+  .gate-section__experience-list {
+    gap: 10px;
+  }
+
+  .gate-section__title {
+    margin-bottom: 16px;
+  }
+
+  .gate-section__experience-details {
+    gap: 18px;
+  }
+
+  .gate-section__skills-grid {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+  }
 }
 
 /* ======================================================
@@ -135,26 +544,219 @@
    ====================================================== */
 
 @media (max-width: 700px) {
-  .gate-section__layer {
-    inset: -8%;
-    width: 116%;
-    height: 116%;
+  .gate-section__layer--background {
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-position: center;
   }
 
+  .gate-section__layer--gate {
+    width: clamp(
+      1050px,
+      260vw,
+      1450px
+    );
+  }
+
+  /* INTRO */
+
+  .gate-section__intro-positioner {
+    top: 28%;
+
+    width: calc(100% - 32px);
+  }
+
+  .gate-section__intro h1 {
+    font-size:
+      clamp(2.25rem, 11vw, 3.6rem);
+
+    line-height: 1.05;
+    letter-spacing: 0.05em;
+  }
+
+  .gate-section__intro h3 {
+    font-size: 0.95rem;
+  }
+
+  /* CONTENT */
+
   .gate-section__content-positioner {
-    width: 94%;
+    top: 50%;
+
+    width: calc(100% - 20px);
+    height: calc(100svh - 72px);
   }
 
   .gate-section__content {
-    padding: 16px;
+    padding: 12px 8px 24px;
   }
 
-  .gate-section__content::before {
-    inset: -20px;
+  .gate-section__title {
+    margin-bottom: 12px;
+
+    font-size:
+      clamp(2.35rem, 11vw, 3.4rem);
+
+    line-height: 1;
   }
 
-  .gate-section__content h2 {
-    font-size: clamp(2.5rem, 13vw, 4.5rem);
+  /* EXPERIENCE */
+
+  .gate-section__experience-list {
+    gap: 9px;
+  }
+
+  .gate-section__experience-header {
+    align-items: center;
+
+    gap: 10px;
+
+    padding-bottom: 8px;
+  }
+
+  .gate-section__experience-heading
+    .portfolio-card__label {
+    margin-bottom: 4px;
+
+    font-size: 0.66rem;
+  }
+
+  .gate-section__experience-heading
+    .portfolio-card__title {
+    font-size: 0.82rem;
+  }
+
+  .gate-section__experience-meta {
+    gap: 6px;
+  }
+
+  .gate-section__experience-meta
+    .portfolio-card__period {
+    font-size: 0.66rem;
+  }
+
+  .gate-section__experience-chevron {
+    width: 24px;
+    height: 24px;
+
+    font-size: 0.75rem;
+  }
+
+  .gate-section__experience-details {
+    grid-template-columns: 1fr;
+
+    gap: 7px;
+
+    padding-top: 10px;
+  }
+
+  .gate-section__experience-details
+    .portfolio-card__text {
+    font-size: 0.76rem;
+    line-height: 1.45;
+  }
+
+  .gate-section__experience-details li {
+    font-size: 0.72rem;
+    line-height: 1.4;
+  }
+
+  /* SKILLS */
+
+  .gate-section__skills {
+    margin-top: 12px;
+  }
+
+  .gate-section__skills-title {
+    margin-bottom: 8px;
+
+    font-size: 1.8rem;
+  }
+
+  .gate-section__skills-grid {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+
+    gap: 7px;
+  }
+
+  .gate-section__skills-grid
+    .portfolio-card--skill {
+    min-height: 68px;
+
+    padding: 7px 5px;
+  }
+
+  .gate-section__skill-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .gate-section__skills-grid
+    .portfolio-card--skill
+    .portfolio-card__title {
+    font-size: 0.65rem;
+
+    letter-spacing: 0.03em;
+  }
+}
+
+/* ======================================================
+   SMALL MOBILE
+   ====================================================== */
+
+@media (max-width: 430px) {
+  .gate-section__intro-positioner {
+    top: 27%;
+
+    width: calc(100% - 20px);
+  }
+
+  .gate-section__content-positioner {
+    width: calc(100% - 14px);
+    height: calc(100svh - 58px);
+  }
+
+  .gate-section__content {
+    padding:
+      10px
+      5px
+      20px;
+  }
+
+  .gate-section__title {
+    margin-bottom: 10px;
+
+    font-size:
+      clamp(2.15rem, 10vw, 3rem);
+  }
+
+  .gate-section__experience-heading
+    .portfolio-card__label {
+    font-size: 0.62rem;
+  }
+
+  .gate-section__experience-heading
+    .portfolio-card__title {
+    font-size: 0.76rem;
+  }
+
+  .gate-section__experience-meta
+    .portfolio-card__period {
+    font-size: 0.62rem;
+  }
+
+  .gate-section__skills-grid {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+  }
+
+  .gate-section__skills-grid
+    .portfolio-card--skill {
+    min-height: 64px;
   }
 }
 
@@ -163,9 +765,12 @@
    ====================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .gate-section__scene,
+  .gate-section__intro,
+  .gate-section__content,
   .gate-section__layer,
-  .gate-section__content {
+  .gate-section__experience-collapse,
+  .gate-section__experience-chevron {
+    transition: none;
     will-change: auto;
   }
 }
