@@ -8,12 +8,12 @@ const hu = {
       intro: {
         title: "Üdv",
         desc: "Görgess lejjebb, hogy többet megtudj rólam",
-        mobile_hint: "A legsimább élményért asztali gépen nézd meg.",
+        mobile_hint: "A legjobb élményért válts asztali gépre.",
       },
       title: "Pintér Benedek",
       experience: "4 év informatikai tapasztalat, elsősorban .NET fejlesztésben és PowerShell szkriptelésben, kiegészítve IT támogatási és rendszerüzemeltetési feladatokkal. Jelenleg ASP.NET fejlesztőként vállalati MES rendszerek fejlesztésében veszek részt.",
       experience_title: "Tapasztalat",
-      devappr_title: "Developer szemlélet",
+      devappr_title: "Fejlesztési szemlélet",
       devappr: "Hiszek abban, hogy a szoftvereknek megbízhatónak, jól karbantarthatónak és felhasználóközpontúnak kell lenniük. Célom tiszta, skálázható kódot írni, miközben folyamatosan új technológiákat és fejlesztési módszereket sajátítok el.",
       degree_title: "Végzettség",
       degree: "Gazdaságinformatikus képzésen (BSc) szereztem diplomát, amely során erős alapokat szereztem a szoftverfejlesztés, az adatbázisok, a rendszerelemzés és az üzleti informatika területén."

@@ -112,10 +112,11 @@ export default function InnSection({
         scale={introScale}
       />
 
-      <InnFeature
-        opacity={featureOpacity}
-        pointerEvents={featurePointerEvents}
-      />
+<InnFeature
+  progress={progress}
+  opacity={featureOpacity}
+  pointerEvents={featurePointerEvents}
+/>
     </motion.section>
   );
 }

@@ -1,10 +1,14 @@
 import { useState } from "react";
-import { motion } from "motion/react";
+import {
+  motion,
+  useMotionValueEvent,
+} from "motion/react";
 import { useTranslation } from "react-i18next";
 
 import { projects } from "../../../lib/projects.data";
 
 export default function InnFeature({
+  progress,
   opacity,
   pointerEvents,
 }) {
@@ -18,10 +22,23 @@ export default function InnFeature({
       ? projects[selectedProject]
       : null;
 
+  useMotionValueEvent(progress, "change", (latest) => {
+    const innIsActive =
+      latest > 0.001 &&
+      latest < 0.999;
+
+    if (!innIsActive) {
+      setSelectedProject(null);
+    }
+  });
+
   return (
     <div className="inn-section__feature-positioner">
       <motion.div
-        className="inn-section__feature"
+        className={`inn-section__feature ${selectedProjectData
+            ? "inn-section__feature--details"
+            : ""
+          }`}
         style={{
           opacity,
           pointerEvents,

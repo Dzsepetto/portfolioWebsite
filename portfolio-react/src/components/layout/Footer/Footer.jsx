@@ -63,7 +63,7 @@ const { t, i18n } = useTranslation();
             </div>
           </div>
 
-          {/* CV */}
+          {/* CV 
           <div className="footer-column">
             <h4>{t("footer.cv.title")}</h4>
 
@@ -78,6 +78,7 @@ const { t, i18n } = useTranslation();
               </a>
             </div>
           </div>
+          CV */}
         </div>
       </div>
 

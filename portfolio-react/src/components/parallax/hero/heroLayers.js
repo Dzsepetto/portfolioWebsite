@@ -73,7 +73,7 @@ export const heroMovingLayersMobile = [
     src: tree,
     modifierClass: "hero-section__layer--tree",
     range,
-    x: ["0vw", "-42vw"],
+    x: ["0vw", "-65vw"],
     y: ["0vh", "-2vh"],
   },
   {
@@ -81,7 +81,7 @@ export const heroMovingLayersMobile = [
     src: house,
     modifierClass: "hero-section__layer--house",
     range,
-    x: ["0vw", "42vw"],
+    x: ["0vw", "50vw"],
     y: ["0vh", "1vh"],
   },
   {

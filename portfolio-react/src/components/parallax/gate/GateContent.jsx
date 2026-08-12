@@ -18,6 +18,7 @@ import { TbBrandCSharp } from "react-icons/tb";
 import { FaDatabase } from "react-icons/fa6";
 import { FiChevronDown } from "react-icons/fi";
 
+
 const skills = [
   {
     name: "C#",
@@ -49,32 +50,33 @@ const skills = [
   },
 ];
 
+
 export default function GateContent({
   opacity,
   isMobile,
 }) {
   const { t } = useTranslation();
 
-  const [openExperiences, setOpenExperiences] =
-    useState({
-      conti: true,
-      neumann: !isMobile,
-    });
+
+  const [openExperience, setOpenExperience] =
+    useState(isMobile ? "neumann" : "conti");
+
 
   useEffect(() => {
-    setOpenExperiences({
-      conti: true,
-      neumann: !isMobile,
-    });
+    setOpenExperience(
+      isMobile ? "neumann" : "conti",
+    );
   }, [isMobile]);
 
+
   const toggleExperience = (experience) => {
-    setOpenExperiences((current) => ({
-      ...current,
-      [experience]:
-        !current[experience],
-    }));
+    setOpenExperience((current) =>
+      current === experience
+        ? null
+        : experience,
+    );
   };
+
 
   return (
     <div className="gate-section__content-positioner">
@@ -86,11 +88,12 @@ export default function GateContent({
           {t("experience.title")}
         </h2>
 
+
         <div className="gate-section__experience-list">
           {/* CONTINENTAL */}
           <section
             className={`portfolio-card gate-section__experience ${
-              openExperiences.conti
+              openExperience === "conti"
                 ? "is-open"
                 : ""
             }`}
@@ -102,7 +105,7 @@ export default function GateContent({
                 toggleExperience("conti")
               }
               aria-expanded={
-                openExperiences.conti
+                openExperience === "conti"
               }
             >
               <div className="gate-section__experience-header">
@@ -113,6 +116,7 @@ export default function GateContent({
                     )}
                   </span>
 
+
                   <strong className="portfolio-card__title">
                     {t(
                       "experience.conti.title",
@@ -120,12 +124,14 @@ export default function GateContent({
                   </strong>
                 </div>
 
+
                 <div className="gate-section__experience-meta">
                   <span className="portfolio-card__period">
                     {t(
                       "experience.conti.period",
                     )}
                   </span>
+
 
                   <span
                     className="gate-section__experience-chevron"
@@ -137,6 +143,7 @@ export default function GateContent({
               </div>
             </button>
 
+
             <div className="gate-section__experience-collapse">
               <div className="gate-section__experience-collapse-inner">
                 <div className="gate-section__experience-details">
@@ -146,6 +153,7 @@ export default function GateContent({
                     )}
                   </p>
 
+
                   <ul className="portfolio-card__list">
                     <li>
                       {t(
@@ -153,11 +161,13 @@ export default function GateContent({
                       )}
                     </li>
 
+
                     <li>
                       {t(
                         "experience.conti.tasks.automation",
                       )}
                     </li>
+
 
                     <li>
                       {t(
@@ -170,10 +180,11 @@ export default function GateContent({
             </div>
           </section>
 
+
           {/* NEUMANN */}
           <section
             className={`portfolio-card gate-section__experience ${
-              openExperiences.neumann
+              openExperience === "neumann"
                 ? "is-open"
                 : ""
             }`}
@@ -185,7 +196,7 @@ export default function GateContent({
                 toggleExperience("neumann")
               }
               aria-expanded={
-                openExperiences.neumann
+                openExperience === "neumann"
               }
             >
               <div className="gate-section__experience-header">
@@ -196,6 +207,7 @@ export default function GateContent({
                     )}
                   </span>
 
+
                   <strong className="portfolio-card__title">
                     {t(
                       "experience.Neumann.title",
@@ -203,12 +215,14 @@ export default function GateContent({
                   </strong>
                 </div>
 
+
                 <div className="gate-section__experience-meta">
                   <span className="portfolio-card__period">
                     {t(
                       "experience.Neumann.period",
                     )}
                   </span>
+
 
                   <span
                     className="gate-section__experience-chevron"
@@ -220,6 +234,7 @@ export default function GateContent({
               </div>
             </button>
 
+
             <div className="gate-section__experience-collapse">
               <div className="gate-section__experience-collapse-inner">
                 <div className="gate-section__experience-details">
@@ -229,6 +244,7 @@ export default function GateContent({
                     )}
                   </p>
 
+
                   <ul className="portfolio-card__list">
                     <li>
                       {t(
@@ -236,11 +252,13 @@ export default function GateContent({
                       )}
                     </li>
 
+
                     <li>
                       {t(
                         "experience.Neumann.tasks.architecture",
                       )}
                     </li>
+
 
                     <li>
                       {t(
@@ -254,6 +272,7 @@ export default function GateContent({
           </section>
         </div>
 
+
         <section className="gate-section__skills">
           <h3 className="gate-section__skills-title">
             {t("experience.skills", {
@@ -261,9 +280,11 @@ export default function GateContent({
             })}
           </h3>
 
+
           <div className="gate-section__skills-grid">
             {skills.map((skill) => {
               const Icon = skill.icon;
+
 
               return (
                 <div
@@ -275,6 +296,7 @@ export default function GateContent({
                     className="gate-section__skill-icon"
                     aria-hidden="true"
                   />
+
 
                   <span className="portfolio-card__title">
                     {skill.name}

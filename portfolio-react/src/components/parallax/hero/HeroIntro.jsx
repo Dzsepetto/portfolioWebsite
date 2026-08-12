@@ -19,7 +19,7 @@ export default function HeroIntro({
         }}
       >
         <h1>{t("home.intro.title")}</h1>
-        <h3>{t("home.intro.desc")}</h3>
+        <h2>{t("home.intro.desc")}</h2>
 
        <div className="hero-section__mobile-hint">
         🖥️ {t("home.intro.mobile_hint")}

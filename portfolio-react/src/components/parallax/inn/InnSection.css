@@ -17,11 +17,9 @@
   pointer-events: none;
 }
 
-
 /* ======================================================
    SCENE
    ====================================================== */
-
 
 .inn-section__scene {
   position: absolute;
@@ -32,10 +30,6 @@
 
   pointer-events: none;
 }
-
-/* ======================================================
-   LAYERS
-   ====================================================== */
 
 /* ======================================================
    LAYERS
@@ -78,6 +72,7 @@
 .inn-section__layer--bridge {
   z-index: 4;
 }
+
 /* ======================================================
    OVERLAY
    ====================================================== */
@@ -114,7 +109,6 @@
   width: 100%;
 
   color: whitesmoke;
-
   text-align: center;
 
   will-change: transform, opacity;
@@ -129,9 +123,10 @@
 
   line-height: 0.9;
   letter-spacing: 0.08em;
+
   text-shadow:
-      0 2px 4px rgba(0, 0, 0, 0.55),
-      0 6px 18px rgba(0, 0, 0, 0.28);
+    0 2px 4px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.28);
 
   text-transform: uppercase;
 }
@@ -144,9 +139,10 @@
   font-weight: 400;
 
   letter-spacing: 0.08em;
+
   text-shadow:
-      0 2px 4px rgba(0, 0, 0, 0.55),
-      0 6px 18px rgba(0, 0, 0, 0.28);
+    0 2px 4px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.28);
 
   text-transform: uppercase;
 }
@@ -191,6 +187,10 @@
     rgba(255, 255, 255, 0.08);
 }
 
+.inn-section__feature--details {
+  overflow: hidden;
+}
+
 .inn-section__feature::-webkit-scrollbar {
   width: 8px;
 }
@@ -209,9 +209,11 @@
   margin: 0 0 28px;
 
   color: whitesmoke;
+
   text-shadow:
-      0 2px 4px rgba(0, 0, 0, 0.55),
-      0 6px 18px rgba(0, 0, 0, 0.28);
+    0 2px 4px rgba(0, 0, 0, 0.55),
+    0 6px 18px rgba(0, 0, 0, 0.28);
+
   font-family: "Bangers", system-ui, sans-serif;
   font-size: clamp(2.5rem, 5vw, 5rem);
   font-weight: 400;
@@ -307,10 +309,8 @@
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
-
-  transform: scale(1.001);
 
   transition:
     transform 0.35s ease,
@@ -323,6 +323,7 @@
   img {
   transform: scale(1.05);
 }
+
 /* ======================================================
    PROJECT FOOTER
    ====================================================== */
@@ -350,149 +351,25 @@
 }
 
 /* ======================================================
-   TABLET
-   ====================================================== */
-
-@media (max-width: 900px) {
-  .inn-section__feature-positioner {
-    width: min(94%, 820px);
-  }
-
-  .inn-section__feature {
-    padding: 20px;
-  }
-
-  .inn-section__feature .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-  }
-}
-
-/* ======================================================
-   MOBILE
-   ====================================================== */
-
-@media (max-width: 600px) {
- .inn-section__layer {
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-  }
-.inn-section__intro-positioner {
-  top: 28%;
-
-  width: calc(100% - 32px);
-}
-  .inn-section__intro h1 {
-    font-size: clamp(2.75rem, 16vw, 4.5rem);
-  }
-
-  .inn-section__intro h3 {
-    font-size: 0.95rem;
-  }
-
-  .inn-section__feature-positioner {
-    width: calc(100% - 20px);
-    max-height: calc(100svh - 40px);
-  }
-
-  .inn-section__feature {
-    max-height: calc(100svh - 40px);
-
-    padding: 10px;
-  }
-
-  .inn-section__feature > h2 {
-    margin-bottom: 18px;
-
-    font-size: clamp(2rem, 11vw, 3.5rem);
-  }
-
-  .inn-section__feature .projects-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .inn-section__feature .project-card {
-    border-width: 2px;
-    border-radius: 10px;
-  }
-
-  .inn-section__feature .project-footer {
-    min-height: 46px;
-
-    padding: 8px 6px;
-
-    font-size: 14px;
-    letter-spacing: 0.03em;
-  }
-}
-
-/* ======================================================
-   VERY SMALL SCREENS
-   ====================================================== */
-
-@media (max-width: 390px) {
-  .inn-section__feature-positioner {
-    width: calc(100% - 12px);
-  }
-.inn-section__intro-positioner {
-    top: 27%;
-
-    width: calc(100% - 20px);
-  }
-  .inn-section__feature {
-    padding: 6px;
-  }
-
-  .inn-section__feature .projects-grid {
-    gap: 7px;
-  }
-
-  .inn-section__feature .project-footer {
-    min-height: 42px;
-
-    font-size: 12px;
-  }
-}
-
-/* ======================================================
-   REDUCED MOTION
-   ====================================================== */
-
-@media (prefers-reduced-motion: reduce) {
-  .inn-section__intro,
-  .inn-section__feature,
-  .inn-section__layer,
-  .inn-section__feature .project-card,
-  .inn-section__feature .project-image img,
-  .inn-section__back-button,
-  .inn-section__project-links a {
-    transition: none;
-    will-change: auto;
-  }
-
-  .inn-section__feature .project-card:hover,
-  .inn-section__feature
-    .project-card:hover
-    .project-image
-    img,
-  .inn-section__back-button:hover,
-  .inn-section__project-links a:hover {
-    transform: none;
-  }
-}
-
-/* ======================================================
    PROJECT DETAILS
    ====================================================== */
 
 .inn-section__project-details {
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
+  min-height: 0;
 }
 
 .inn-section__back-button {
+  flex-shrink: 0;
+
+  position: relative;
+  z-index: 2;
+
+  align-self: flex-start;
+
   margin: 0 0 20px;
   padding: 10px 16px;
 
@@ -515,12 +392,19 @@
 }
 
 .inn-section__project-details-layout {
+  position: relative;
+  z-index: 1;
+
   display: grid;
   grid-template-columns:
     minmax(0, 0.9fr)
     minmax(0, 1.1fr);
+
   align-items: center;
   gap: 32px;
+
+  width: 100%;
+  min-height: 0;
 
   padding: 24px;
 
@@ -542,6 +426,7 @@
   border-radius: 14px;
   background: #111111;
 }
+
 .inn-section__project-details-image picture {
   display: block;
 
@@ -555,7 +440,7 @@
   width: 100%;
   height: 100%;
 
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -626,32 +511,282 @@
   outline-offset: 4px;
 }
 
-@media (max-width: 700px) {
-  .inn-section__project-details-layout {
-    grid-template-columns: 1fr;
-    gap: 18px;
+/* ======================================================
+   TABLET
+   ====================================================== */
 
-    padding: 14px;
+@media (max-width: 900px) {
+  .inn-section__feature-positioner {
+    width: min(94%, 820px);
   }
 
-  .inn-section__project-details-content h2 {
+  .inn-section__feature {
+    padding: 20px;
+  }
+
+  .inn-section__feature .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+}
+
+/* ======================================================
+   MOBILE PROJECT DETAILS
+   ====================================================== */
+
+@media (max-width: 700px) {
+  .inn-section__feature--details {
+    height: calc(100svh - 120px);
+    max-height: calc(100svh - 120px);
+
+    padding-top: 0;
+
+    overflow: hidden;
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-details {
+    height: 100%;
+  }
+
+  .inn-section__feature--details
+    .inn-section__back-button {
+    margin-bottom: 14px;
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-details-layout {
+    grid-template-columns: 1fr;
+    align-content: start;
+
+    gap: 12px;
+
+    padding: 12px;
+
+    overflow: hidden;
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-details-image {
+    width: min(100%, 390px);
+    max-height: 30svh;
+
+    margin: 0 auto;
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-details-content h2 {
+    margin-bottom: 10px;
+
+    font-size: clamp(1.7rem, 8vw, 2.2rem);
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-details-content p {
     margin-bottom: 12px;
 
-    font-size: 2rem;
+    font-size: clamp(0.72rem, 2.5vw, 0.85rem);
+    line-height: 1.4;
   }
 
-  .inn-section__project-details-content p {
+  .inn-section__feature--details
+    .inn-section__project-links {
+    flex-direction: column;
+
+    gap: 8px;
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-links a {
+    width: 100%;
+
+    padding: 8px 14px;
+
+    font-size: 1rem;
+  }
+}
+
+/* ======================================================
+   MOBILE
+   ====================================================== */
+
+@media (max-width: 600px) {
+  .inn-section__layer {
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .inn-section__intro-positioner {
+    top: 28%;
+
+    width: calc(100% - 32px);
+  }
+
+  .inn-section__intro h1 {
+    font-size: clamp(2.75rem, 16vw, 4.5rem);
+  }
+
+  .inn-section__intro h3 {
+    font-size: 0.95rem;
+  }
+
+  .inn-section__feature-positioner {
+    width: calc(100% - 20px);
+    max-height: calc(100svh - 40px);
+  }
+
+  .inn-section__feature {
+    max-height: calc(100svh - 40px);
+
+    padding: 10px;
+  }
+
+  .inn-section__feature--details {
+    height: calc(100svh - 120px);
+    max-height: calc(100svh - 120px);
+
+    overflow: hidden;
+  }
+
+  .inn-section__feature > h2 {
     margin-bottom: 18px;
 
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: clamp(2rem, 11vw, 3.5rem);
   }
 
-  .inn-section__project-links {
-    flex-direction: column;
+  .inn-section__feature .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
   }
 
+  .inn-section__feature .project-card {
+    border-width: 2px;
+    border-radius: 10px;
+  }
+
+  .inn-section__feature .project-footer {
+    min-height: 46px;
+
+    padding: 8px 6px;
+
+    font-size: 14px;
+    letter-spacing: 0.03em;
+  }
+}
+
+/* ======================================================
+   VERY SMALL SCREENS
+   ====================================================== */
+
+@media (max-width: 390px) {
+  .inn-section__feature-positioner {
+    width: calc(100% - 12px);
+  }
+
+  .inn-section__intro-positioner {
+    top: 27%;
+
+    width: calc(100% - 20px);
+  }
+
+  .inn-section__feature {
+    padding: 6px;
+  }
+
+  .inn-section__feature--details {
+    height: calc(100svh - 110px);
+    max-height: calc(100svh - 110px);
+
+    padding: 6px;
+
+    overflow: hidden;
+  }
+
+  .inn-section__feature .projects-grid {
+    gap: 7px;
+  }
+
+  .inn-section__feature .project-footer {
+    min-height: 42px;
+
+    font-size: 12px;
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-details-image {
+    max-height: 27svh;
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-details-content p {
+    font-size: 0.72rem;
+    line-height: 1.35;
+  }
+}
+
+/* ======================================================
+   SHORT MOBILE SCREENS
+   ====================================================== */
+
+@media (max-width: 700px) and (max-height: 760px) {
+  .inn-section__feature--details
+    .inn-section__project-details-image {
+    max-height: 23svh;
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-details-layout {
+    gap: 8px;
+
+    padding: 10px;
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-details-content h2 {
+    margin-bottom: 6px;
+
+    font-size: 1.65rem;
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-details-content p {
+    margin-bottom: 8px;
+
+    font-size: 0.68rem;
+    line-height: 1.3;
+  }
+
+  .inn-section__feature--details
+    .inn-section__project-links a {
+    padding: 6px 12px;
+  }
+}
+
+/* ======================================================
+   REDUCED MOTION
+   ====================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .inn-section__intro,
+  .inn-section__feature,
+  .inn-section__layer,
+  .inn-section__feature .project-card,
+  .inn-section__feature .project-image img,
+  .inn-section__back-button,
   .inn-section__project-links a {
-    width: 100%;
+    transition: none;
+    will-change: auto;
+  }
+
+  .inn-section__feature .project-card:hover,
+  .inn-section__feature
+    .project-card:hover
+    .project-image
+    img,
+  .inn-section__back-button:hover,
+  .inn-section__project-links a:hover {
+    transform: none;
   }
 }
